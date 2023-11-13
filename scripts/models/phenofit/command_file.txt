@@ -1,0 +1,10 @@
+# File for Phenofit4 CommandScript
+# Generated with Rstudio (time: 2023-11-06 16:33:34, user: vandermeersch)
+					
+speciesInputDir =
+climateInputDir =
+outputDir = D:/simulations/phenofit/paleo/fitted/025deg/quercus_ilex_2
+quietMode = true
+					
+# speciesFileName	climateFolderName	climateScenario	startingYear	endingYear
+D:/calibrations/phenofit/quercus_ilex/1000pres_1000abs/paper_data/CMAES/subset_1/cmaes_fit_subset1_rep2.species	D:/climate/HadCM3B_60Kyr_Climate/2023_dataset/phenofit_format/dscl_15min	HadCM3B	-264	-235
