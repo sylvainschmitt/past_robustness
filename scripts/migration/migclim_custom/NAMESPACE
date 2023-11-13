@@ -1,0 +1,6 @@
+useDynLib(MigClimCustom2)
+export(MigClimCustom2.migrate)
+export(MigClimCustom2.plot)
+export(MigClimCustom2.userGuide)
+export(MigClimCustom2.genClust)
+export(MigClimCustom2.validate)
