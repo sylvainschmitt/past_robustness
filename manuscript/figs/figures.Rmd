@@ -1,0 +1,103 @@
+---
+title: "Contrasted hindcast performances demonstrate the need for more realistic species distribution models"
+subtitle: "Figures for manuscript and supplementary figures"
+author: "V. Van der Meersch et al."
+geometry: "left=1cm,right=1cm,top=1cm,bottom=1cm"
+output: pdf_document
+header-includes:
+  \pagenumbering{gobble}
+  \usepackage{float}
+  \floatplacement{figure}{H}
+---
+
+```{r setup, include=FALSE}
+wd <- "C:/Users/vandermeersch/Documents/CEFE/projects/past_robustness"
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, 
+                      results='hide', fig.path= paste0(wd, "/manuscript/figs/files/"), fig.pos = 'H')
+library(chunkhooks)
+hook_figure_unit("mm")
+
+source(file.path(wd, "manuscript", "processing", "setup.R"))
+```
+
+# Main
+
+```{r climatic_dissimilarity, fig.height = 60, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity.", eval = T}
+source(file.path(wd, "manuscript", "figs", "fig1", "main.R"))
+fig1_main
+```
+
+\newpage
+
+```{r process_model_outputs, include = F, eval = T}
+source(file.path(wd, "manuscript", "processing", "model_simulations.R"))
+source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
+
+model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
+```
+
+```{r quercus_deciduous_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Quercus deciduous simulations.", eval = T}
+
+source(file.path(wd, "manuscript", "figs", "fig2", "main.R")) 
+fig2_main
+
+```
+
+\newpage
+
+```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots.", eval = T}
+
+source(file.path(wd, "manuscript", "processing", "ordered_beta_regression.R"))
+
+source(file.path(wd, "manuscript", "figs", "fig3", "beta_regression.R"))
+source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_performance.R"))
+source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_variance.R"))
+source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_transferability.R"))
+source(file.path(wd, "manuscript", "figs", "fig3", "main.R"))
+fig3_main
+
+```
+
+\newpage
+
+# Supplementary data
+
+\renewcommand{\thefigure}{A.\arabic{figure}}
+\setcounter{figure}{0}
+
+```{r climate_overview, fig.height = 105, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Past climate overview.", eval = T}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA1.R"))
+figA1_main
+```
+
+```{r climatic_dissimilarity_pergcm, fig.height = 60, fig.width = 170, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity.", eval = T}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA2.R"))
+figA2_main
+```
+
+```{r climatic_dissimilarity_and_distance, fig.height = 90, fig.width = 100, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity vs climatic distance.", eval = T}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA3.R"))
+figA3_main
+```
+
+```{r migration_process, fig.height = 100, fig.width = 90, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Illustration of Q. deciduous migration process. PHENOFIT (fitted) from 12000BP.", eval = T}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA4.R"))
+figA4_main
+```
+
+```{r fagus_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Fagus simulations.", eval = T}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA5.R")) 
+figA5_main
+```
+
+```{r abies_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Abies simulations.", eval = T}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA6.R")) 
+figA6_main
+
+```
+
+```{r quercusevergreen_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Quercus evergreen simulations.", eval = T}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA7.R")) 
+figA7_main
+```
