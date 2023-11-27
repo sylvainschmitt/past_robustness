@@ -24,7 +24,7 @@ source(file.path(wd, "manuscript", "processing", "setup.R"))
 # Main
 
 ```{r climatic_dissimilarity, fig.height = 60, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity.", eval = T}
-source(file.path(wd, "manuscript", "figs", "fig1", "main.R"))
+ source(file.path(wd, "manuscript", "figs", "fig1", "main.R"))
 fig1_main
 ```
 

@@ -4,14 +4,14 @@
 #-------------------------------#
 
 # past climatic hypervolume overlap
-past_climdiss <- readRDS("C:/Users/vandermeersch/Documents/CEFE/phd/hindcasting/metrics/climate_approach/data/hypervolume_similarity_statistics_CRUbaseline.rds")
+past_climdiss <- readRDS(file.path(wd, "data/climate/metrics","HadCM3B_hypervolume_similarity_CRUbaseline.rds"))
 names(past_climdiss) <- paste0("clim_hpv_sorensen.",names(past_climdiss))
 
 # future climatic hypervolume overlap, per GCM per scenario
-future_climdiss_gcm <- readRDS("C:/Users/vandermeersch/Documents/CEFE/phd/forecasting/metrics/climate_approach/data/hypervolume_similarity_statistics_CRUbaseline.rds")
+future_climdiss_gcm <- readRDS(file.path(wd, "data/climate/metrics","CMIP6_hypervolume_similarity_CRUbaseline.rds"))
 
 # future climatic hypervolume overlap, per scenario
-future_climdiss_ssp <- readRDS("C:/Users/vandermeersch/Documents/CEFE/phd/forecasting/metrics/climate_approach/data/hypervolume_similarity_statistics_scenario_CRUbaseline.rds")
+future_climdiss_ssp <- readRDS(file.path(wd, "data/climate/metrics","CMIP6_hypervolume_similarity_perscenario_CRUbaseline.rds"))
 
 scenario_names <- c(
   `ssp245` = "SSP245",
