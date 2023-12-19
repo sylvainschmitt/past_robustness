@@ -1,7 +1,7 @@
 
-#----------------------------------#
-# Fig.2-a: Ordered Beta regression #
-#----------------------------------#
+#-------------------------#
+# Ordered Beta regression #
+#-------------------------#
 
 ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.migsorensen,x=clim_hpv_sorensen.mean, col = type, fill = type)) +
   geom_pointrange(data = model_performance_mean, aes(y = mean_migsorensen, 
@@ -38,21 +38,9 @@ ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.migsorense
         legend.key.size = unit(0.5, "cm"),
         legend.spacing.y = unit(0.7, "cm"),
         plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")) +
-  coord_cartesian(ylim=c(-0.0, 1), xlim = c(0.085, 0.32), clip = "on") +
+  coord_cartesian(ylim=c(-0.0, 1), xlim = c(0.085, 0.285), clip = "on") +
   annotate("text", label=paste0('R^2*" = CI 95% ["*',betareg_r2$Q2.5,'*", "*',betareg_r2$Q97.5,'*"]"'), 
-           parse=TRUE, x=0.13, y=0.95, family= "Helvetica Narrow", size = 2.7) +
-  
-  annotate("rect", xmin = 0.285, xmax = 0.33, ymin = 0.01, ymax = 1, alpha = .7, fill = "white") + # white shade
-  
-  annotate("point", x=0.14, y = 0.032, shape = 25, size = 2.4, col = "black", fill = "white") + # LateMiddle - Early Holocene
-  
-  # trick for ssp2 and ssp5 - 2030 (full ggplot solution!...)
-  annotate("point", x=0.24, y = 0.032, shape = 25, size = 2.4, col = "black", fill = "#f69320") +  # ssp2 - 2030
-  annotate("point", x=0.24345, y = 0.021, shape = 22, size = 3.3, col = "#bf1d1e", fill = "#bf1d1e") + # ssp5 - 2030
-  annotate("point", x=0.246, y = 0.027, shape = 24, size = 3.3, col = "white", fill = "white") + # white triangle to hide
-  annotate("point", x=0.24, y = 0.032, shape = 25, size = 2.4, col = "black", fill = NA) + # black frame
-  
-  annotate("point", x=0.27, y = 0.032, shape = 25, size = 2.4, col = "black", fill = "#f69320") +  # ssp2 - 2050
-  annotate("point", x=0.31, y = 0.032, shape = 25, size = 2.4, col = "black", fill = "#bf1d1e") # ssp5 - 2050
+           parse=TRUE, x=0.12, y=0.95, family= "Helvetica Narrow", size = 2.7) +
+  annotate("point", x=0.14, y = 0.032, shape = 25, size = 2.4)
 
 

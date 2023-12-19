@@ -43,15 +43,16 @@ d18O_data <- d18O_data[d18O_data$Age <= 21000 & d18O_data$Age >= 0,] %>%
 ## 2.1. Main part of the plot
 main_plot <- ggplot() +
   
-  geom_rect(data = burke_climatenovelty, aes(xmin = year-125, xmax = year+125,
+  geom_rect(data = past_climdiss, aes(xmin = clim_hpv_sorensen.year-125, xmax = clim_hpv_sorensen.year+125,
                                              ymin = -3.4, ymax = 12,
-                                             fill = median, color = median), alpha = 1) +
+                                             fill = 1-clim_hpv_sorensen.median, 
+                                      color = 1-clim_hpv_sorensen.median), alpha = 1) +
   scale_fill_gradientn(colours = c("#cee5f2", "#accbe1", "#7c98b3", "#637081"),
-                       limits = c(0,2.5),
-                       breaks = c(0,1,2)) +
+                       limits = c(0,0.7),
+                       breaks = c(0,0.25, 0.5, 0.7)) +
   scale_color_gradientn(colours = c("#cee5f2", "#accbe1", "#7c98b3", "#637081"),
-                        limits = c(0,2.5),
-                        breaks = c(0,1,2), guide = 'none') +
+                        limits = c(0,0.7),
+                        breaks = c(0,0.25, 0.5, 0.7), guide = 'none') +
   
   geom_hline(aes(yintercept= c(0, 5, 10)), color = "white", alpha = 0.5, linetype = "dotted", size = 0.3) +
   
@@ -74,7 +75,7 @@ main_plot <- ggplot() +
   scale_y_continuous(expand = c(0, 0), labels = ~sub("-", "-", .x)) +
   scale_x_reverse(breaks = c(15000, 10000, 5000, 0)) +
   
-  labs(y = "Annual mean temperature  (deg. C)", x = "Years (BP)", fill = "Climate novelty") +
+  labs(y = "Annual mean temperature  (deg. C)", x = "Years (BP)", fill = "Climate dissimilarity") +
   theme_minimal() +
   theme(panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(),
         panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 

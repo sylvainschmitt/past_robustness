@@ -19,11 +19,12 @@ scenario_names <- c(
 )
 
 past_plot <- ggplot() +
+  geom_hline(aes(yintercept = c(0.25, 0.5)), linetype = "dashed", color = "grey") +
   geom_ribbon(data = past_climdiss, aes(x = clim_hpv_sorensen.year, 
                                         ymin = 1-clim_hpv_sorensen.q2.5, ymax = 1-clim_hpv_sorensen.q97.5), 
               fill = "#6867ac", alpha = 0.2) + 
   geom_line(data = past_climdiss,
-            aes(x = clim_hpv_sorensen.year, y = 1-clim_hpv_sorensen.mean), col = "#6867ac") +
+            aes(x = clim_hpv_sorensen.year, y = 1-clim_hpv_sorensen.median), col = "#6867ac") +
   coord_cartesian(xlim = c(12000, 400), 
                   ylim =  c(0, 0.75),
                   clip = "on") +
@@ -43,13 +44,15 @@ past_plot <- ggplot() +
 
 
 future_plot_ssp <- ggplot() +
+  geom_hline(aes(yintercept = c(0.25, 0.5)), linetype = "dashed", color = "grey") +
   geom_ribbon(data = future_climdiss_ssp, aes(x = year, ymin = 1-q2.5, ymax = 1-q97.5, fill = scenario), 
               alpha = 0.2) + 
-  geom_line(data = future_climdiss_ssp, aes(x = year, y = 1-mean, col = scenario)) +
+  geom_line(data = future_climdiss_ssp, aes(x = year, y = 1-median, col = scenario)) +
+  geom_line(data = future_climdiss_ssp, aes(x = year, y = 1-mean, col = scenario), linetype = "dashed") +
   scale_color_manual(breaks= c('ssp245', "ssp585"),
-                     values= c("#cb6d18", "#a32a2e")) +
+                     values= c("#f69320", "#bf1d1e")) +
   scale_fill_manual(breaks= c('ssp245', "ssp585"),
-                    values= c("#cb6d18", "#a32a2e")) +
+                    values= c("#f69320", "#bf1d1e")) +
   # geom_hline(yintercept = trunc((2-critpoint_csdm)*100)/100, linetype = "dotted") + 
   # geom_bar(data = future_contribution,
   #          aes(x = year, fill = var, weight = contrib), position = "fill",

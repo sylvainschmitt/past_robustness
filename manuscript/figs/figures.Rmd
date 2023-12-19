@@ -3,7 +3,9 @@ title: "Contrasted hindcast performances demonstrate the need for more realistic
 subtitle: "Figures for manuscript and supplementary figures"
 author: "V. Van der Meersch et al."
 geometry: "left=1cm,right=1cm,top=1cm,bottom=1cm"
-output: pdf_document
+output: 
+  pdf_document:
+    keep_tex: true
 header-includes:
   \pagenumbering{gobble}
   \usepackage{float}
@@ -34,6 +36,8 @@ fig1_main
 source(file.path(wd, "manuscript", "processing", "model_simulations.R"))
 source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 
+# model_performance_relchg <- readRDS("C:/Users/vandermeersch/Documents/CEFE/projects/past_robustness/manuscript/processing/output/model_performance_relchg.rds")
+# model_performance_withmig<- readRDS( "C:/Users/vandermeersch/Documents/CEFE/projects/past_robustness/manuscript/processing/output/model_performance_withmig.rds")
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 ```
 
@@ -81,6 +85,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA3.R"))
 figA3_main
 ```
 
+
 ```{r migration_process, fig.height = 100, fig.width = 90, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Illustration of Q. deciduous migration process. PHENOFIT (fitted) from 12000BP.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA4.R"))
 figA4_main
@@ -100,4 +105,57 @@ figA6_main
 ```{r quercusevergreen_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Quercus evergreen simulations.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA7.R")) 
 figA7_main
+```
+
+```{r performance_perspecies, fig.height = 130, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance per species per type of model.", eval = F}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA8.R")) 
+figA8_main
+```
+
+```{r performance_perspecies_permodel, fig.height = 130, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance per species per model.", eval = F}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA9.R")) 
+figA9_main
+```
+
+```{r past_performance_from12000, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots. Migration starting points at 12000BP.", eval = T}
+
+source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from12000.R"))
+source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
+
+model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
+
+source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_from12000.R"))
+
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "beta_regression.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "boxplot_performance.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "boxplot_variance.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "boxplot_transferability.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "main.R"))
+figA10_main
+
+
+```
+
+```{r past_performance_from11750, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots. Migration starting points at 11750BP.", eval = T}
+
+source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11750.R"))
+source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
+
+model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
+
+source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_from11750.R"))
+
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "beta_regression.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "boxplot_performance.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "boxplot_variance.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "boxplot_transferability.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "main.R"))
+figA11_main
+
+
+```
+
+```{r performance_perspeciesmigration, fig.height = 100, fig.width = 195, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance per species per type of model.", eval = T}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA12.R")) 
+figA12_main
 ```

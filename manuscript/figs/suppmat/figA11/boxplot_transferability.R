@@ -1,7 +1,7 @@
 
-#-------------------------------------------#
-# Fig.3-b: Boxplot of model transferability #
-#-------------------------------------------#
+#----------------------------------#
+# Boxplot of model transferability #
+#----------------------------------#
 
 model_performance_relchg$earlyholoc <- model_performance_relchg$year>=8500
 model_performance_relchg$type_test <- paste0(model_performance_relchg$type, model_performance_relchg$test)
@@ -18,7 +18,7 @@ data_letters_late[, "test"] <- tidyr::separate(data.frame(A = data_letters_late$
 data_letters_late[, "sign"] <- NA
 data_letters_late[, "sign_position"] <- NA
 data_letters_late[data_letters_late$test == "2Crossvalidationreference", "sign"] <- "CV"
-data_letters_late[data_letters_late$test == "2Crossvalidationreference", "sign_position"] <- -8
+data_letters_late[data_letters_late$test == "2Crossvalidationreference", "sign_position"] <- -5
 data_letters_late$earlyholoc <- FALSE
 
 
@@ -34,7 +34,7 @@ data_letters_early[, "test"] <- tidyr::separate(data.frame(A = data_letters_earl
 data_letters_early[, "sign"] <- NA
 data_letters_early[, "sign_position"] <- NA
 data_letters_early[data_letters_early$test == "2Crossvalidationreference", "sign"] <- "CV"
-data_letters_early[data_letters_early$test == "2Crossvalidationreference", "sign_position"] <- -85
+data_letters_early[data_letters_early$test == "2Crossvalidationreference", "sign_position"] <- -60
 data_letters_early$earlyholoc <- TRUE
 
 data_letters <- rbind(data_letters_late, data_letters_early)

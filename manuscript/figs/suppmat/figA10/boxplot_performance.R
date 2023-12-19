@@ -1,7 +1,7 @@
 
-#---------------------------------------#
-# Fig.3-c: Boxplot of model performance #
-#---------------------------------------#
+#------------------------------#
+# Boxplot of model performance #
+#------------------------------#
 
 model_performance_withmig$earlyholoc <- model_performance_withmig$year>=8500
 

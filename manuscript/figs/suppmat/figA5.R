@@ -14,7 +14,7 @@ plotlist <- unlist(lapply(1:nrow(fagus_models), function(i){
     
     plot <- ggplot() +
       geom_raster(data = out, aes(x=lon, y=lat, fill = factor(value))) +
-      scale_fill_manual(values = c("0" = "#ededed", "1" = "#F2B880", "2" = "#C98686")) +
+      scale_fill_manual(values = c("0" = "#ededed", "1" = "#9dd0c6", "2" = "#4f928e")) +
       new_scale_fill() + 
       geom_spatraster(data = ice_sheet) +
       geom_spatraster_contour(data = ice_sheet_pr, linewidth = 0.2, breaks = c(90), col = "#a6bfe1") +
