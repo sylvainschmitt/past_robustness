@@ -75,12 +75,12 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA1.R"))
 figA1_main
 ```
 
-```{r climatic_dissimilarity_pergcm, fig.height = 60, fig.width = 170, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity.", eval = T}
+```{r climatic_dissimilarity_pergcm, fig.height = 70, fig.width = 170, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity.", eval = F}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA2.R"))
 figA2_main
 ```
 
-```{r climatic_dissimilarity_and_distance, fig.height = 90, fig.width = 100, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity vs climatic distance.", eval = T}
+```{r climatic_dissimilarity_and_distance, fig.height = 90, fig.width = 210, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity vs climatic distance.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA3.R"))
 figA3_main
 ```
@@ -117,45 +117,90 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA9.R"))
 figA9_main
 ```
 
-```{r past_performance_from12000, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots. Migration starting points at 12000BP.", eval = T}
+```{r current_performance, fig.height = 85, fig.width = 110, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance against time.", eval = T}
 
-source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from12000.R"))
-source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
-
-model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
-
-source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_from12000.R"))
-
-source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "beta_regression.R"))
-source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "boxplot_performance.R"))
-source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "boxplot_variance.R"))
-source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "boxplot_transferability.R"))
-source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "main.R"))
-figA10_main
-
-
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA14.R")) 
+figA14_main
 ```
 
-```{r past_performance_from11750, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots. Migration starting points at 11750BP.", eval = T}
+```{r performance_time, fig.height = 85, fig.width = 110, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance against time.", eval = T}
 
-source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11750.R"))
-source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
-
-model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
-
-source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_from11750.R"))
-
-source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "beta_regression.R"))
-source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "boxplot_performance.R"))
-source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "boxplot_variance.R"))
-source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "boxplot_transferability.R"))
-source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "main.R"))
-figA11_main
-
-
+source(file.path(wd, "manuscript", "processing", "suppmat", "linear_plateau_regression.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA13.R")) 
+figA13_main
 ```
 
 ```{r performance_perspeciesmigration, fig.height = 100, fig.width = 195, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance per species per type of model.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA12.R")) 
 figA12_main
+```
+
+```{r past_performance_womigration, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots. Without migration.", eval = T}
+
+# source(file.path(wd, "manuscript", "processing", "suppmat", "model_transferability_womigration.R"))
+
+source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_womigration.R"))
+
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA9", "beta_regression.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA9", "boxplot_performance.R"))
+# source(file.path(wd, "manuscript", "figs", "suppmat", "figA9", "boxplot_variance.R"))
+# source(file.path(wd, "manuscript", "figs", "suppmat", "figA9", "boxplot_transferability.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA9", "main.R"))
+
+
+
+```
+
+
+```{r past_performance_from12000, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = T}
+
+source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11750.R"))
+# source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
+
+model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
+
+source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_from11750.R"))
+
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "beta_regression.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "boxplot_performance.R"))
+# source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "boxplot_variance.R"))
+# source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "boxplot_transferability.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "main.R"))
+
+
+
+
+```
+
+```{r past_performance_differentstarts, fig.height = 240, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = T}
+
+source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from12000.R"))
+# source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
+
+model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
+
+source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_from12000.R"))
+
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "beta_regression.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "boxplot_performance.R"))
+# source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "boxplot_variance.R"))
+# source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "boxplot_transferability.R"))
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA11", "main.R"))
+
+plot_grid(plot_grid(NULL, figA13_main, NULL,
+                    labels = c("","a","") , 
+                    ncol = 3,
+                    rel_widths = c(0.2,0.6,0.2),
+                    label_fontfamily = "Helvetica Narrow", label_size = 11), 
+          figA9_main, figA10_main, figA11_main, get_legend(ordbetareg_plot),
+                            ncol = 1, rel_heights = c(0.5, 0.5, 0.5, 0.5, 0.1))
+
+
+
+```
+
+
+```{r historical_perf, fig.height = 70, fig.width = 160, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Historical_perf.", eval = F}
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA14.R"))
+figA14_main
 ```

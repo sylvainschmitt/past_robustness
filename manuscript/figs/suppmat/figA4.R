@@ -13,10 +13,10 @@ migration_steps_zoom <- crop(migration_steps, extent_zoom)
 
 zoom_plot <- ggplot() +
   geom_spatraster(data = initial_distribution) +
-  scale_fill_manual(values = c("#ededed", "#C98686"), na.value = NA , guide = 'none') +
+  scale_fill_manual(values = c("#ededed", "#4f928e"), na.value = NA , guide = 'none') +
   new_scale_fill() +
   geom_spatraster(data = migration_steps_zoom) +
-  scale_fill_whitebox_c(palette = "bl_yl_rd", direction = -1, guide = 'none') +
+  scale_fill_whitebox_c(palette = "bl_yl_rd", direction = 1, guide = 'none') +
   theme_bw() +
   coord_sf(xlim = c(extent_zoom[1],extent_zoom[2]), ylim = c(extent_zoom[3], extent_zoom[4])) +
   scale_y_continuous(expand = c(0, 0)) +
@@ -27,10 +27,10 @@ zoom_plot <- ggplot() +
   
 figA4_main <- ggplot() +
   geom_spatraster(data = initial_distribution) +
-  scale_fill_manual(values = c("#ededed", "#C98686"), na.value = NA , guide = 'none') +
+  scale_fill_manual(values = c("#ededed", "#4f928e"), na.value = NA , guide = 'none') +
   new_scale_fill() +
   geom_spatraster(data = migration_steps) +
-  scale_fill_whitebox_c(palette = "bl_yl_rd", direction = -1, limits = c(0,250),
+  scale_fill_whitebox_c(palette = "bl_yl_rd", direction = 1, limits = c(0,250),
                         ) +
   labs(fill = "Number of years since 12000BP") +
   coord_sf(xlim = c(2.7e06,5.3e6), ylim = c(1.5e06, 4.3e06)) +

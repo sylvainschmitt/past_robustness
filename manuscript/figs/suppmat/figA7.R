@@ -57,12 +57,12 @@ plotlist <- unlist(lapply(1:nrow(quercusevergreen_models), function(i){
     # add years (only first line)
     if(quercusevergreen_models[i, "name"] == "BRT"){
       plot <- plot +
-        annotate("text", x = 10, y = 68, label = paste0(y,"BP"), color = "black",
+        annotate("text", x = 10, y = 68, label = paste0(y," BP"), color = "black",
                  family= "Helvetica", size = 3)
     }
     
     # particular case when migration had to start at 11750 rather than 12000
-    if(fagus_models[i, "name"] %in% c("GLM") & y == 11750){
+    if(y == 11750){
       plot <- plot +
         annotate("text", x = -8, y = 63, label = "*", color = "black",
                  family= "Helvetica", size = 6)

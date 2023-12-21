@@ -70,7 +70,7 @@ delta_plot <- ggplot(data = model_performance_mean_perspeciespermodel, aes(x = c
   geom_ribbon(aes(ymin = mean_sorensen, ymax = mean_migsorensen, fill = type), 
               alpha = 0.3, colour = NA) +
   coord_cartesian(xlim=c(0.085, 0.285),ylim=c(0, 1), clip = "off") +
-  labs(x = "Climatic dissimilarity", y = "Without migration") +
+  labs(x = "Climatic dissimilarity", y = "Performance") +
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),

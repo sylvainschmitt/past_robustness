@@ -4,7 +4,7 @@
 #-------------------------------#
 
 # past climatic hypervolume overlap
-past_climdiss <- readRDS(file.path(wd, "data/climate/metrics","HadCM3B_hypervolume_similarity_CRUbaseline.rds"))
+past_climdiss <- readRDS(file.path(wd, "data/climate/metrics","hypervolume_similarity_statistics.rds"))
 names(past_climdiss) <- paste0("clim_hpv_sorensen.",names(past_climdiss))
 
 # future climatic hypervolume overlap, per GCM per scenario
@@ -19,7 +19,9 @@ scenario_names <- c(
 )
 
 past_plot <- ggplot() +
-  geom_hline(aes(yintercept = c(0.25, 0.5)), linetype = "dashed", color = "grey") +
+  # geom_hline(aes(yintercept = c(0.25)), linetype = "dashed", color = "#f69320", size = 0.4)  +
+  # geom_hline(aes(yintercept = c(0.32)), linetype = "dashed", color = "#bf1d1e", size = 0.4) +
+  
   geom_ribbon(data = past_climdiss, aes(x = clim_hpv_sorensen.year, 
                                         ymin = 1-clim_hpv_sorensen.q2.5, ymax = 1-clim_hpv_sorensen.q97.5), 
               fill = "#6867ac", alpha = 0.2) + 
@@ -40,15 +42,30 @@ past_plot <- ggplot() +
         axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
         axis.title.y = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(r = 4.5)),
         axis.title.x = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(t = 4.5)),
-        legend.position="none", legend.title=element_blank())
+        legend.position="none", legend.title=element_blank()) +
+  
+  # ssp2 - 2050 (using geom_star to rotate triangle...)
+  ggstar::geom_star(aes(x = 11800, y = 0.25), col = "black", fill = "#f69320", angle = -90, starshape = 11, size = 2.4) +
+  # ssp2 - 2050
+  ggstar::geom_star(aes(x = 11800, y = 0.32), col = "black", fill = "#bf1d1e", angle = -90, starshape = 11, size = 2.4) +
+  
+  # early holocene
+  ggstar::geom_star(aes(x = 11800, y = 0.13), col = "black", fill = "#6867ac", angle = -90, starshape = 11, size = 2.4)
+
 
 
 future_plot_ssp <- ggplot() +
-  geom_hline(aes(yintercept = c(0.25, 0.5)), linetype = "dashed", color = "grey") +
+  geom_segment(aes(y = 0.25, yend = 0.25, x = 1835, xend = 2050), 
+               linetype = "dashed", color = "#f69320", size = 0.3, alpha = 0.7) +
+  geom_segment(aes(y = 0.32, yend = 0.32, x = 1835, xend = 2050), 
+               linetype = "dashed", color = "#bf1d1e", size = 0.3, alpha = 0.7) +
+  geom_segment(aes(y = 0.13, yend = 0.13, x = 1835, xend = 1880), 
+               linetype = "dashed", color = "#6867ac", size = 0.3, alpha = 0.7) +
+  
   geom_ribbon(data = future_climdiss_ssp, aes(x = year, ymin = 1-q2.5, ymax = 1-q97.5, fill = scenario), 
               alpha = 0.2) + 
   geom_line(data = future_climdiss_ssp, aes(x = year, y = 1-median, col = scenario)) +
-  geom_line(data = future_climdiss_ssp, aes(x = year, y = 1-mean, col = scenario), linetype = "dashed") +
+  # geom_line(data = future_climdiss_ssp, aes(x = year, y = 1-mean, col = scenario), linetype = "dashed") +
   scale_color_manual(breaks= c('ssp245', "ssp585"),
                      values= c("#f69320", "#bf1d1e")) +
   scale_fill_manual(breaks= c('ssp245', "ssp585"),
@@ -57,7 +74,7 @@ future_plot_ssp <- ggplot() +
   # geom_bar(data = future_contribution,
   #          aes(x = year, fill = var, weight = contrib), position = "fill",
   #          width = 1) +
-  coord_cartesian(xlim = c(2005-2, 2095+3), 
+  coord_cartesian(xlim = c(2005-2, 2095+2), 
                   ylim =  c(0, 0.75),
                   clip = "off") +
   scale_x_continuous(breaks = seq(2010,2095, 20),

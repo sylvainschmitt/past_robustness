@@ -73,9 +73,9 @@ main_plot <- ggplot() +
   coord_cartesian(xlim=c(17050, 950)) +
   
   scale_y_continuous(expand = c(0, 0), labels = ~sub("-", "-", .x)) +
-  scale_x_reverse(breaks = c(15000, 10000, 5000, 0)) +
+  scale_x_reverse(breaks = seq(16000, 1000, -2000)) +
   
-  labs(y = "Annual mean temperature  (deg. C)", x = "Years (BP)", fill = "Climate dissimilarity") +
+  labs(y = "Annual mean temperature  (deg. C)", x = "Years (BP)", fill = "Climatic dissimilarity") +
   theme_minimal() +
   theme(panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(),
         panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(), 

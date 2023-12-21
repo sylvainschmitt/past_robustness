@@ -19,7 +19,7 @@ ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.migsorense
                      name = "Climatic dissimilarity") +
   scale_y_continuous(expand = expansion(mult = c(0, 0)),
                      breaks = seq(-0,1,0.2),
-                     name = "Model predictive performance") +
+                     name = "Performance") +
   scale_color_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                      values= c( "#457b9d", "#995D81", "#018530"),
                      labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
@@ -40,7 +40,6 @@ ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.migsorense
         plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")) +
   coord_cartesian(ylim=c(-0.0, 1), xlim = c(0.085, 0.285), clip = "on") +
   annotate("text", label=paste0('R^2*" = CI 95% ["*',betareg_r2$Q2.5,'*", "*',betareg_r2$Q97.5,'*"]"'), 
-           parse=TRUE, x=0.12, y=0.95, family= "Helvetica Narrow", size = 2.7) +
-  annotate("point", x=0.14, y = 0.032, shape = 25, size = 2.4)
+           parse=TRUE, x=0.12, y=0.95, family= "Helvetica Narrow", size = 2.7)
 
 

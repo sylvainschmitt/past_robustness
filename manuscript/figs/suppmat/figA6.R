@@ -52,7 +52,7 @@ plotlist <- unlist(lapply(1:nrow(abies_models), function(i){
     # add years (only first line)
     if(abies_models[i, "name"] == "BRT"){
       plot <- plot +
-        annotate("text", x = 10, y = 68, label = paste0(y,"BP"), color = "black",
+        annotate("text", x = 10, y = 68, label = paste0(y," BP"), color = "black",
                  family= "Helvetica", size = 3)
     }
     
