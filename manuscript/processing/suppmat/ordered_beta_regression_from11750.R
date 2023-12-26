@@ -20,9 +20,9 @@ if(run_model){
                              iter = 2000,
                              true_bounds = c(0,1),
                              silent = 1)
-  saveRDS(ord_fit_mean, file.path(wd, "manuscript", "processing/output", "ordered_beta_regression_fit_default.rds"))
+  saveRDS(ord_fit_mean, file.path(wd, "manuscript", "processing/output", "ordered_beta_regression_fit_from11750.rds"))
 }else{
-  ord_fit_mean <- readRDS(file.path(wd, "manuscript", "processing/output", "ordered_beta_regression_fit_default.rds"))
+  ord_fit_mean <- readRDS(file.path(wd, "manuscript", "processing/output", "ordered_beta_regression_fit_from11750.rds"))
 }
 
 # Get conditional effects
@@ -35,8 +35,8 @@ if(run_model){
 #            class = NULL)
 
 # Predict
-new_data <-  data.frame(clim_hpv_sorensen.mean = rep(c(0.07, unique(model_performance_withmig$clim_hpv_sorensen.mean), seq(0.3,0.33,0.01)), 3),
-                        clim_hpv_sorensen.sd = rep(0.008, unique(model_performance_withmig$clim_hpv_sorensen.sd, rep(0.01,4)), 3))
+new_data <-  data.frame(clim_hpv_sorensen.mean = rep(c(0.07, unique(model_performance_withmig$clim_hpv_sorensen.mean), 0.3), 3),
+                        clim_hpv_sorensen.sd = rep(0.008, unique(model_performance_withmig$clim_hpv_sorensen.sd, 0.011), 3))
 new_data$type <- rep(unique(model_performance_withmig$type), each = nrow(new_data)/3)
 
 expected_predictions <- as.data.frame(fitted(ord_fit_mean, newdata = new_data))

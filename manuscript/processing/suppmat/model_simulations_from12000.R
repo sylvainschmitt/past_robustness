@@ -33,9 +33,9 @@ fagus_models <- data.frame(
   simfolder = c(
     paste0(wd, "/data/simulations/migration/csdm/brt/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
     paste0(wd, "/data/simulations/migration/csdm/random_forest/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/csdm/gam/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/csdm/lasso_glm/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/phenofit/expert/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/csdm/gam/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/csdm/lasso_glm/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/phenofit/expert/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
     paste0(wd, "/data/simulations/migration/castanea/expert/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
     paste0(wd, "/data/simulations/migration/phenofit/fitted/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
     paste0(wd, "/data/simulations/migration/castanea/fitted/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000")))
@@ -110,7 +110,7 @@ quercusdeciduous_models <- data.frame(
     "2Fittedprocessbased"),
   simfolder = c(
     paste0(wd, "/data/simulations/migration/csdm/brt/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/csdm/random_forest/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/csdm/random_forest/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
     paste0(wd, "/data/simulations/migration/csdm/gam/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
     paste0(wd, "/data/simulations/migration/csdm/lasso_glm/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
     paste0(wd, "/data/simulations/migration/phenofit/expert/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
@@ -150,14 +150,14 @@ quercusevergreen_models <- data.frame(
     "2Fittedprocessbased",
     "2Fittedprocessbased"),
   simfolder = c(
-    paste0(wd, "/data/simulations/migration/csdm/brt/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/csdm/random_forest/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/csdm/gam/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/csdm/lasso_glm/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/phenofit/expert/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/castanea/expert/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/phenofit/fitted/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/castanea/fitted/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from11750")))
+    paste0(wd, "/data/simulations/migration/csdm/brt/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/csdm/random_forest/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/csdm/gam/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/csdm/lasso_glm/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/phenofit/expert/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/castanea/expert/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/phenofit/fitted/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/castanea/fitted/quercus_evergreen_expandLDD_scprb_2km20km_fullmodel_from12000")))
 quercusevergreen_performance <- load_model_performance(
   models = quercusevergreen_models, 
   years = c(seq(500,11500, 500)), 

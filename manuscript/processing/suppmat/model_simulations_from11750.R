@@ -31,14 +31,14 @@ fagus_models <- data.frame(
     "2Fittedprocessbased",
     "2Fittedprocessbased"),
   simfolder = c(
-    paste0(wd, "/data/simulations/migration/csdm/brt/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/csdm/random_forest/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/csdm/brt/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/csdm/random_forest/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
     paste0(wd, "/data/simulations/migration/csdm/gam/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
     paste0(wd, "/data/simulations/migration/csdm/lasso_glm/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
     paste0(wd, "/data/simulations/migration/phenofit/expert/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/castanea/expert/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/phenofit/fitted/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/castanea/fitted/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000")))
+    paste0(wd, "/data/simulations/migration/castanea/expert/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/phenofit/fitted/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/castanea/fitted/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750")))
 fagus_performance <- load_model_performance(
   models = fagus_models, 
   years = c(seq(500,8500, 500)), 
@@ -70,14 +70,14 @@ abies_models <- data.frame(
     "2Fittedprocessbased",
     "2Fittedprocessbased"),
   simfolder = c(
-    paste0(wd, "/data/simulations/migration/csdm/brt/abies_alba_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/csdm/random_forest/abies_alba_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/csdm/gam/abies_alba_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/csdm/lasso_glm/abies_alba_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/phenofit/expert/abies_alba_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/castanea/expert/abies_alba_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/phenofit/fitted/abies_alba_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/castanea/fitted/abies_alba_expandLDD_scprb_2km20km_fullmodel_from12000")))
+    paste0(wd, "/data/simulations/migration/csdm/brt/abies_alba_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/csdm/random_forest/abies_alba_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/csdm/gam/abies_alba_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/csdm/lasso_glm/abies_alba_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/phenofit/expert/abies_alba_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/castanea/expert/abies_alba_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/phenofit/fitted/abies_alba_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/castanea/fitted/abies_alba_expandLDD_scprb_2km20km_fullmodel_from11750")))
 abies_performance <- load_model_performance(
   models = abies_models, 
   years = c(seq(500,11000, 500)), 
@@ -109,14 +109,14 @@ quercusdeciduous_models <- data.frame(
     "2Fittedprocessbased",
     "2Fittedprocessbased"),
   simfolder = c(
-    paste0(wd, "/data/simulations/migration/csdm/brt/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    paste0(wd, "/data/simulations/migration/csdm/brt/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from11750"),
     paste0(wd, "/data/simulations/migration/csdm/random_forest/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/csdm/gam/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/csdm/lasso_glm/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/phenofit/expert/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/castanea/expert/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/phenofit/fitted/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/castanea/fitted/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from12000")))
+    paste0(wd, "/data/simulations/migration/csdm/gam/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/csdm/lasso_glm/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/phenofit/expert/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/castanea/expert/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/phenofit/fitted/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    paste0(wd, "/data/simulations/migration/castanea/fitted/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_from11750")))
 quercusdeciduous_performance <- load_model_performance(
   models = quercusdeciduous_models, 
   years = c(seq(500,11500, 500)), 
