@@ -13,5 +13,6 @@ library(ordbetareg)
 library(ggnewscale)
 library(tidyterra)
 library(ggrepel)
+library(hypervolume)
 
 source(file.path(wd, "manuscript", "processing", "load_model_performance.R"))

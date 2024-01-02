@@ -37,14 +37,14 @@ ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.migsorense
         legend.position="bottom", legend.title=element_blank(),
         legend.key.size = unit(0.5, "cm"),
         legend.spacing.y = unit(0.7, "cm"),
-        plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")) +
-  coord_cartesian(ylim=c(-0.0, 1), xlim = c(0.085, 0.325), clip = "on") +
+        plot.margin = unit(c(0.5, 0.5, 0.5, 0.75), "cm")) +
+  coord_cartesian(ylim=c(-0.0, 1), xlim = c(0.085, 0.336), clip = "on") +
   annotate("text", label=paste0('R^2*" = CI 95% ["*',betareg_r2$Q2.5,'*", "*',betareg_r2$Q97.5,'*"]"'), 
            parse=TRUE, x=0.13, y=0.95, family= "Helvetica Narrow", size = 2.7) +
   
-  annotate("rect", xmin = 0.295, xmax = 0.33, ymin = 0.01, ymax = 1, alpha = .7, fill = "white") + # white shade
+  annotate("rect", xmin = 0.297, xmax = 0.34, ymin = 0.01, ymax = 1, alpha = .7, fill = "white") + # white shade
   
-  annotate("point", x=0.13, y = 0.032, shape = 25, size = 2.4, col = "black", fill = "#6867ac") + # LateMiddle - Early Holocene
+  annotate("point", x=0.13, y = 0.028, shape = 25, size = 2, col = "black", fill = "#6867ac") + # LateMiddle - Early Holocene
   
   # trick for ssp2 and ssp5 - 2030 (full ggplot solution!...)
   # annotate("point", x=0.24, y = 0.032, shape = 25, size = 2.4, col = "black", fill = "#f69320") +  # ssp2 - 2030
@@ -52,7 +52,7 @@ ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.migsorense
   # annotate("point", x=0.246, y = 0.027, shape = 24, size = 3.3, col = "white", fill = "white") + # white triangle to hide
   # annotate("point", x=0.24, y = 0.032, shape = 25, size = 2.4, col = "black", fill = NA) + # black frame
   
-  annotate("point", x=0.25, y = 0.032, shape = 25, size = 2.4, col = "black", fill = "#f69320") +  # ssp2 - 2050
-  annotate("point", x=0.32, y = 0.032, shape = 25, size = 2.4, col = "black", fill = "#bf1d1e") # ssp5 - 2050
+  annotate("point", x=0.279, y = 0.028, shape = 25, size = 2, col = "black", fill = "#f69320") +  # ssp2 - 2050
+  annotate("point", x=0.332, y = 0.028, shape = 25, size = 2, col = "black", fill = "#bf1d1e") # ssp5 - 2050
 
 

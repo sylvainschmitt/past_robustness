@@ -35,8 +35,8 @@ if(run_model){
 #            class = NULL)
 
 # Predict
-new_data <-  data.frame(clim_hpv_sorensen.mean = rep(c(0.07, unique(model_performance_withmig$clim_hpv_sorensen.mean), seq(0.3,0.33,0.01)), 3),
-                        clim_hpv_sorensen.sd = rep(0.008, unique(model_performance_withmig$clim_hpv_sorensen.sd, rep(0.01,4)), 3))
+new_data <-  data.frame(clim_hpv_sorensen.mean = rep(c(0.07, unique(model_performance_withmig$clim_hpv_sorensen.mean), seq(0.3,0.34,0.01)), 3),
+                        clim_hpv_sorensen.sd = rep(0.008, unique(model_performance_withmig$clim_hpv_sorensen.sd, rep(0.01,5)), 3))
 new_data$type <- rep(unique(model_performance_withmig$type), each = nrow(new_data)/3)
 
 expected_predictions <- as.data.frame(fitted(ord_fit_mean, newdata = new_data))

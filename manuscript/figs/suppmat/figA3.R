@@ -56,34 +56,36 @@ future_climdiss_gcm <- future_climdiss_gcm %>%
 
 future_plot_sspgcm <- ggplot() +
   geom_ribbon(data = future_climdiss_gcm, aes(x = year, ymin = 1-q2.5, ymax = 1-q97.5, fill = scenario, group = paste0(scenario,model)),
-              alpha = 0.2) +
-  geom_line(data = future_climdiss_gcm, aes(x = year, y = 1-median, col = scenario, group = paste0(scenario,model))) +
+              alpha = 0.1) +
+  geom_line(data = future_climdiss_gcm, aes(x = year, y = 1-median, col = scenario, group = paste0(scenario,model)),
+            alpha = 0.3, size = 0.2) +
+  geom_line(data = future_climdiss_ssp, aes(x = year, y = 1-median_ssp, col = scenario), size = 1.3) +
   scale_color_manual(breaks= c('ssp245', "ssp585"),
                      values= c("#f7b763", "#a32a2e")) +
   scale_fill_manual(breaks= c('ssp245', "ssp585"),
                     values= c("#f7b763", "#a32a2e")) +
-  coord_cartesian(xlim = c(2005-2, 2095+3), 
+  coord_cartesian(xlim = c(2020, 2100), 
                   ylim =  c(0, 0.8),
                   clip = "off") +
-  scale_x_continuous(breaks = seq(2010,2095, 20),
+  scale_x_continuous(breaks = seq(2020,2100, 20),
                      expand = c(0, 0),
                      name = "Years (AD)") +
   scale_y_continuous(expand = expansion(mult = c(0, 0)),
                      breaks = seq(0,0.8, 0.1),
                      name = "Climatic dissimilarity") +
-  geom_text_repel(data = future_climdiss_gcm,
-                  aes(label = label, x = year, y = 1-median, col = scenario),
-                  nudge_x = 1,
-                  size = 2, 
-                  segment.size = 0.2,
-                  na.rm = TRUE,
-                  xlim = c(2100, 2130)) +
+  # geom_text_repel(data = future_climdiss_gcm,
+  #                 aes(label = label, x = year, y = 1-median, col = scenario),
+  #                 nudge_x = 1,
+  #                 size = 2, 
+  #                 segment.size = 0.2,
+  #                 na.rm = TRUE,
+  #                 xlim = c(2100, 2130)) +
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
         axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
         axis.title = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(t = 4.5)),
-        plot.margin = margin(r = 110, b = 5.5, t = 5.5, l = 5.5),
+        plot.margin = margin(r = 12.5, b = 5.5, t = 5.5, l = 5.5),
         legend.position="none", legend.title=element_blank())
 
 figA3_main <- plot_grid(
