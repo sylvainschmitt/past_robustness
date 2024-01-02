@@ -5,3 +5,10 @@
 
 past_robustness.Rproj
 *.asc
+
+**/data/climate/hypervolume/ssp245/
+**/data/climate/hypervolume/ssp585/
+**/data/climate/hypervolume/past/
+data/climate/hypervolume/present_domain.rds
+
+**/data/climate/metrics/old/
