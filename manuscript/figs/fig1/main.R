@@ -27,7 +27,7 @@ past_plot <- ggplot() +
   # geom_hline(aes(yintercept = c(0.32)), linetype = "dashed", color = "#bf1d1e", size = 0.4) +
   
   geom_ribbon(data = past_climdiss, aes(x = clim_hpv_sorensen.year, 
-                                        ymin = 1-clim_hpv_sorensen.q2.5, ymax = 1-clim_hpv_sorensen.q97.5), 
+                                        ymin = 1-clim_hpv_sorensen.q5, ymax = 1-clim_hpv_sorensen.q95), 
               fill = "#6867ac", alpha = 0.2) + 
   geom_line(data = past_climdiss,
             aes(x = clim_hpv_sorensen.year, y = 1-clim_hpv_sorensen.median), col = "#6867ac") +
