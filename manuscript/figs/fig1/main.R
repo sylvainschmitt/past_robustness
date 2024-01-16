@@ -48,9 +48,12 @@ past_plot <- ggplot() +
         axis.title.x = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(t = 4.5)),
         legend.position="none", legend.title=element_blank()) +
   
-  # ssp2 - 2050 (using geom_star to rotate triangle...)
+  # ssp2 - 2060 (using geom_star to rotate triangle...)
+  geom_text(aes(x = 5000, 0.256, label = "SSP2"), col = "#f69320", size = 2.8, family= "Helvetica Narrow") +
   ggstar::geom_star(aes(x = 11800, y = 0.279), col = "black", fill = "#f69320", angle = -90, starshape = 11, size = 2.4) +
-  # ssp2 - 2050
+  
+  # ssp5 - 2060
+  geom_text(aes(x = 5000, 0.355, label = "SSP5"), col = "#bf1d1e", size = 2.8, family= "Helvetica Narrow") +
   ggstar::geom_star(aes(x = 11800, y = 0.332), col = "black", fill = "#bf1d1e", angle = -90, starshape = 11, size = 2.4) +
   
   # early holocene

@@ -72,7 +72,8 @@ pc12 <- ggplot(data = hypervolumes, aes(x = PC1, y = PC2, color = period, fill =
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
         axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
         axis.title = element_text(colour = "black", family= "Helvetica Narrow", size = 9),
-        legend.position="none", legend.title=element_blank())
+        legend.position="none", legend.title=element_blank()) +
+  labs(x = "PC1 (52.5%)", y = "PC2 (36.2%)")
 
 pc13 <- ggplot(data = hypervolumes, aes(x = PC1, y = PC3, color = period, fill = period)) +
   geom_point(alpha = 0.2, shape = 16) +
@@ -88,7 +89,8 @@ pc13 <- ggplot(data = hypervolumes, aes(x = PC1, y = PC3, color = period, fill =
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
         axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
         axis.title = element_text(colour = "black", family= "Helvetica Narrow", size = 9),
-        legend.position="none", legend.title=element_blank())
+        legend.position="none", legend.title=element_blank()) +
+  labs(x = "PC1 (52.5%)", y = "PC3 (7.3%)")
 
 
 figA15_main <- plot_grid(pc12, pc13, ncol = 2)
