@@ -26,13 +26,13 @@ if(run_model){
 }
 
 # Get conditional effects
-# posterior_summary(ord_fit_mean)
-# epbm <- hypothesis(ord_fit_mean, 
-#            "bsp_migsorensen_miclim_hpv_sorensen.mean + bsp_migsorensen_miclim_hpv_sorensen.mean:type3Expertprocessbased = 0", 
-#            class = NULL)
-# fpbm <- hypothesis(ord_fit_mean, 
-#            "bsp_migsorensen_miclim_hpv_sorensen.mean + bsp_migsorensen_miclim_hpv_sorensen.mean:type2Fittedprocessbased = 0", 
-#            class = NULL)
+posterior_summary(ord_fit_mean)
+epbm <- hypothesis(ord_fit_mean, 
+           "bsp_migsorensen_miclim_hpv_sorensen.mean + bsp_migsorensen_miclim_hpv_sorensen.mean:type3Expertprocessbased = 0", 
+           class = NULL)
+fpbm <- hypothesis(ord_fit_mean, 
+           "bsp_migsorensen_miclim_hpv_sorensen.mean + bsp_migsorensen_miclim_hpv_sorensen.mean:type2Fittedprocessbased = 0", 
+           class = NULL)
 
 # Predict
 new_data <-  data.frame(clim_hpv_sorensen.mean = rep(c(0.07, unique(model_performance_withmig$clim_hpv_sorensen.mean), seq(0.3,0.34,0.01)), 3),

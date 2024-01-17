@@ -49,14 +49,15 @@ past_plot <- ggplot() +
         legend.position="none", legend.title=element_blank()) +
   
   # ssp2 - 2060 (using geom_star to rotate triangle...)
-  geom_text(aes(x = 5000, 0.256, label = "SSP2"), col = "#f69320", size = 2.8, family= "Helvetica Narrow") +
+  geom_text(aes(x = 5000, 0.256, label = "SSP2"), col = "#f69320", size = 2.7, family= "Helvetica Narrow") +
   ggstar::geom_star(aes(x = 11800, y = 0.279), col = "black", fill = "#f69320", angle = -90, starshape = 11, size = 2.4) +
   
   # ssp5 - 2060
-  geom_text(aes(x = 5000, 0.355, label = "SSP5"), col = "#bf1d1e", size = 2.8, family= "Helvetica Narrow") +
+  geom_text(aes(x = 5000, 0.355, label = "SSP5"), col = "#bf1d1e", size = 2.7, family= "Helvetica Narrow") +
   ggstar::geom_star(aes(x = 11800, y = 0.332), col = "black", fill = "#bf1d1e", angle = -90, starshape = 11, size = 2.4) +
   
   # early holocene
+  geom_text(aes(x = 10200, 0.08, label = "Early\nHolocene"), col = "#6867ac", size = 2.5, family= "Helvetica Narrow") +
   ggstar::geom_star(aes(x = 11800, y = 0.13), col = "black", fill = "#6867ac", angle = -90, starshape = 11, size = 2.4)
 
 
@@ -68,6 +69,11 @@ future_plot_ssp <- ggplot() +
                linetype = "dashed", color = "#bf1d1e", size = 0.3, alpha = 0.7) +
   geom_segment(aes(y = 0.13, yend = 0.13, x = 1866, xend = 1907), 
                linetype = "dashed", color = "#6867ac", size = 0.3, alpha = 0.7) +
+  
+  geom_segment(aes(y = 0.004, yend = 0.332, x = 2060, xend = 2060), 
+               linetype = "dotted", color = "#737272", size = 0.3, alpha = 0.7) +
+  geom_segment(aes(y = 0.004, yend = 0.13, x = 1906, xend = 1906), 
+               linetype = "dotted", color = "#6867ac", size = 0.3, alpha = 0.7) +
   
   geom_ribbon(data = future_climdiss_ssp, aes(x = year, ymin = 1-q5, ymax = 1-q95, fill = scenario), 
               alpha = 0.2) + 

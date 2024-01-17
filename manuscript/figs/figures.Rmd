@@ -32,7 +32,7 @@ fig1_main
 
 \newpage
 
-```{r process_model_outputs, include = F, eval = T}
+```{r process_model_outputs, include = F, eval = F}
 source(file.path(wd, "manuscript", "processing", "model_simulations.R"))
 source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 
@@ -50,7 +50,7 @@ fig2_main
 
 \newpage
 
-```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots.", eval = T}
+```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots.", eval = F}
 
 source(file.path(wd, "manuscript", "processing", "ordered_beta_regression.R"))
 
@@ -205,7 +205,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA14.R"))
 figA14_main
 ```
 
-```{r hypervolume_representation, fig.height = 80, fig.width = 160, dev=c('ragg_png'), dpi = 400, fig.cap = "Historical_perf.", eval = T}
+```{r hypervolume_representation, fig.height = 80, fig.width = 160, dev=c('ragg_png'), dpi = 400, fig.cap = "Historical_perf.", eval = F}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA15.R"))
 figA15_main
 ```
