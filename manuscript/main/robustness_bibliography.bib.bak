@@ -1818,46 +1818,6 @@
   urldate   = {2023-12-22},
 }
 
-@Article{Jiang2020,
-  author    = {Jiang, Mingkai and Medlyn, Belinda E. and Drake, John E. and Duursma, Remko A. and Anderson, Ian C. and Barton, Craig V. M. and Boer, Matthias M. and Carrillo, Yolima and Castañeda-Gómez, Laura and Collins, Luke and Crous, Kristine Y. and De Kauwe, Martin G. and dos Santos, Bruna M. and Emmerson, Kathryn M. and Facey, Sarah L. and Gherlenda, Andrew N. and Gimeno, Teresa E. and Hasegawa, Shun and Johnson, Scott N. and Kännaste, Astrid and Macdonald, Catriona A. and Mahmud, Kashif and Moore, Ben D. and Nazaries, Loïc and Neilson, Elizabeth H. J. and Nielsen, Uffe N. and Niinemets, Ülo and Noh, Nam Jin and Ochoa-Hueso, Raúl and Pathare, Varsha S. and Pendall, Elise and Pihlblad, Johanna and Piñeiro, Juan and Powell, Jeff R. and Power, Sally A. and Reich, Peter B. and Renchon, Alexandre A. and Riegler, Markus and Rinnan, Riikka and Rymer, Paul D. and Salomón, Roberto L. and Singh, Brajesh K. and Smith, Benjamin and Tjoelker, Mark G. and Walker, Jennifer K. M. and Wujeska-Klause, Agnieszka and Yang, Jinyan and Zaehle, Sönke and Ellsworth, David S.},
-  journal   = {Nature},
-  title     = {The fate of carbon in a mature forest under carbon dioxide enrichment},
-  year      = {2020},
-  issn      = {1476-4687},
-  month     = apr,
-  number    = {7802},
-  pages     = {227--231},
-  volume    = {580},
-  abstract  = {Atmospheric carbon dioxide enrichment (eCO2) can enhance plant carbon uptake and growth1–5, thereby providing an important negative feedback to climate change by slowing the rate of increase of the atmospheric CO2 concentration6. Although evidence gathered from young aggrading forests has generally indicated a strong CO2 fertilization effect on biomass growth3–5, it is unclear whether mature forests respond to eCO2 in a similar way. In mature trees and forest stands7–10, photosynthetic uptake has been found to increase under eCO2 without any apparent accompanying growth response, leaving the fate of additional carbon fixed under eCO2 unclear4,5,7–11. Here using data from the first ecosystem-scale Free-Air CO2 Enrichment (FACE) experiment in a mature forest, we constructed a comprehensive ecosystem carbon budget to track the fate of carbon as the forest responded to four years of eCO2 exposure. We show that, although the eCO2 treatment of +150 parts per million (+38 per cent) above ambient levels induced a 12 per cent (+247 grams of carbon per square metre per year) increase in carbon uptake through gross primary production, this additional carbon uptake did not lead to increased carbon sequestration at the ecosystem level. Instead, the majority of the extra carbon was emitted back into the atmosphere via several respiratory fluxes, with increased soil respiration alone accounting for half of the total uptake surplus. Our results call into question the predominant thinking that the capacity of forests to act as carbon sinks will be generally enhanced under eCO2, and challenge the efficacy of climate mitigation strategies that rely on ubiquitous CO2 fertilization as a driver of increased carbon sinks in global forests.},
-  copyright = {2020 The Author(s), under exclusive licence to Springer Nature Limited},
-  doi       = {10.1038/s41586-020-2128-9},
-  file      = {Full Text PDF:https\://www.nature.com/articles/s41586-020-2128-9.pdf:application/pdf},
-  keywords  = {Carbon cycle, Climate-change ecology, Ecosystem ecology, Forest ecology},
-  language  = {en},
-  publisher = {Nature Publishing Group},
-  url       = {https://www.nature.com/articles/s41586-020-2128-9},
-  urldate   = {2024-01-26},
-}
-
-@Article{Gavinet2019,
-  author    = {Gavinet, Jordane and Ourcival, Jean-Marc and Limousin, Jean-Marc},
-  journal   = {New Phytologist},
-  title     = {Rainfall exclusion and thinning can alter the relationships between forest functioning and drought},
-  year      = {2019},
-  issn      = {1469-8137},
-  number    = {3},
-  pages     = {1267--1279},
-  volume    = {223},
-  abstract  = {Increasing drought caused by the ongoing climate change, and forest management by thinning that aims at mitigating its impact, may modify the current relationships between forest functions and drought intensity and preclude our ability to forecast future ecosystem responses. We used 15 yr of data from an experimental rainfall exclusion (-27\% of rainfall) combined with thinning (-30\% stand basal area) to investigate differences in the drought–function relationships for each component of above-ground net primary productivity (ANPP) and stand transpiration in a Mediterranean Quercus ilex stand. Rainfall exclusion reduced stand ANPP by 10\%, mainly because of lowered leaf and acorn production, whereas wood production remained unaffected. These responses were consistent with the temporal sensitivity to drought among tree organs but revealed an increased allocation to wood. Thinning increased wood and acorn production and reduced the sensitivity of standing wood biomass change to drought. Rainfall exclusion and thinning lowered the intercept of the transpiration–drought relationship as a result of the structural constraints exerted by lower leaf and sapwood area. The results suggest that historical drought–function relationships can be used to infer future drought impacts on stand ANPP but not on water fluxes. Thinning can mitigate drought effects and reduce forest sensitivity to drought.},
-  copyright = {© 2019 The Authors. New Phytologist © 2019 New Phytologist Trust},
-  doi       = {10.1111/nph.15860},
-  file      = {Full Text PDF:https\://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/nph.15860:application/pdf},
-  keywords  = {above-ground productivity, carbon allocation, climate change adaptation, precipitation reduction, Quercus ilex, transpiration, tree mortality, thinning},
-  language  = {en},
-  url       = {https://onlinelibrary.wiley.com/doi/abs/10.1111/nph.15860},
-  urldate   = {2024-01-26},
-}
-
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:

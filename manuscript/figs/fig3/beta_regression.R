@@ -58,6 +58,6 @@ ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.migsorense
   annotate("text", label="SSP2", x=0.279, y = -0.087, size = 2.4, col = "#f69320", family= "Helvetica Narrow") +
   
   annotate("point", x=0.332, y = -0.032, shape = 24, size = 2, col = "black", fill = "#bf1d1e") + # ssp5 - 2060
-  annotate("text", label="SSP5", x=0.332, y = -0.087, size = 2.3, col = "#bf1d1e", family= "Helvetica Narrow") 
+  annotate("text", label="SSP5", x=0.332, y = -0.087, size = 2.4, col = "#bf1d1e", family= "Helvetica Narrow") 
 
 

@@ -9,7 +9,7 @@ model_performance_relchg$type_test <- paste0(model_performance_relchg$type, mode
 # Middle-Late Holocene
 conoverTest_out <- conover.test::conover.test(x=model_performance_relchg[model_performance_relchg$earlyholoc == FALSE,]$rel_chg_sorensen, 
                                               g=model_performance_relchg[model_performance_relchg$earlyholoc == FALSE,]$type_test, 
-                                              kw=FALSE,
+                                              kw=TRUE,
                                               method="by", table = FALSE)
 letters <- rcompanion::cldList(P.adjusted ~ comparisons, data = conoverTest_out, threshold = 0.05)
 data_letters_late <- data.frame(letters)
@@ -18,14 +18,14 @@ data_letters_late[, "test"] <- tidyr::separate(data.frame(A = data_letters_late$
 data_letters_late[, "sign"] <- NA
 data_letters_late[, "sign_position"] <- NA
 data_letters_late[data_letters_late$test == "2Crossvalidationreference", "sign"] <- "CV"
-data_letters_late[data_letters_late$test == "2Crossvalidationreference", "sign_position"] <- -8
+data_letters_late[data_letters_late$test == "2Crossvalidationreference", "sign_position"] <- -12
 data_letters_late$earlyholoc <- FALSE
 
 
 # Early Holocene
 conoverTest_out <- conover.test::conover.test(x=model_performance_relchg[model_performance_relchg$earlyholoc == TRUE,]$rel_chg_sorensen, 
                                               g=model_performance_relchg[model_performance_relchg$earlyholoc == TRUE,]$type_test, 
-                                              kw=FALSE,
+                                              kw=TRUE,
                                               method="by", table = FALSE)
 letters <- rcompanion::cldList(P.adjusted ~ comparisons, data = conoverTest_out, threshold = 0.05)
 data_letters_early <- data.frame(letters)
@@ -46,7 +46,7 @@ boxplot_transferability <- ggplot(model_performance_relchg) +
   geom_text(data = data_letters, aes(x = type, label = Letter, y = 135, group = Group), vjust = 0, inherit.aes = F,
             family = "Helvetica Narrow", size = 3, position=position_dodge(width=0.8)) +
   geom_text(data = data_letters, aes(x = type, label = sign, y = sign_position, group = Group), vjust = 0, inherit.aes = F,
-            family = "Helvetica Narrow", size = 2.3, position=position_dodge(width=0.75)) +
+            family = "Helvetica Narrow", size = 2.2, position=position_dodge(width=0.75)) +
   scale_y_continuous(expand = expansion(mult = c(0, 0)),
                      breaks = seq(-100,150,50),
                      name = "Transferability") +

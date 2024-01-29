@@ -32,7 +32,7 @@ fig1_main
 
 \newpage
 
-```{r process_model_outputs, include = F, eval = F}
+```{r process_model_outputs, include = F, eval = T}
 source(file.path(wd, "manuscript", "processing", "model_simulations.R"))
 source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 
@@ -50,7 +50,7 @@ fig2_main
 
 \newpage
 
-```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots.", eval = F}
+```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots.", eval = T}
 
 source(file.path(wd, "manuscript", "processing", "ordered_beta_regression.R"))
 
