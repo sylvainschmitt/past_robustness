@@ -12,25 +12,36 @@ period_names <- c(
 
 
 # Middle-Late Holocene
-conoverTest_out <- conover.test::conover.test(x=model_performance_withmig[model_performance_withmig$earlyholoc == FALSE,]$sorensen, 
-                                              g=model_performance_withmig[model_performance_withmig$earlyholoc == FALSE,]$type, 
-                                              kw=FALSE,
-                                              method="by", table = FALSE)
-letters <- rcompanion::cldList(P.adjusted ~ comparisons, data = conoverTest_out, threshold = 0.05)
-data_letters_late <- data.frame(letters)
-data_letters_late$earlyholoc <- FALSE
+kw_late <- kruskal.test(x=model_performance_withmig[model_performance_withmig$earlyholoc == FALSE,]$sorensen, 
+                         g=model_performance_withmig[model_performance_withmig$earlyholoc == FALSE,]$type)
+
+
+# conoverTest_out <- conover.test::conover.test(x=model_performance_withmig[model_performance_withmig$earlyholoc == FALSE,]$sorensen, 
+#                                               g=model_performance_withmig[model_performance_withmig$earlyholoc == FALSE,]$type, 
+#                                               kw=TRUE,
+#                                               method="by", table = FALSE)
+# letters <- rcompanion::cldList(P.adjusted ~ comparisons, data = conoverTest_out, threshold = 0.05)
+# data_letters_late <- data.frame(letters)
+# data_letters_late$earlyholoc <- FALSE
+
 
 
 # Early Holocene
-conoverTest_out <- conover.test::conover.test(x=model_performance_withmig[model_performance_withmig$earlyholoc == TRUE,]$sorensen, 
-                                              g=model_performance_withmig[model_performance_withmig$earlyholoc == TRUE,]$type, 
-                                              kw=FALSE,
-                                              method="by", table = FALSE)
-letters <- rcompanion::cldList(P.adjusted ~ comparisons, data = conoverTest_out, threshold = 0.05)
-data_letters_early <- data.frame(letters)
-data_letters_early$earlyholoc <- TRUE
+kw_early <- kruskal.test(x=model_performance_withmig[model_performance_withmig$earlyholoc == TRUE,]$sorensen, 
+                        g=model_performance_withmig[model_performance_withmig$earlyholoc == TRUE,]$type)
 
-data_letters <- rbind(data_letters_late, data_letters_early)
+
+# conoverTest_out <- conover.test::conover.test(x=model_performance_withmig[model_performance_withmig$earlyholoc == TRUE,]$sorensen, 
+#                                               g=model_performance_withmig[model_performance_withmig$earlyholoc == TRUE,]$type, 
+#                                               kw=FALSE,
+#                                               method="by", table = FALSE)
+# letters <- rcompanion::cldList(P.adjusted ~ comparisons, data = conoverTest_out, threshold = 0.05)
+# data_letters_early <- data.frame(letters)
+# data_letters_early$earlyholoc <- TRUE
+# 
+# data_letters <- rbind(data_letters_late, data_letters_early)
+
+kw <- data.frame(p_value = c(kw_late[["p.value"]], kw_early[["p.value"]]), earlyholoc = c(FALSE, TRUE))
 
 boxplot_performance <- ggplot(model_performance_withmig, aes(x = type, y = sorensen, color = type, fill = type)) +
   facet_wrap(~earlyholoc, labeller = as_labeller(period_names)) +
@@ -38,9 +49,12 @@ boxplot_performance <- ggplot(model_performance_withmig, aes(x = type, y = soren
   scale_y_continuous(expand = expansion(mult = c(0, 0)),
                      breaks = seq(-0,1,0.2),
                      name = "Performance") +
-  geom_text(data = data_letters, aes(x = as.character(Group), label = c("ns", "ns", "ns", "ns", "ns", "ns"), 
-                                     y = 0.93), vjust = 0, inherit.aes = F,
-            family = "Helvetica Narrow", size = 3) +
+  # geom_text(data = data_letters, aes(x = as.character(Group), label = c("ns", "ns", "ns", "ns", "ns", "ns"), 
+  #                                    y = 0.93), vjust = 0, inherit.aes = F,
+  #           family = "Helvetica Narrow", size = 3) +
+  geom_text(data = kw, aes(x = 2, label = paste0("KW p = ", round(p_value,2)),
+                                     y = 0.94), vjust = 0, inherit.aes = F,
+            family = "Helvetica Narrow", size = 2.4) +
   scale_color_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                      values= c( "#457b9d", "#995D81", "#018530"),
                      labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
