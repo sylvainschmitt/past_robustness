@@ -58,7 +58,7 @@ source(file.path(wd, "manuscript", "figs", "fig3", "beta_regression.R"))
 source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_performance.R"))
 source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_variance.R"))
 source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_transferability.R"))
-source(file.path(wd, "manuscript", "figs", "fig3", "main.R"))
+source(file.path(wd, "manuscript", "figs", "fig3", "main2.R"))
 fig3_main
 
 ```
@@ -123,7 +123,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA14.R"))
 figA14_main
 ```
 
-```{r performance_time, fig.height = 85, fig.width = 110, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance against time.", eval = T}
+```{r performance_time, fig.height = 85, fig.width = 110, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance against time.", eval = F}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "linear_plateau_regression.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA13.R")) 
@@ -135,7 +135,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA12.R"))
 figA12_main
 ```
 
-```{r past_performance_womigration, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots. Without migration.", eval = T}
+```{r past_performance_womigration, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots. Without migration.", eval = F}
 
 # source(file.path(wd, "manuscript", "processing", "suppmat", "model_transferability_womigration.R"))
 
@@ -152,7 +152,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA9", "main.R"))
 ```
 
 
-```{r past_performance_from12000, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = T}
+```{r past_performance_from12000, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = F}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11750.R"))
 # source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
@@ -172,7 +172,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "main.R"))
 
 ```
 
-```{r past_performance_differentstarts, fig.height = 240, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = T}
+```{r past_performance_differentstarts, fig.height = 240, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = F}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from12000.R"))
 # source(file.path(wd, "manuscript", "processing", "model_transferability.R"))

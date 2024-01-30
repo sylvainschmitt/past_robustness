@@ -6,8 +6,8 @@
 model_performance_withmig$earlyholoc <- model_performance_withmig$year>=8500
 
 period_names <- c(
-  `TRUE` = "Early Holocene",
-  `FALSE` = "Late-Middle Holocene"
+  `TRUE` = "Early\nHolocene",
+  `FALSE` = "Late-Middle\nHolocene"
 )
 
 
