@@ -1858,6 +1858,24 @@
   urldate   = {2024-01-26},
 }
 
+@Article{Seehausen2017,
+  author     = {Seehausen, M. Lukas and Régnière, Jacques and Martel, Véronique and Smith, Sandy M.},
+  journal    = {Journal of Insect Physiology},
+  title      = {Developmental and reproductive responses of the spruce budworm ({Lepidoptera}: {Tortricidae}) parasitoid {Tranosema} rostrale ({Hymenoptera}: {Ichneumonidae}) to temperature},
+  year       = {2017},
+  issn       = {0022-1910},
+  month      = apr,
+  pages      = {38--46},
+  volume     = {98},
+  abstract   = {The temperature-dependent development and survival of immatures, as well as adult longevity and potential fecundity of the endoparasitoid Tranosema rostrale (Hymenoptera: Ichneumonidae) parasitizing spruce budworm Choristoneura fumiferana (Lepidoptera: Tortricidae) larvae was investigated under laboratory conditions at several constant temperatures ranging from 5 to 30°C. Maximum likelihood modeling approaches were used to estimate thermal responses in development, survival, and longevity. A model describing the effect of temperature on potential fecundity of the parasitoid was also developed taking oogenesis and oosorption into account. In-host and pupal development rates of the parasitoid increased with temperature up to 25°C, and decreased thereafter. Immature survival was highest below 20°C, and rapidly decreased at higher temperatures. Adult longevity decreased exponentially with increasing temperature for both males and females. Highest potential fecundity was reached at 10°C. Considering survival and potential fecundity, the parasitoid seems best adapted to cool temperatures below 20°C. Simulations of the life-history traits under variable temperature regimes indicate that temperature fluctuations decrease survival and increase realised fecundity compared to constant temperatures. The temperature-dependent fecundity model developed can be applied to other non-host-feeding synovigenic parasitoids. The equations and parameter estimates provided in this paper can be used to build comprehensive models predicting the seasonal phenology of this parasitoid and spruce budworm parasitism under changing climatic conditions.},
+  doi        = {10.1016/j.jinsphys.2016.11.008},
+  file       = {ScienceDirect Full Text PDF:https\://www-sciencedirect-com.inee.bib.cnrs.fr/science/article/pii/S0022191016302827/pdfft?md5=1cc66da7a80162cc0816d084e122c900&pid=1-s2.0-S0022191016302827-main.pdf&isDTMRedir=Y:application/pdf},
+  keywords   = {Parasitoid fecundity, Temperature-dependent survival, Longevity, Non-linear modeling, Maximum likelihood},
+  shorttitle = {Developmental and reproductive responses of the spruce budworm ({Lepidoptera}},
+  url        = {https://www.sciencedirect.com/science/article/pii/S0022191016302827},
+  urldate    = {2024-02-06},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:
