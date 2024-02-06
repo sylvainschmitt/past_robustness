@@ -34,7 +34,8 @@ data_letters <- rbind(data_letters_late, data_letters_early)
 
 boxplot_performance <- ggplot(model_performance_withmig, aes(x = type, y = mig_sorensen, color = type, fill = type)) +
   facet_wrap(~earlyholoc, labeller = as_labeller(period_names)) +
-  geom_boxplot(alpha = 0.3, outlier.size = 0.1, width = 0.3) +
+  geom_violin(trim=TRUE, alpha = 0.15, linewidth = NA) +
+  geom_boxplot(alpha = 0.3, outlier.size = 0.1, width = 0.3, linewidth = 0.3, fatten = 2) +
   scale_y_continuous(expand = expansion(mult = c(0, 0)),
                      breaks = seq(-0,1,0.2),
                      name = "Performance") +

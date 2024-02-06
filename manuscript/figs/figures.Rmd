@@ -26,7 +26,7 @@ source(file.path(wd, "manuscript", "processing", "setup.R"))
 # Main
 
 ```{r climatic_dissimilarity, fig.height = 60, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity.", eval = T}
- source(file.path(wd, "manuscript", "figs", "fig1", "main.R"))
+source(file.path(wd, "manuscript", "figs", "fig1", "main.R"))
 fig1_main
 ```
 
@@ -80,7 +80,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA2.R"))
 figA2_main
 ```
 
-```{r climatic_dissimilarity_and_distance, fig.height = 90, fig.width = 200, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity vs climatic distance.", eval = T}
+```{r climatic_dissimilarity_and_distance, fig.height = 90, fig.width = 200, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Climatic dissimilarity vs climatic distance.", eval = F}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA3.R"))
 figA3_main
 ```

@@ -4,29 +4,20 @@
 %
 \documentclass[
 ]{article}
-\title{Contrasted hindcast performances demonstrate the need for more
-realistic species distribution models}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{Figures for manuscript and supplementary figures}
-\author{V. Van der Meersch et al.}
-\date{}
-
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -45,14 +36,6 @@ realistic species distribution models}
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Contrasted hindcast performances demonstrate the need for more realistic species distribution models},
-  pdfauthor={V. Van der Meersch et al.},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
 \usepackage{graphicx}
 \makeatletter
@@ -75,6 +58,26 @@ realistic species distribution models}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Contrasted hindcast performances demonstrate the need for more realistic species distribution models},
+  pdfauthor={V. Van der Meersch et al.},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Contrasted hindcast performances demonstrate the need for more
+realistic species distribution models}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Figures for manuscript and supplementary figures}
+\author{V. Van der Meersch et al.}
+\date{}
 
 \begin{document}
 \maketitle
@@ -105,11 +108,5 @@ realistic species distribution models}
 
 \renewcommand{\thefigure}{A.\arabic{figure}}
 \setcounter{figure}{0}
-
-\begin{figure}
-\centering
-\includegraphics{C:/Users/vandermeersch/Documents/CEFE/projects/past_robustness/manuscript/figs/files/climatic_dissimilarity_and_distance-1.pdf}
-\caption{Climatic dissimilarity vs climatic distance.}
-\end{figure}
 
 \end{document}

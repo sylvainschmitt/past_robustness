@@ -10,8 +10,8 @@ upper_panel <- plot_grid(ordbetareg_plot + theme(legend.position = "none"),
                          ncol = 2, rel_widths = c(0.55,0.4), align = "hv", axis = "tblr",
                          labels = c("a", NA), label_fontfamily = "Helvetica Narrow", label_size = 11)
 
-lower_panel <- plot_grid(boxplot_transferability, boxplot_performance, boxplot_sdperformance,
-                         ncol = 3, rel_widths = c(0.49, 0.53, 0.33), align = "hv", axis = "tblr",
+lower_panel <- plot_grid(boxplot_performance, boxplot_sdperformance, boxplot_transferability, 
+                         ncol = 3, rel_widths = c(0.53, 0.33, 0.49), align = "hv", axis = "tblr",
                          labels = c("b", "c", "d"), label_fontfamily = "Helvetica Narrow", label_size = 11)
 
 
