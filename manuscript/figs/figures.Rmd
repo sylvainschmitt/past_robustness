@@ -32,7 +32,7 @@ fig1_main
 
 \newpage
 
-```{r process_model_outputs, include = F, eval = T}
+```{r process_model_outputs, include = F, eval = F}
 source(file.path(wd, "manuscript", "processing", "model_simulations.R"))
 source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 
@@ -50,7 +50,7 @@ fig2_main
 
 \newpage
 
-```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots.", eval = T}
+```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots.", eval = F}
 
 source(file.path(wd, "manuscript", "processing", "ordered_beta_regression.R"))
 
@@ -86,9 +86,15 @@ figA3_main
 ```
 
 
-```{r migration_process, fig.height = 100, fig.width = 90, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Illustration of Q. deciduous migration process. PHENOFIT (fitted) from 12000BP.", eval = F}
+```{r migration_process, fig.height = 100, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Illustration of Q. deciduous migration process. PHENOFIT (fitted) from 12000BP. + Evaluation of the impact of migration process stochasticity on model performance.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA4.R"))
-figA4_main
+
+source(file.path(wd, "manuscript", "figs", "suppmat", "figA16.R"))
+
+plot_grid(figA4_main , figA16_main, ncol = 2, 
+          rel_widths = c(0.43, 0.53), vjust = 1,
+          labels = c("a", "b"), label_fontfamily = "Helvetica Narrow", label_size = 11)
+
 ```
 
 ```{r fagus_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Fagus simulations.", eval = F}
