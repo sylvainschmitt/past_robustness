@@ -32,7 +32,7 @@ fig1_main
 
 \newpage
 
-```{r process_model_outputs, include = F, eval = F}
+```{r process_model_outputs, include = F, eval = T}
 source(file.path(wd, "manuscript", "processing", "model_simulations.R"))
 source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 
@@ -41,7 +41,7 @@ source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 ```
 
-```{r quercus_deciduous_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Quercus deciduous simulations.", eval = F}
+```{r quercus_deciduous_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Quercus deciduous simulations.", eval = T}
 
 source(file.path(wd, "manuscript", "figs", "fig2", "main.R")) 
 fig2_main
@@ -50,7 +50,7 @@ fig2_main
 
 \newpage
 
-```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots.", eval = F}
+```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots.", eval = T}
 
 source(file.path(wd, "manuscript", "processing", "ordered_beta_regression.R"))
 
@@ -86,7 +86,7 @@ figA3_main
 ```
 
 
-```{r migration_process, fig.height = 100, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Illustration of Q. deciduous migration process. PHENOFIT (fitted) from 12000BP. + Evaluation of the impact of migration process stochasticity on model performance.", eval = T}
+```{r migration_process, fig.height = 100, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Illustration of Q. deciduous migration process. PHENOFIT (fitted) from 12000BP. + Evaluation of the impact of migration process stochasticity on model performance.", eval = F}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA4.R"))
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA16.R"))
@@ -97,51 +97,51 @@ plot_grid(figA4_main , figA16_main, ncol = 2,
 
 ```
 
-```{r fagus_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Fagus simulations.", eval = F}
+```{r fagus_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Fagus simulations.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA5.R")) 
 figA5_main
 ```
 
-```{r abies_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Abies simulations.", eval = F}
+```{r abies_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Abies simulations.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA6.R")) 
 figA6_main
 
 ```
 
-```{r quercusevergreen_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Quercus evergreen simulations.", eval = F}
+```{r quercusevergreen_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Quercus evergreen simulations.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA7.R")) 
 figA7_main
 ```
 
-```{r performance_perspecies, fig.height = 130, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance per species per type of model.", eval = F}
+```{r performance_perspecies, fig.height = 130, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance per species per type of model.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA8.R")) 
 figA8_main
 ```
 
-```{r performance_perspecies_permodel, fig.height = 130, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance per species per model.", eval = F}
+```{r performance_perspecies_permodel, fig.height = 130, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance per species per model.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA9.R")) 
 figA9_main
 ```
 
-```{r current_performance, fig.height = 85, fig.width = 110, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance against time.", eval = F}
+```{r current_performance, fig.height = 65, fig.width = 140, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Current performance", eval = T}
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA14.R")) 
 figA14_main
 ```
 
-```{r performance_time, fig.height = 85, fig.width = 110, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance against time.", eval = F}
+```{r performance_time, fig.height = 85, fig.width = 110, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance against time.", eval = T}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "linear_plateau_regression.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA13.R")) 
 figA13_main
 ```
 
-```{r performance_perspeciesmigration, fig.height = 100, fig.width = 195, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance per species per type of model.", eval = F}
+```{r performance_perspeciesmigration, fig.height = 100, fig.width = 195, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance per species per type of model.", eval = T}
 source(file.path(wd, "manuscript", "figs", "suppmat", "figA12.R")) 
 figA12_main
 ```
 
-```{r past_performance_womigration, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots. Without migration.", eval = F}
+```{r past_performance_womigration, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots. Without migration.", eval = T}
 
 # source(file.path(wd, "manuscript", "processing", "suppmat", "model_transferability_womigration.R"))
 
@@ -158,7 +158,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA9", "main.R"))
 ```
 
 
-```{r past_performance_from12000, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = F}
+```{r past_performance_from12000, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = T}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11750.R"))
 # source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
@@ -178,7 +178,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figA10", "main.R"))
 
 ```
 
-```{r past_performance_differentstarts, fig.height = 240, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = F}
+```{r past_performance_differentstarts, fig.height = 240, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = T}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from12000.R"))
 # source(file.path(wd, "manuscript", "processing", "model_transferability.R"))

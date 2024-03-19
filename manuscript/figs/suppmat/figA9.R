@@ -6,9 +6,9 @@ figA9_main <- ggplot(data = model_performance_withmig, aes(x = clim_hpv_sorensen
   scale_y_continuous(expand =c(0,0)) +
   scale_x_continuous(expand =c(0,0)) +
   labs(x = "Climatic dissimilarity", y = "Model performance") +
-  scale_color_manual(breaks=c('BRT', 'Random Forest', 'GAM', 'GLM',
-                              'PHENOFIT (fitted)', 'CASTANEA (fitted)', 'PHENOFIT', 'CASTANEA'),
-                     values = c("#2e5168", "#3d6d8b", "#4d89af", "#6fa0c0",
+  scale_color_manual(breaks=c('BRT', 'Random Forest', 'MaxEnt', 'GAM', 'GLM',
+                              'PHENOFIT fitted', 'CASTANEA fitted', 'PHENOFIT', 'CASTANEA'),
+                     values = c("#2e5168", "#3d6d8b", "#5d95b8", "#4d89af", "#6fa0c0", 
                                 "#794a66", "#ae7b9a", "#ea702e", "#f4b08a")) +
   theme_bw() +
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),

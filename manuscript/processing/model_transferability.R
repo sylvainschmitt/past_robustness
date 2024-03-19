@@ -52,7 +52,7 @@ model_performance_relchg[model_performance_relchg$mod == mod & model_performance
 ###------------------------------###
 ## PHENOFIT (inverse calibration) ##
 ###------------------------------###
-mod <- "PHENOFIT (fitted)"
+mod <- "PHENOFIT fitted"
 dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/phenofit/fit/fitted"
 historical <- data.frame(
   species = c("Fagus sylvatica", 
@@ -130,7 +130,7 @@ model_performance_relchg[model_performance_relchg$mod == mod & model_performance
 ###------------------------------###
 ## CASTANEA (inverse calibration) ##
 ###------------------------------###
-mod <- "CASTANEA (fitted)"
+mod <- "CASTANEA fitted"
 dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/castanea/fit/fitted"
 historical <- data.frame(
   species = c("Fagus sylvatica", 
@@ -430,6 +430,87 @@ historical <- data.frame(
           readRDS(file.path(dir, "quercus_robur", "brt_finalcov_fullmodel.rds"))$sorensen_all,
           readRDS(file.path(dir, "quercus_petraea", "brt_finalcov_fullmodel.rds"))$sorensen_all,
           readRDS(file.path(dir, "quercus_ilex", "brt_finalcov_fullmodel.rds"))$sorensen_all)
+  
+)
+### vs. observed sorensen
+### fagus
+model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "fagus" &
+                           model_performance_relchg$test == "1Observedreference", "rel_chg_sorensen"] <-
+  (model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "fagus" &
+                              model_performance_relchg$test == "1Observedreference", "mig_sorensen"]-
+     historical[historical$species == "Fagus sylvatica", "sorensen"])/historical[historical$species == "Fagus sylvatica", "sorensen"]
+### abies
+model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "abies" &
+                           model_performance_relchg$test == "1Observedreference", "rel_chg_sorensen"] <-
+  (model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "abies" & 
+                              model_performance_relchg$test == "1Observedreference", "mig_sorensen"]-
+     historical[historical$species == "Abies alba", "sorensen"])/historical[historical$species == "Abies alba", "sorensen"]
+### quercus deciduous (historical performance = median performance of the 2 species)
+model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "quercusdeciduous" &
+                           model_performance_relchg$test == "1Observedreference", "rel_chg_sorensen"] <-
+  (model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "quercusdeciduous" &
+                              model_performance_relchg$test == "1Observedreference", "mig_sorensen"]-
+     median(c(historical[historical$species == "Quercus robur", "sorensen"], 
+              historical[historical$species == "Quercus petraea", "sorensen"])))/
+  median(c(historical[historical$species == "Quercus robur", "sorensen"], 
+           historical[historical$species == "Quercus petraea", "sorensen"]))
+### quercus evergreen
+model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "quercusevergreen" &
+                           model_performance_relchg$test == "1Observedreference", "rel_chg_sorensen"] <-
+  (model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "quercusevergreen" &
+                              model_performance_relchg$test == "1Observedreference", "mig_sorensen"]-
+     historical[historical$species == "Quercus ilex", "sorensen"])/historical[historical$species == "Quercus ilex", "sorensen"]
+### vs. cross-validation sorensen
+### fagus
+model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "fagus" &
+                           model_performance_relchg$test == "2Crossvalidationreference", "rel_chg_sorensen"] <-
+  (model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "fagus" &
+                              model_performance_relchg$test == "2Crossvalidationreference", "mig_sorensen"]-
+     historical[historical$species == "Fagus sylvatica", "sorensen_test"])/historical[historical$species == "Fagus sylvatica", "sorensen_test"]
+### abies
+model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "abies" &
+                           model_performance_relchg$test == "2Crossvalidationreference", "rel_chg_sorensen"] <-
+  (model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "abies" & 
+                              model_performance_relchg$test == "2Crossvalidationreference", "mig_sorensen"]-
+     historical[historical$species == "Abies alba", "sorensen_test"])/historical[historical$species == "Abies alba", "sorensen_test"]
+### quercus deciduous (historical performance = median performance of the 2 species)
+model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "quercusdeciduous" &
+                           model_performance_relchg$test == "2Crossvalidationreference", "rel_chg_sorensen"] <-
+  (model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "quercusdeciduous" &
+                              model_performance_relchg$test == "2Crossvalidationreference", "mig_sorensen"]-
+     median(c(historical[historical$species == "Quercus robur", "sorensen_test"], 
+              historical[historical$species == "Quercus petraea", "sorensen_test"])))/
+  median(c(historical[historical$species == "Quercus robur", "sorensen_test"], 
+           historical[historical$species == "Quercus petraea", "sorensen_test"]))
+### quercus evergreen
+model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "quercusevergreen" &
+                           model_performance_relchg$test == "2Crossvalidationreference", "rel_chg_sorensen"] <-
+  (model_performance_relchg[model_performance_relchg$mod == mod & model_performance_relchg$species == "quercusevergreen" &
+                              model_performance_relchg$test == "2Crossvalidationreference", "mig_sorensen"]-
+     historical[historical$species == "Quercus ilex", "sorensen_test"])/historical[historical$species == "Quercus ilex", "sorensen_test"]
+
+
+###---###
+## BRT ##
+###---###
+mod <- "MaxEnt"
+dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/maxent/fit"
+historical <- data.frame(
+  species = c("Fagus sylvatica", 
+              "Abies alba", 
+              "Quercus robur", 
+              "Quercus petraea", 
+              "Quercus ilex"),
+  sorensen_test = c(readRDS(file.path(dir, "fagus_sylvatica", "maxent_finalcov_fullmodel.rds"))$sorensen_test,
+                    readRDS(file.path(dir, "abies_alba", "maxent_finalcov_fullmodel.rds"))$sorensen_test,
+                    readRDS(file.path(dir, "quercus_robur", "maxent_finalcov_fullmodel.rds"))$sorensen_test,
+                    readRDS(file.path(dir, "quercus_petraea", "maxent_finalcov_fullmodel.rds"))$sorensen_test,
+                    readRDS(file.path(dir, "quercus_ilex", "maxent_finalcov_fullmodel.rds"))$sorensen_test),
+  sorensen = c(readRDS(file.path(dir, "fagus_sylvatica", "maxent_finalcov_fullmodel.rds"))$sorensen_all,
+               readRDS(file.path(dir, "abies_alba", "maxent_finalcov_fullmodel.rds"))$sorensen_all,
+               readRDS(file.path(dir, "quercus_robur", "maxent_finalcov_fullmodel.rds"))$sorensen_all,
+               readRDS(file.path(dir, "quercus_petraea", "maxent_finalcov_fullmodel.rds"))$sorensen_all,
+               readRDS(file.path(dir, "quercus_ilex", "maxent_finalcov_fullmodel.rds"))$sorensen_all)
   
 )
 ### vs. observed sorensen

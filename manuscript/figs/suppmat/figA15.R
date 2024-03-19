@@ -9,16 +9,16 @@ models <- c(
   "ACCESS-CM2", "ACCESS-ESM1-5",
   "BCC-CSM2-MR",
   "CanESM5",
-  # "CESM2", "CESM2-WACCM",
+  "CESM2", "CESM2-WACCM",
   "CMCC-CM2-SR5", "CMCC-ESM2",
   "CNRM-CM6-1",
   "CNRM-ESM2-1",
-  # "EC-Earth3", 
+  "EC-Earth3", 
   "EC-Earth3-Veg-LR",
   "FGOALS-g3",
   "GFDL-CM4", "GFDL-CM4_gr2", "GFDL-ESM4",
   "GISS-E2-1-G",
-  "HadGEM3-GC31-LL", # "HadGEM3-GC31-MM",
+  "HadGEM3-GC31-LL",
   "IITM-ESM",
   "INM-CM4-8", "INM-CM5-0",
   "IPSL-CM6A-LR",
@@ -29,7 +29,7 @@ models <- c(
   "MRI-ESM2-0",
   "NESM3", 
   "NorESM2-LM", "NorESM2-MM", 
-  # "TaiESM1", 
+  "TaiESM1", 
   "UKESM1-0-LL")
 ssp2 <- lapply(models, function(m){
   hypervolume_to_data_frame(readRDS(file.path(dir, "ssp245", m, "projection_domain_2090.rds")))

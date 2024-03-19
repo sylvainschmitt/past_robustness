@@ -2,8 +2,8 @@
 genus_names <- c(
   `abies` = "Abies",
   `fagus` = "Fagus",
-  `quercusdeciduous` = "Quercus deciduous",
-  `quercusevergreen` = "Quercus evergreen"
+  `quercusdeciduous` = "Quercus\ndeciduous",
+  `quercusevergreen` = "Quercus\nevergreen"
 )
 
 # Summarize model performances
@@ -21,7 +21,7 @@ xy_plot <- ggplot(data = model_performance_mean_perspeciespermodel, aes(x=mean_s
                   linewidth = 0.4, size = 0.5, stroke = 0.4) +
   geom_errorbarh(aes(xmax = mean_sorensen + sd_sorensen, xmin = mean_sorensen - sd_sorensen, height = 0),
                  linewidth = 0.4) + 
-  coord_cartesian(ylim=c(0, 1), xlim = c(0, 1), clip = "off") +
+  coord_cartesian(ylim=c(0, 1), xlim = c(0, 1), clip = "on") +
   scale_x_continuous(breaks = c(0,0.5,1),
                      expand = c(0,0),
                      name = "Without migration") +
@@ -69,7 +69,7 @@ delta_plot <- ggplot(data = model_performance_mean_perspeciespermodel, aes(x = c
   geom_line() + 
   geom_ribbon(aes(ymin = mean_sorensen, ymax = mean_migsorensen, fill = type), 
               alpha = 0.3, colour = NA) +
-  coord_cartesian(xlim=c(0.085, 0.285),ylim=c(0, 1), clip = "off") +
+  coord_cartesian(xlim=c(0.085, 0.285),ylim=c(0, 1), clip = "on") +
   labs(x = "Climatic dissimilarity", y = "Performance") +
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),

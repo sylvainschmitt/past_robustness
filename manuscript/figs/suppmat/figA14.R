@@ -146,10 +146,33 @@ rfcv <-
              type = "1Correlative", 
              test = "2Crossvalidationreference")
 
+maxent_fit_files <- 
+  file.path("C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/maxent/fit",
+            c("abies_alba/maxent_finalcov_fullmodel.rds",
+              "fagus_sylvatica/maxent_finalcov_fullmodel.rds", 
+              "quercus_robur/maxent_finalcov_fullmodel.rds", 
+              "quercus_petraea/maxent_finalcov_fullmodel.rds", 
+              "quercus_ilex/maxent_finalcov_fullmodel.rds"))
+maxent <- 
+  data.frame(sorensen = as.numeric(sapply(maxent_fit_files, function(i) readRDS(i)$sorensen_all)),
+             tss = as.numeric(sapply(maxent_fit_files, function(i) readRDS(i)$tss_all)),
+             auc = as.numeric(sapply(maxent_fit_files, function(i) readRDS(i)$auc_all[1,4])),
+             model = "MaxEnt",
+             type = "1Correlative", 
+             test = "1Observedreference")
+maxentcv <- 
+  data.frame(sorensen = as.numeric(sapply(maxent_fit_files, function(i) readRDS(i)$sorensen_test)),
+             tss = as.numeric(sapply(maxent_fit_files, function(i) readRDS(i)$tss_test)),
+             auc = as.numeric(sapply(maxent_fit_files, function(i) readRDS(i)$auc_test[1,4])),
+             model = "MaxEnt",
+             type = "1Correlative", 
+             test = "2Crossvalidationreference")
+
+
 historical_performances <- rbind(
   phenofit, phenofitfitted, castanea, castaneafitted,
-  glm, gam, rf, brt,
-  glmcv, gamcv, rfcv, brtcv
+  glm, gam, rf, brt, maxent,
+  glmcv, gamcv, rfcv, brtcv, maxentcv
 )
 
 historical_performances$type_test <- paste0(historical_performances$type, historical_performances$test)
@@ -186,9 +209,9 @@ boxplot_sorensen <- ggplot(historical_performances) +
         axis.ticks.x = element_blank(), axis.line.x = element_blank(),
         strip.background = element_blank(),
         strip.text = element_text(colour = "black", family= "Helvetica Narrow", size = 9)) +
-  coord_cartesian(ylim=c(0.3, 1), clip = "off")
+  coord_cartesian(ylim=c(0.3, 1))
 
-historical_performances[historical_performances$test == "2Crossvalidationreference", "sign_position"] <- 0.5
+historical_performances[historical_performances$test == "2Crossvalidationreference", "sign_position"] <- 0.48
 boxplot_tss <- ggplot(historical_performances) +
   geom_boxplot(aes(x=type, y=tss, col = type, fill = type, group = type_test),  
                position = position_dodge2(preserve = "single"),
@@ -217,9 +240,9 @@ boxplot_tss <- ggplot(historical_performances) +
         axis.ticks.x = element_blank(), axis.line.x = element_blank(),
         strip.background = element_blank(),
         strip.text = element_text(colour = "black", family= "Helvetica Narrow", size = 9)) +
-  coord_cartesian(ylim=c(0.3, 1), clip = "off")
+  coord_cartesian(ylim=c(0.3, 1))
 
-historical_performances[historical_performances$test == "2Crossvalidationreference", "sign_position"] <- 0.8
+historical_performances[historical_performances$test == "2Crossvalidationreference", "sign_position"] <- 0.79
 boxplot_auc <- ggplot(historical_performances) +
   geom_boxplot(aes(x=type, y=auc, col = type, fill = type, group = type_test),  
                position = position_dodge2(preserve = "single"),
@@ -248,7 +271,7 @@ boxplot_auc <- ggplot(historical_performances) +
         axis.ticks.x = element_blank(), axis.line.x = element_blank(),
         strip.background = element_blank(),
         strip.text = element_text(colour = "black", family= "Helvetica Narrow", size = 9)) +
-  coord_cartesian(ylim=c(0.7, 1), clip = "off")
+  coord_cartesian(ylim=c(0.65, 1))
 
 
 figA14_main <-

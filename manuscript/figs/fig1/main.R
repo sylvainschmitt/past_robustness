@@ -8,8 +8,10 @@ past_climdiss <- readRDS(file.path(wd, "data/climate/metrics","HadCM3B_hypervolu
 names(past_climdiss) <- paste0("clim_hpv_sorensen.",names(past_climdiss))
 
 # future climatic hypervolume overlap, per GCM per scenario
-future_climdiss_gcm <- readRDS(file.path(wd, "data/climate/metrics","CMIP6_hypervolume_similarity_CRUbaseline.rds")) %>% 
-  dplyr::filter(model != "TaiESM1" & model != "EC-Earth3")
+future_climdiss_gcm <- readRDS(file.path(wd, "data/climate/metrics","CMIP6_hypervolume_similarity_CRUbaseline2.rds")) 
+
+# %>% 
+#   dplyr::filter(model != "TaiESM1") # original TaiESM1 tasmax and tasmin outputs were retracted
 
 # future climatic hypervolume overlap, per scenario
 # future_climdiss_ssp <- readRDS(file.path(wd, "data/climate/metrics","CMIP6_hypervolume_similarity_perscenario_CRUbaseline.rds"))
@@ -49,12 +51,12 @@ past_plot <- ggplot() +
         legend.position="none", legend.title=element_blank()) +
   
   # ssp2 - 2060 (using geom_star to rotate triangle...)
-  geom_text(aes(x = 5000, 0.256, label = "SSP2"), col = "#f69320", size = 2.7, family= "Helvetica Narrow") +
-  ggstar::geom_star(aes(x = 11800, y = 0.279), col = "black", fill = "#f69320", angle = -90, starshape = 11, size = 2.4) +
+  geom_text(aes(x = 5000, 0.259, label = "SSP2"), col = "#f69320", size = 2.7, family= "Helvetica Narrow") +
+  ggstar::geom_star(aes(x = 11800, y = 0.282), col = "black", fill = "#f69320", angle = -90, starshape = 11, size = 2.4) +
   
   # ssp5 - 2060
-  geom_text(aes(x = 5000, 0.355, label = "SSP5"), col = "#bf1d1e", size = 2.7, family= "Helvetica Narrow") +
-  ggstar::geom_star(aes(x = 11800, y = 0.332), col = "black", fill = "#bf1d1e", angle = -90, starshape = 11, size = 2.4) +
+  geom_text(aes(x = 5000, 0.364, label = "SSP5"), col = "#bf1d1e", size = 2.7, family= "Helvetica Narrow") +
+  ggstar::geom_star(aes(x = 11800, y = 0.341), col = "black", fill = "#bf1d1e", angle = -90, starshape = 11, size = 2.4) +
   
   # early holocene
   geom_text(aes(x = 10200, 0.08, label = "Early\nHolocene"), col = "#6867ac", size = 2.5, family= "Helvetica Narrow") +
@@ -63,14 +65,14 @@ past_plot <- ggplot() +
 
 
 future_plot_ssp <- ggplot() +
-  geom_segment(aes(y = 0.279, yend = 0.279, x = 1866, xend = 2060), 
+  geom_segment(aes(y = 0.282, yend = 0.282, x = 1866, xend = 2060), 
                linetype = "dashed", color = "#f69320", size = 0.3, alpha = 0.7) +
-  geom_segment(aes(y = 0.332, yend = 0.332, x = 1866, xend = 2060), 
+  geom_segment(aes(y = 0.341, yend = 0.341, x = 1866, xend = 2060), 
                linetype = "dashed", color = "#bf1d1e", size = 0.3, alpha = 0.7) +
   geom_segment(aes(y = 0.13, yend = 0.13, x = 1866, xend = 1907), 
                linetype = "dashed", color = "#6867ac", size = 0.3, alpha = 0.7) +
   
-  geom_segment(aes(y = 0.004, yend = 0.332, x = 2060, xend = 2060), 
+  geom_segment(aes(y = 0.004, yend = 0.341, x = 2060, xend = 2060), 
                linetype = "dotted", color = "#737272", size = 0.3, alpha = 0.7) +
   geom_segment(aes(y = 0.004, yend = 0.13, x = 1906, xend = 1906), 
                linetype = "dotted", color = "#6867ac", size = 0.3, alpha = 0.7) +

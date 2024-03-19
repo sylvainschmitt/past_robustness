@@ -40,6 +40,6 @@ ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.sorensen,x
         plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")) +
   coord_cartesian(ylim=c(-0.0, 1), xlim = c(0.085, 0.285), clip = "on") +
   annotate("text", label=paste0('R^2*" = CI 95% ["*',betareg_r2$Q2.5,'*", "*',betareg_r2$Q97.5,'*"]"'), 
-           parse=TRUE, x=0.12, y=0.95, family= "Helvetica Narrow", size = 2.7) 
+           parse=TRUE, x=0.13, y=0.95, family= "Helvetica Narrow", size = 2.7) 
 
 

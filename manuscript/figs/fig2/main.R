@@ -63,7 +63,7 @@ plotlist <- unlist(lapply(1:nrow(quercusdeciduous_models), function(i){
     # particular case when migration had to start at 11750 rather than 12000
     if(fagus_models[i, "name"] %in% c("Random Forest") & y == 11750){
       plot <- plot +
-        annotate("text", x = -8, y = 63, label = "*", color = "black",
+        annotate("text", x = -8, y = 62.5, label = "*", color = "black",
                  family= "Helvetica", size = 6)
     }
     
@@ -81,8 +81,9 @@ plotlist <- rlist::list.append(rep(NA,6),
                                NA, plotlist[21:25],
                                NA, plotlist[26:30],
                                NA, plotlist[31:35],
-                               NA, plotlist[36:40])
+                               NA, plotlist[36:40],
+                               NA, plotlist[41:45])
 
 fig2_main <- cowplot::plot_grid(plotlist = plotlist, ncol = 6, align = "hv", 
                                 rel_widths = c(0.13,1,1,1,1,1), 
-                                rel_heights = c(0.05,rep(1,8)))
+                                rel_heights = c(0.05,rep(1,9)))
