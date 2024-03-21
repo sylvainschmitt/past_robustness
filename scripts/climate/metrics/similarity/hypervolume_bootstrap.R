@@ -51,13 +51,39 @@ saveRDS(hypervolume_similarity_statistics, file = file.path(data_dir, "hypervolu
 # FUTURE CLIMATE: hypervolume similarity #
 #----------------------------------------#
 
-data_dir <- "E:/USERS/VanderMeersch/data/hypervolume/pca_future"
+data_dir <- "E:/USERS/VanderMeersch/data/hypervolume/pca_future_nex"
 scenarios <- c("ssp245", "ssp585")
-models <- c("GFDL-ESM4", "IPSL-CM6A-LR", "MPI-ESM1-2-HR", "MRI-ESM2-0", "UKESM1-0-LL")
-years <- seq(2005, 2095, 1)
+
+models <- c(
+  "ACCESS-CM2", "ACCESS-ESM1-5",
+  "BCC-CSM2-MR",
+  "CanESM5",
+  "CESM2", "CESM2-WACCM",
+  "CMCC-CM2-SR5", "CMCC-ESM2",
+  "CNRM-CM6-1",
+  "CNRM-ESM2-1",
+  "EC-Earth3", "EC-Earth3-Veg-LR",
+  "FGOALS-g3",
+  "GFDL-CM4", "GFDL-CM4_gr2", "GFDL-ESM4",
+  "GISS-E2-1-G",
+  "HadGEM3-GC31-LL", # "HadGEM3-GC31-MM",
+  "IITM-ESM",
+  "INM-CM4-8", "INM-CM5-0",
+  "IPSL-CM6A-LR",
+  "KACE-1-0-G", 
+  "KIOST-ESM",
+  "MIROC6", "MIROC-ES2L",
+  "MPI-ESM1-2-HR", "MPI-ESM1-2-LR", 
+  "MRI-ESM2-0",
+  "NESM3", 
+  "NorESM2-LM", "NorESM2-MM", 
+  "TaiESM1", 
+  "UKESM1-0-LL")
+  
+years <- seq(2020, 2095, 1)
 CI <- 0.95
 
-# climate similarity future v.s. present, based on bootstraps (to calculate SD & CI)
+# Climate similarity future v.s. present, based on bootstraps (to calculate SD & CI)
 setwd(data_dir)
 hypervolume_similarity_statistics <- data.frame() # per model per scenario
 hypervolume_similarity_statistics_scenario <- data.frame() # per scenario 
@@ -76,7 +102,7 @@ for(s in scenarios){
     cat(paste0("  Model ", m, "\n"))
     
     ## generate bootstraps and distribution of overlap index (20*20 overlaps)
-    plan(multisession, workers = 3)
+    plan(multisession, workers = 2)
     hypervolume_bootstraps <- future_sapply(years, function(yr){
       projection_domain <- readRDS(file.path(data_dir, s, m, paste0("projection_domain_", yr, ".rds")))
       projection_domain_path <- hypervolume_resample(paste0("projection_domain_", yr), projection_domain, n = 20,
@@ -87,7 +113,7 @@ for(s in scenarios){
     gc()
     
     ## compute distributions of overlap index (20*20 overlaps)
-    plan(multisession, workers = 46)
+    plan(multisession, workers = 19)
     hypervolume_similarity <- future_sapply(years, function(yr){
       projection_domain_path <- file.path(data_dir, "Objects", paste0("projection_domain_", yr))
       hyp_ov <- hypervolume_overlap_confidence(projection_domain_path, calibration_domain_path)
@@ -95,7 +121,6 @@ for(s in scenarios){
     }, future.seed=TRUE, future.stdout = FALSE)
     plan(sequential)
     gc()
-    
     
     ## calculate statistics per model
     hypervolume_similarity_statistics_sm <- apply(hypervolume_similarity, 2, function(d){
@@ -127,12 +152,12 @@ for(s in scenarios){
   
   ## calculate statistics per scenario
   hypervolume_similarity_statistics_s <- apply(hypervolume_similarity_distribution_s, 2, function(d){
-
+    
     mean <- mean(d)
     sd <- sd(d)
     median <- median(d)
     qnt <- quantile(d, c(0.5 - CI/2, 0.5 + CI/2))
-    iqr <- quantile(distribution[, "sorensen"], c(0.25, 0.75))
+    iqr <- quantile(d, c(0.25, 0.75))
     
     return(c(mean, sd, median, qnt, iqr))
   })
@@ -144,6 +169,3 @@ for(s in scenarios){
                                                       hypervolume_similarity_statistics_s)
   
 }
-saveRDS(hypervolume_similarity_statistics, file = file.path(data_dir, "hypervolume_similarity_statistics.rds"))
-saveRDS(hypervolume_similarity_statistics_scenario, 
-        file = file.path(data_dir, "hypervolume_similarity_statistics_scenario.rds"))
