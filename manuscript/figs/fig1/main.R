@@ -8,7 +8,7 @@ past_climdiss <- readRDS(file.path(wd, "data/climate/metrics","HadCM3B_hypervolu
 names(past_climdiss) <- paste0("clim_hpv_sorensen.",names(past_climdiss))
 
 # future climatic hypervolume overlap, per GCM per scenario
-future_climdiss_gcm <- readRDS(file.path(wd, "data/climate/metrics","CMIP6_hypervolume_similarity_CRUbaseline2.rds")) 
+future_climdiss_gcm <- readRDS(file.path(wd, "data/climate/metrics","CMIP6_hypervolume_similarity_CRUbaseline.rds")) 
 
 # %>% 
 #   dplyr::filter(model != "TaiESM1") # original TaiESM1 tasmax and tasmin outputs were retracted
