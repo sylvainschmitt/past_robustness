@@ -12,3 +12,6 @@ past_robustness.Rproj
 data/climate/hypervolume/present_domain.rds
 
 **/data/climate/metrics/old/
+
+**/manuscript/figs/files/
+**/manuscript/versions/
