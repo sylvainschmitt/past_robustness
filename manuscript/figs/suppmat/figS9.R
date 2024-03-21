@@ -92,7 +92,7 @@ delta_plot <- ggplot(data = model_performance_mean_perspeciespermodel, aes(x = c
                     labels = c("Correlative", "Fitted process-based", "Expert process-based"))
 
 
-figA12_main <- plot_grid(delta_plot, xy_plot,
+figS9_main <- plot_grid(delta_plot, xy_plot,
                          rel_widths = c(0.6,0.4),
                          labels = c("a", "b"), 
                          label_fontfamily = "Helvetica Narrow", label_size = 11)

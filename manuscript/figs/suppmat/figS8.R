@@ -274,7 +274,7 @@ boxplot_auc <- ggplot(historical_performances) +
   coord_cartesian(ylim=c(0.65, 1))
 
 
-figA14_main <-
+figS8_main <-
   plot_grid(
   plot_grid(boxplot_sorensen, boxplot_tss, boxplot_auc + theme(legend.position="none"), ncol = 3,
             labels = c("a", "b", "c"), 

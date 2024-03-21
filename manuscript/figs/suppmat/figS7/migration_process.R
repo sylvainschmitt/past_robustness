@@ -25,7 +25,7 @@ zoom_plot <- ggplot() +
   theme(axis.text = element_blank(), 
         panel.border = element_rect(colour = "black", fill=NA, size=1))
   
-figA4_main <- ggplot() +
+figS7_migration_process <- ggplot() +
   geom_spatraster(data = initial_distribution) +
   scale_fill_manual(values = c("#ededed", "#4f928e"), na.value = NA , guide = 'none') +
   new_scale_fill() +

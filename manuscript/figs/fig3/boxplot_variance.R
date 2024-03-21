@@ -20,7 +20,7 @@ boxplot_sdperformance <- ggplot(model_performance_var, aes(x = type, y = sd_migs
   geom_violin(trim=TRUE, alpha = 0.15, linewidth = NA) +
   geom_boxplot(alpha = 0.3, outlier.size = 0.1, width = 0.3, linewidth = 0.3, fatten = 2) +
   scale_y_continuous(expand = expansion(mult = c(0, 0)),
-                     breaks = seq(0,0.4,0.05),
+                     breaks = seq(0,0.4,0.1),
                      name = "Performance (std. dev.)") +
   geom_text(data = data_letters, aes(x = as.character(Group), label = Letter, y = c(rep(0.38,3))), vjust = 0, inherit.aes = F,
             family = "Helvetica Narrow", size = 3) +
@@ -33,7 +33,7 @@ boxplot_sdperformance <- ggplot(model_performance_var, aes(x = type, y = sd_migs
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black", size = 0.5),
-        axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
+        axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 7.5),
         axis.title.y = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(r = 6.5)),
         legend.text = element_text(colour = "black", family= "Helvetica Narrow", size = 9),
         legend.position="none", legend.title=element_blank(),

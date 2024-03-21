@@ -73,6 +73,6 @@ plotlist <- rlist::list.append(rep(NA,6),
                                NA, plotlist[36:40],
                                NA, plotlist[41:45])
 
-figA6_main <- cowplot::plot_grid(plotlist = plotlist, ncol = 6, align = "hv", 
+figS5_main <- cowplot::plot_grid(plotlist = plotlist, ncol = 6, align = "hv", 
                                  rel_widths = c(0.13,1,1,1,1,1), 
                                  rel_heights = c(0.05,rep(1,9)))

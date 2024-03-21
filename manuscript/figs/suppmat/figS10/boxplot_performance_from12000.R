@@ -5,12 +5,6 @@
 
 model_performance_withmig$earlyholoc <- model_performance_withmig$year>=8500
 
-period_names <- c(
-  `TRUE` = "Early Holocene",
-  `FALSE` = "Late-Middle Holocene"
-)
-
-
 # Middle-Late Holocene
 conoverTest_out <- conover.test::conover.test(x=model_performance_withmig[model_performance_withmig$earlyholoc == FALSE,]$mig_sorensen, 
                                               g=model_performance_withmig[model_performance_withmig$earlyholoc == FALSE,]$type, 
@@ -50,10 +44,9 @@ boxplot_performance <- ggplot(model_performance_withmig, aes(x = type, y = mig_s
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black", size = 0.5),
         axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
-        axis.title.y = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(r = 4.5)),
         legend.text = element_text(colour = "black", family= "Helvetica Narrow", size = 9),
         legend.position="none", legend.title=element_blank(),
-        axis.text.x = element_blank(), axis.title.x = element_blank(),
+        axis.text.x = element_blank(), axis.title = element_blank(),
         axis.ticks.x = element_blank(), axis.line.x = element_blank(),
         strip.background = element_blank(),
         strip.text = element_text(colour = "black", family= "Helvetica Narrow", size = 9)) +

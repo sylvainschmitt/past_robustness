@@ -63,7 +63,7 @@ boxplot_transferability <- ggplot(model_performance_relchg) +
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black", size = 0.5),
-        axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
+        axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 7.5),
         axis.title = element_text(colour = "black", family= "Helvetica Narrow", size = 9),
         legend.text = element_text(colour = "black", family= "Helvetica Narrow", size = 9),
         legend.position="none", legend.title=element_blank(),
@@ -71,7 +71,7 @@ boxplot_transferability <- ggplot(model_performance_relchg) +
         axis.ticks.x = element_blank(), axis.line.x = element_blank(),
         strip.background = element_blank(),
         strip.text = element_text(colour = "black", family= "Helvetica Narrow", size = 9)) +
-  coord_cartesian(ylim=c(-1, 1.5), clip = "off") +
+  coord_cartesian(ylim=c(-1, 1.53), clip = "on") +
   geom_segment(data = data_frame(earlyholoc = FALSE), aes(x = 3.6, xend = 3.6,
                    y = -1, yend = 1.5),
                size = 0.5, linetype = "dashed", col = "darkgrey")

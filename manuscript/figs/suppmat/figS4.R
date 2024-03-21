@@ -1,10 +1,9 @@
 
-pollen_folder <- "D:/species/pollen/processed/quercus_evergreentype/025deg/0025thr_500yrunc"
-add_pollen_folder <- "D:/species/pollen/processed/quercus_indist/025deg/0025thr_500yrunc"
+pollen_folder <- "D:/species/pollen/processed/fagus/025deg/001thr_500yrunc"
 
-plotlist <- unlist(lapply(1:nrow(quercusevergreen_models), function(i){
-  plots <- lapply(c(11750, 11000, 9000, 7000, 500), function(y){
-    out <- crop(readRDS(file.path(quercusevergreen_models[i, "simfolder"], paste0(y,"BP.rds"))), ext(-10,30,34,66)) %>%
+plotlist <- unlist(lapply(1:nrow(fagus_models), function(i){
+  plots <- lapply(c(11750, 11000, 8500, 7000, 500), function(y){
+    out <- crop(readRDS(file.path(fagus_models[i, "simfolder"], paste0(y,"BP.rds"))), ext(-10,30,34,66)) %>%
       as.data.frame(xy = TRUE)
     names(out) <- c("lon", "lat", "value")
     
@@ -38,15 +37,11 @@ plotlist <- unlist(lapply(1:nrow(quercusevergreen_models), function(i){
     # add model name
     if(y == 11750){
       plot <- plot +
-        annotate("text", x = -12.7, y = 50, label = quercusevergreen_models[i, "name"], color = "black",
+        annotate("text", x = -12.7, y = 50, label = fagus_models[i, "name"], color = "black",
                  family= "Helvetica", size = 3, angle = 90)
-    }else{
+    }else if (y <= 8500){
       # add pollen points
       pollen <- readRDS(file.path(pollen_folder, paste0("pres_", y, "BP.rds")))
-      add_pollen <- readRDS(file.path(add_pollen_folder, paste0("pres_", y, "BP.rds")))
-      add_pollen[add_pollen$likely_only_deciduous == 1, "pres"]  <- 0 # evergreen only
-      pollen <- dplyr::full_join(pollen, add_pollen, by = c("lat", "lon"))
-      pollen$pres <- rowSums(pollen[, c("pres.x", "pres.y")], na.rm = T)
       pollen$pres <- ifelse(pollen$pres > 0, 1, 0)
       
       plot <- plot +
@@ -55,14 +50,14 @@ plotlist <- unlist(lapply(1:nrow(quercusevergreen_models), function(i){
     }
     
     # add years (only first line)
-    if(quercusevergreen_models[i, "name"] == "BRT"){
+    if(fagus_models[i, "name"] == "BRT"){
       plot <- plot +
         annotate("text", x = 10, y = 68, label = paste0(y," BP"), color = "black",
                  family= "Helvetica", size = 3)
     }
     
-    # particular case when migration had to start at 11750 rather than 12000 (all models actually)
-    if(y == 11750){
+    # particular case when migration had to start at 11750 rather than 12000
+    if(fagus_models[i, "name"] %in% c("GAM","GLM","PHENOFIT", "MaxEnt") & y == 11750){
       plot <- plot +
         annotate("text", x = -8, y = 62.5, label = "*", color = "black",
                  family= "Helvetica", size = 6)
@@ -85,6 +80,6 @@ plotlist <- rlist::list.append(rep(NA,6),
                                NA, plotlist[36:40],
                                NA, plotlist[41:45])
 
-figA7_main <- cowplot::plot_grid(plotlist = plotlist, ncol = 6, align = "hv", 
+figS4_main <- cowplot::plot_grid(plotlist = plotlist, ncol = 6, align = "hv", 
                                 rel_widths = c(0.13,1,1,1,1,1), 
                                 rel_heights = c(0.05,rep(1,9)))

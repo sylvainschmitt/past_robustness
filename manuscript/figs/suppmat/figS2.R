@@ -88,7 +88,7 @@ future_plot_sspgcm <- ggplot() +
         plot.margin = margin(r = 12.5, b = 5.5, t = 5.5, l = 5.5),
         legend.position="none", legend.title=element_blank())
 
-figA3_main <- plot_grid(
+figS2_main <- plot_grid(
   plot_grid(hypervolume_past_plot, burke_past_plot, ncol = 1, 
             labels = c("", ""), label_fontfamily = "Helvetica Narrow", label_size = 11,
             align = "hv", axis = "tblr"),

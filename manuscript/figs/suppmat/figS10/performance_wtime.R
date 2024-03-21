@@ -8,7 +8,7 @@ model_performance_median <- model_performance_withmig %>%
   dplyr::summarise(median_migtss=median(mig_sorensen), sd_migtss=sd(mig_sorensen)) %>%
   as.data.frame()
 
-figA13_main <- ggplot(model_performance_withmig, aes(x = year, y = mig_sorensen, color = type, fill = type)) +
+figS10_performance_wtime <- ggplot(model_performance_withmig, aes(x = year, y = mig_sorensen, color = type, fill = type)) +
   # geom_segment(aes(x = 12000-critpoint_csdm, y = -Inf,
   #                  xend = 12000-critpoint_csdm,
   #                  yend = critpoint_csdm_y ),
@@ -46,7 +46,8 @@ figA13_main <- ggplot(model_performance_withmig, aes(x = year, y = mig_sorensen,
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
         axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 7.5),
-        axis.title = element_text(colour = "black", family= "Helvetica Narrow", size = 9), 
+        axis.title.y = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(r = 4.5)),
+        axis.title.x = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(t = 4.5)),
         legend.text = element_text(colour = "black", family= "Helvetica Narrow", size = 7.5),
         legend.position="none", legend.title=element_blank(),
         legend.key.size = unit(0.4, "cm"), legend.justification = "center",

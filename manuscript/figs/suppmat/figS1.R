@@ -136,7 +136,7 @@ d18O_plot <- ggplot() +
                                           margin = margin(l = 5)))
 
 # 2.3. Assemble!
-figA1_main <- plot_grid(
+figS1_main <- plot_grid(
   d18O_plot,
   NULL,
   main_plot,

@@ -116,7 +116,6 @@
 \DeclareOption{Numbered}{\global\@Numbered@refstyletrue}%
 \DeclareOption{NameDate}{\global\@Numbered@refstylefalse}%
 
-
 %%\ExecuteOptions{twosidecrop,crop,centre,info,croppage}
 \ProcessOptions
 \LoadClass[twoside,fleqn]{article}
@@ -136,6 +135,7 @@
 \DeclareNewFootnote{A}[gobble]%
 \setlength{\skip\footinsA}{0pt}}%
 %
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Fonts & Sizes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %% Fonts Used

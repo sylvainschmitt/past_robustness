@@ -7,11 +7,13 @@ quercusdeciduous_models_withrep <- data.frame(
     "Random Forest",
     "GAM",
     "GLM",
+    "MaxEnt",
     "PHENOFIT",
     "CASTANEA",
     "PHENOFIT (fitted)",
     "CASTANEA (fitted)"),
   type = c(
+    "1Correlative",
     "1Correlative",
     "1Correlative",
     "1Correlative",
@@ -25,6 +27,7 @@ quercusdeciduous_models_withrep <- data.frame(
     paste0(wd, "/data/simulations/migration/csdm/random_forest/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_rep_from11750"),
     paste0(wd, "/data/simulations/migration/csdm/gam/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_rep_from12000"),
     paste0(wd, "/data/simulations/migration/csdm/lasso_glm/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_rep_from12000"),
+    paste0(wd, "/data/simulations/migration/csdm/maxent/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_rep_from12000"),
     paste0(wd, "/data/simulations/migration/phenofit/expert/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_rep_from12000"),
     paste0(wd, "/data/simulations/migration/castanea/expert/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_rep_from12000"),
     paste0(wd, "/data/simulations/migration/phenofit/fitted/quercus_deciduous_expandLDD_scprb_2km20km_fullmodel_rep_from12000"),
@@ -38,7 +41,7 @@ quercusdeciduous_performance <- load_model_performance_withrep(
   evergreen = FALSE)
 quercusdeciduous_performance$species <- "quercusdeciduous"
 
-figA16_main <- ggplot(data = quercusdeciduous_performance) +
+figS7_migration_stochasticity <- ggplot(data = quercusdeciduous_performance) +
   facet_grid(~ type) +
   geom_boxplot(aes(x = rep, y = mig_sorensen, group = rep, color = type, fill = type),
                alpha = 0.3, outlier.size = 0.1, width = 0.6, linewidth = 0.3, fatten = 2) +

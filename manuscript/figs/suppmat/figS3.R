@@ -93,4 +93,4 @@ pc13 <- ggplot(data = hypervolumes, aes(x = PC1, y = PC3, color = period, fill =
   labs(x = "PC1 (52.5%)", y = "PC3 (7.3%)")
 
 
-figA15_main <- plot_grid(pc12, pc13, ncol = 2)
+figS3_main <- plot_grid(pc12, pc13, ncol = 2)

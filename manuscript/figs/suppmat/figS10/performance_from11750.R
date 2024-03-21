@@ -15,7 +15,8 @@
 # 
 # figA10_main <- plot_grid(upper_panel, lower_panel, ncol = 1, rel_heights = c(1.3, 1))
 
-figA10_main <- plot_grid(ordbetareg_plot + theme(legend.position = "none"), 
+figS10_performance_from11750 <- 
+  plot_grid(ordbetareg_plot + theme(legend.position = "none"), 
                         boxplot_performance,
                         ncol = 2, rel_widths = c(0.55,0.4), align = "hv", axis = "tblr",
-                        labels = c("d", "e"), label_fontfamily = "Helvetica Narrow", label_size = 11)
+                        labels = c("e", "f"), label_fontfamily = "Helvetica Narrow", label_size = 11)

@@ -30,7 +30,7 @@ ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.migsorense
   guides(fill=guide_legend(nrow=3,byrow=TRUE), color = guide_legend(nrow=3,byrow=TRUE)) +
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
+        axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 7.5),
         axis.title.y = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(r = 4.5)),
         axis.title.x = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(t = 4.5)),
         legend.text = element_text(colour = "black", family= "Helvetica Narrow", size = 9),
