@@ -45,9 +45,9 @@ past_plot <- ggplot() +
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
-        axis.title.y = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(r = 4.5)),
-        axis.title.x = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(t = 4.5)),
+        axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 6.5),
+        axis.title.y = element_text(colour = "black", family= "Helvetica Narrow", size = 6.5, margin = margin(r = 4.5)),
+        axis.title.x = element_text(colour = "black", family= "Helvetica Narrow", size = 6.5, margin = margin(t = 4.5)),
         legend.position="none", legend.title=element_blank()) +
   
   # ssp2 - 2060 (using geom_star to rotate triangle...)
@@ -103,8 +103,8 @@ future_plot_ssp <- ggplot() +
         axis.line.y = element_blank(), axis.text.y = element_blank(), 
         axis.ticks.y = element_blank(), axis.title.y = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
-        axis.text.x = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
-        axis.title.x = element_text(colour = "black", family= "Helvetica Narrow", size = 9, margin = margin(t = 4.5)),
+        axis.text.x = element_text(colour = "black", family= "Helvetica Narrow", size = 6.5),
+        axis.title.x = element_text(colour = "black", family= "Helvetica Narrow", size = 6.5, margin = margin(t = 4.5)),
         plot.margin = margin(r = 8.5, b = 5.5, t = 5.5, l = 5.5),
         legend.position="none", legend.title=element_blank())
 

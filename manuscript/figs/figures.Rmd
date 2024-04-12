@@ -41,16 +41,16 @@ source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 ```
 
-```{r quercus_deciduous_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for deciduous oaks.", eval = F}
+```{r quercus_deciduous_simulations, fig.height = 240, fig.width = 122, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for deciduous oaks.", eval = T}
 
-source(file.path(wd, "manuscript", "figs", "fig2", "main.R")) 
+source(file.path(wd, "manuscript", "figs", "fig2", "main2.R")) 
 fig2_main
 
 ```
 
 \newpage
 
-```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance of correlative models, fitted process-based models (inverse calibration using occurrence data) and expert process-based models (classical calibration) against Holocene paleoecogical evidence (fossil pollen) for 4 tree genera.", eval = T}
+```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance of correlative models, fitted process-based models (inverse calibration using occurrence data) and expert process-based models (classical calibration) against Holocene paleoecogical evidence (fossil pollen) for 4 tree genera.", eval = F}
 
 source(file.path(wd, "manuscript", "processing", "ordered_beta_regression.R"))
 
@@ -137,21 +137,21 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figS9.R"))
 figS9_main
 ```
 
-```{r past_performance_wtime, eval = T}
+```{r past_performance_wtime, eval = F}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "linear_plateau_regression.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10","performance_wtime.R")) 
 
 ```
 
-```{r past_performance_TSS, eval = T}
+```{r past_performance_TSS, eval = F}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_withTSS.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "beta_regression_withTSS.R"))
 
 ```
 
-```{r past_performance_nomigration, eval = T}
+```{r past_performance_nomigration, eval = F}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_womigration.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "beta_regression_nomigration.R"))
@@ -160,7 +160,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "performance_nom
 
 ```
 
-```{r past_performance_from11750, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = T}
+```{r past_performance_from11750, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = F}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11750.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
@@ -172,7 +172,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "performance_fro
 
 ```
 
-```{r past_performance_from12000, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = T}
+```{r past_performance_from12000, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = F}
 
 source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from12000.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
@@ -184,7 +184,7 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "performance_fro
 
 ```
 
-```{r figS10_past_performance_summary, fig.height = 240, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance of correlative models, fitted process-based models (inverse calibration using occurrence data) and expert process-based models (classical calibration).", eval = T}
+```{r figS10_past_performance_summary, fig.height = 240, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance of correlative models, fitted process-based models (inverse calibration using occurrence data) and expert process-based models (classical calibration).", eval = F}
 
 # plot_grid(plot_grid(NULL, figS10_performance_wtime, NULL,
 #                     labels = c("","a","") , 
