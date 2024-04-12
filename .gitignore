@@ -16,5 +16,6 @@ data/climate/hypervolume/present_domain.rds
 **/manuscript/figs/files/
 **/manuscript/versions/
 **/manuscript/figs/suppmat/old/
+**/manuscript/main/old/
 
 **/scripts/climate/generate/scripts/daily_weather_generator/
