@@ -1,5 +1,5 @@
 ---
-title: "Biological mechanisms are necessary to improve the robustness of species distribution models"
+title: "Paleorecords reveal biological mechanisms critical for reliable species range shift projections amid rapid climate change"
 subtitle: "Figures for manuscript and extended data"
 author: "V. Van der Meersch et al."
 geometry: "left=1cm,right=1cm,top=1cm,bottom=1cm"
