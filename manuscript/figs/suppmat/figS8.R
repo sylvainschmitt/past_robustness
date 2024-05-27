@@ -194,10 +194,10 @@ boxplot_sorensen <- ggplot(historical_performances) +
                      name = "Sorensen index") +
   scale_color_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                      values= c( "#457b9d", "#995D81", "#018530"),
-                     labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                     labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   scale_fill_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                     values= c( "#457b9d", "#995D81", "#018530"),
-                    labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                    labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black", size = 0.5),
@@ -225,10 +225,10 @@ boxplot_tss <- ggplot(historical_performances) +
                      name = "TSS") +
   scale_color_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                      values= c( "#457b9d", "#995D81", "#018530"),
-                     labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                     labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   scale_fill_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                     values= c( "#457b9d", "#995D81", "#018530"),
-                    labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                    labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black", size = 0.5),
@@ -256,10 +256,10 @@ boxplot_auc <- ggplot(historical_performances) +
                      name = "AUC") +
   scale_color_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                      values= c( "#457b9d", "#995D81", "#018530"),
-                     labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                     labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   scale_fill_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                     values= c( "#457b9d", "#995D81", "#018530"),
-                    labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                    labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   theme_bw() + 
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(), axis.line = element_line(colour = "black", size = 0.5),
@@ -279,5 +279,5 @@ figS8_main <-
   plot_grid(boxplot_sorensen, boxplot_tss, boxplot_auc + theme(legend.position="none"), ncol = 3,
             labels = c("a", "b", "c"), 
             label_fontfamily = "Helvetica Narrow", label_size = 11),
-  get_legend(boxplot_auc), ncol = 1, rel_heights = c(1,.15)
+  cowplot::get_plot_component(boxplot_auc, 'guide-box-bottom', return_all = TRUE), ncol = 1, rel_heights = c(1,.15)
   )

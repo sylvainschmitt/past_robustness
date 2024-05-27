@@ -49,10 +49,10 @@ xy_plot <- ggplot(data = model_performance_mean_perspeciespermodel, aes(x=mean_s
                      labels = c("Late-Middle Holocene", "Early Holocene")) +
   scale_color_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                      values= c( "#457b9d", "#995D81", "#018530"),
-                     labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                     labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   scale_fill_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                     values= c( "#457b9d", "#995D81", "#018530"),
-                    labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                    labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   guides(colour = "none")
 
 # Summarize model performances
@@ -86,10 +86,10 @@ delta_plot <- ggplot(data = model_performance_mean_perspeciespermodel, aes(x = c
         plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")) +
   scale_color_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                      values= c( "#457b9d", "#995D81", "#018530"),
-                     labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                     labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   scale_fill_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                     values= c( "#457b9d", "#995D81", "#018530"),
-                    labels = c("Correlative", "Fitted process-based", "Expert process-based"))
+                    labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit"))
 
 
 figS9_main <- plot_grid(delta_plot, xy_plot,

@@ -22,10 +22,10 @@ ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.sorensen,x
                      name = "Performance\n(no migration)") +
   scale_color_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                      values= c( "#457b9d", "#995D81", "#018530"),
-                     labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                     labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   scale_fill_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                     values= c( "#457b9d", "#995D81", "#018530"),
-                    labels = c("Correlative", "Fitted process-based", "Expert process-based")) +
+                    labels = c("Correlative", "Fitted process-explicit", "Expert process-explicit")) +
   theme_bw() + 
   guides(fill=guide_legend(nrow=3,byrow=TRUE), color = guide_legend(nrow=3,byrow=TRUE)) +
   theme(panel.border = element_blank(), panel.grid.major = element_blank(),

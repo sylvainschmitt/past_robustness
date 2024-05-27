@@ -2038,46 +2038,6 @@ year = {2004}
   urldate   = {2024-05-27},
 }
 
-@Article{Ivory2019,
-  author    = {Ivory, Sarah J. and Russell, James and Early, Regan and Sax, Dov F.},
-  journal   = {Global Ecology and Biogeography},
-  title     = {Broader niches revealed by fossil data do not reduce estimates of range loss and fragmentation of {African} montane trees},
-  year      = {2019},
-  issn      = {1466-8238},
-  number    = {7},
-  pages     = {992--1003},
-  volume    = {28},
-  abstract  = {Aim The climate tolerances of many species are broader than those estimated from current native ranges. Indeed, the niches of some Afromontane trees are up to 50\% larger after incorporation of fossil data. This expansion could reduce estimates of species' future range loss owing to climate change but also implies strong non-climatic limitations on species' current ranges. One such limitation is land use, which fossil data suggest influences Afromontane tree distribution, preventing these trees from occupying warmer conditions than they do currently. We aimed to assess the degree to which the broader climatic tolerances revealed by fossil data buffer projected range loss from climate and land use for Afromontane trees. Location Africa. Time period Last 21,000 years. Major taxa studied Afromontane trees. Methods We used species distribution models informed by both current and fossil distributions to project future ranges under climate and land-use projections. Results We found that projected range reductions are only slightly ameliorated by incorporation of fossil distributions, and these improvements diminish further under severe land-use or climate change scenarios. Taxa that are less impacted by climate are more impacted by intense land use. Depending on the severity of climate and land use, the geographical extent of Afromontane tree species' ranges will contract by 40–85\%, and the trees will be completely lost from large portions of Africa. We projected that the surviving species' ranges will become increasingly fragmented. Main conclusions Maintaining Afromontane ecosystems will require mitigation of both climate and land-use change and protection of areas to optimize connectivity. Our findings caution that species with climate tolerances broader than their current range might not necessarily fare better under strong changes in climate or land use.},
-  copyright = {© 2019 John Wiley \& Sons Ltd},
-  doi       = {10.1111/geb.12909},
-  file      = {Full Text PDF:https\://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/geb.12909:application/pdf},
-  keywords  = {Afromontane, biogeography, niche, palaeoecology, range collapse, species distribution models, tropical climate, tropical forests},
-  language  = {en},
-  url       = {https://onlinelibrary.wiley.com/doi/abs/10.1111/geb.12909},
-  urldate   = {2024-05-27},
-}
-
-@Article{Guo2018,
-  author    = {Guo, Fengyi and Lenoir, Jonathan and Bonebrake, Timothy C.},
-  journal   = {Nature Communications},
-  title     = {Land-use change interacts with climate to determine elevational species redistribution},
-  year      = {2018},
-  issn      = {2041-1723},
-  month     = apr,
-  number    = {1},
-  pages     = {1315},
-  volume    = {9},
-  abstract  = {Climate change is driving global species redistribution with profound social and economic impacts. However, species movement is largely constrained by habitat availability and connectivity, of which the interaction effects with climate change remain largely unknown. Here we examine published data on 1464 elevational range shifts from 43 study sites to assess the confounding effect of land-use change on climate-driven species redistribution. We show that baseline forest cover and recent forest cover change are critical predictors in determining the magnitude of elevational range shifts. Forest loss positively interacts with baseline temperature conditions, such that forest loss in warmer regions tends to accelerate species’ upslope movement. Consequently, not only climate but also habitat loss stressors and, importantly, their synergistic effects matter in forecasting species elevational redistribution, especially in the tropics where both stressors will increase the risk of net lowland biotic attrition.},
-  copyright = {2018 The Author(s)},
-  doi       = {10.1038/s41467-018-03786-9},
-  file      = {Full Text PDF:https\://www.nature.com/articles/s41467-018-03786-9.pdf:application/pdf},
-  keywords  = {Biogeography, Climate-change ecology, Conservation biology},
-  language  = {en},
-  publisher = {Nature Publishing Group},
-  url       = {https://www.nature.com/articles/s41467-018-03786-9},
-  urldate   = {2024-05-27},
-}
-
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:

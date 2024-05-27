@@ -32,7 +32,7 @@ fig1_main
 
 \newpage
 
-```{r process_model_outputs, include = F, eval = T}
+```{r process_model_outputs, include = F, eval = F}
 source(file.path(wd, "manuscript", "processing", "model_simulations.R"))
 source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 
@@ -41,7 +41,7 @@ source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 ```
 
-```{r quercus_deciduous_simulations, fig.height = 240, fig.width = 122, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for deciduous oaks.", eval = T}
+```{r quercus_deciduous_simulations, fig.height = 240, fig.width = 122, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for deciduous oaks.", eval = F}
 
 source(file.path(wd, "manuscript", "figs", "fig2", "main2.R")) 
 fig2_main
@@ -58,8 +58,8 @@ source(file.path(wd, "manuscript", "figs", "fig3", "beta_regression.R"))
 source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_performance.R"))
 source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_variance.R"))
 source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_transferability.R"))
-source(file.path(wd, "manuscript", "figs", "fig3", "main2.R"))
-fig3_main
+#source(file.path(wd, "manuscript", "figs", "fig3", "main2.R"))
+# fig3_main
 
 ```
 
@@ -205,7 +205,7 @@ plot_grid(plot_grid(figS10_performance_wtime, figS10_performance_TSS + theme(leg
           figS10_performance_nomigration,
           figS10_performance_from11750,
           figS10_performance_from12000,
-          get_legend(ordbetareg_plot),
+          cowplot::get_plot_component(ordbetareg_plot, 'guide-box-bottom', return_all = TRUE),
           ncol = 1, rel_heights = c(0.5, 0.5, 0.5, 0.5, 0.1))
 
 

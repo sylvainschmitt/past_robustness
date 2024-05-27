@@ -47,10 +47,10 @@ figS7_migration_stochasticity <- ggplot(data = quercusdeciduous_performance) +
                alpha = 0.3, outlier.size = 0.1, width = 0.6, linewidth = 0.3, fatten = 2) +
   scale_color_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                      values= c( "#457b9d", "#995D81", "#018530"),
-                     labels = c("CSDM     ", "Fitted PBM   ", "Expert PBM     ")) +
+                     labels = c("CSDM     ", "Fitted PEM   ", "Expert PEM     ")) +
   scale_fill_manual(breaks= c("1Correlative", "2Fittedprocessbased", "3Expertprocessbased"),
                     values= c( "#457b9d", "#995D81", "#018530"),
-                    labels = c("CSDM     ", "Fitted PBM   ", "Expert PBM     ")) +
+                    labels = c("CSDM     ", "Fitted PEM   ", "Expert PEM     ")) +
   scale_y_continuous(expand = expansion(mult = c(0, 0)),
                      breaks = seq(0,1,0.2),
                      name = "Performance") +

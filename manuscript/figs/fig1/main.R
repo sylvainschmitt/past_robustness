@@ -112,5 +112,5 @@ future_plot_ssp <- ggplot() +
 fig1_main <- ggdraw() +
   draw_plot(past_plot, x = 0, y = 0, width = 0.65, height = 1) +
   draw_plot(future_plot_ssp, x = 0.65, y = 0, width = 0.35, height = 1) +
-  annotate("segment", x = 0.646, xend = 0.654,  y = 0.148, yend = 0.172, color = "black") +
-  annotate("segment", x = 0.652, xend = 0.66,  y = 0.148, yend = 0.172, color = "black")
+  annotate("segment", x = 0.646, xend = 0.654,  y = 0.140, yend = 0.164, color = "black") +
+  annotate("segment", x = 0.652, xend = 0.66,  y = 0.140, yend = 0.164, color = "black")
