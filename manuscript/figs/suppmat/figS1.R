@@ -87,13 +87,14 @@ main_plot <- ggplot() +
         axis.title = element_text(colour = "black", family= "Helvetica", size = 8),
         axis.title.y = element_text(margin = margin(r = 4.5)),
         axis.title.x = element_text(margin = margin(t = 4.5)),
-        legend.text = element_text(colour = "black", family= "Helvetica", size = 7, margin = margin(t = -2)),
-        legend.title = element_text(colour = "black", family= "Helvetica", size = 7),
+        legend.text = element_text(colour = "black", family= "Helvetica", size = 6.7, margin = margin(t = 1.5)),
+        legend.title = element_text(colour = "black", family= "Helvetica", size = 7, margin = margin(b = 2)),
         legend.title.align = 0.5, 
         legend.key.height = unit(0.2, 'cm'), legend.key.width = unit(0.8, 'cm'),
         legend.margin=margin(t = 0.1, b=0.05, r = 0.3, l = 0.3, unit='cm'),
         legend.position=c(.827,.135),
-        legend.background = element_rect(colour="black", fill="white")) +
+        legend.background = element_rect(colour="black", fill="white"),
+        legend.ticks = element_blank()) +
   
   annotate("text", x = 14800, y = 12.8, label = "Late Pleistocene", color = "black", family= "Helvetica", size = 3.3) +
   annotate("text", x = 6000, y = 12.8, label = "Holocene", color = "black", family= "Helvetica", size = 3.3) +
@@ -105,8 +106,7 @@ main_plot <- ggplot() +
   
   geom_rect(aes(xmin=150, xmax=17850, ymin=-3.4, ymax= 13.7), fill = NA, color = "black", size = 0.8) +
   geom_segment(aes(x = 0, xend = 18000, y = 12, yend = 12), color ="black", size = 0.6) +
-  guides(fill = guide_colorbar(title.position = "top", direction = "horizontal", frame.colour = "black", frame.linewidth = 0.3,
-                               ticks = FALSE))
+  guides(fill = guide_colourbar(title.position = "top", direction = "horizontal", frame.colour = "black", frame.linewidth = 0.3))
 
 
 # 2.2. Evolution of delta O18

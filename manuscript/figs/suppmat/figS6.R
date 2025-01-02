@@ -49,9 +49,20 @@ plotlist <- unlist(lapply(1:nrow(quercusevergreen_models), function(i){
       pollen$pres <- rowSums(pollen[, c("pres.x", "pres.y")], na.rm = T)
       pollen$pres <- ifelse(pollen$pres > 0, 1, 0)
       
+      perf <- model_performance_withmig %>% 
+        dplyr::filter(mod == quercusevergreen_models[i, "name"] & year == y & species == "quercusevergreen")
+      
       plot <- plot +
-        geom_point(data = pollen[pollen$pres == 1 & pollen$lon < 29.9,], aes(x = lon, y = lat), size = 0.03,
-                   shape = 18)
+        geom_point(data = pollen[pollen$pres == 0 & pollen$lon < 29.9 & pollen$lat < 66,], aes(x = lon, y = lat), size = 0.5,
+                   shape = 43, color = "grey50") +
+        geom_point(data = pollen[pollen$pres == 1 & pollen$lon < 29.9 & pollen$lat < 66,], aes(x = lon, y = lat), size = 0.03,
+                   shape = 18) +
+        geom_rect(aes(xmin = 28.5, xmax= 30, ymin = 34.5, ymax = 66), color = NA, fill = "white") + 
+        geom_rect(data = perf, aes(xmin = 28.5, xmax= 30, ymin = 34.5, ymax = 34.5+31.5*mig_sorensen), color = NA, fill = "#d09da7", alpha = 0.7) +
+        geom_segment(aes(x = 28.5, xend= 30, y = 34.5+7.875, yend = 34.5+7.875), color = "grey30", linewidth = 0.2) +
+        geom_segment(aes(x = 28.5, xend= 30, y = 34.5+7.875*2, yend = 34.5+7.875*2), color = "grey30", linewidth = 0.2) +
+        geom_segment(aes(x = 28.5, xend= 30, y = 34.5+7.875*3, yend = 34.5+7.875*3), color = "grey30", linewidth = 0.2) +
+        geom_rect(aes(xmin = 28.5, xmax= 30, ymin = 34.5, ymax = 66), color = "darkgrey", fill = NA, linewidth = 0.2)
     }
     
     # add years (only first line)

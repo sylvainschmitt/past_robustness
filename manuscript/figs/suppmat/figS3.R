@@ -59,7 +59,7 @@ centroid <- hypervolumes %>%
 
 
 pc12 <- ggplot(data = hypervolumes, aes(x = PC1, y = PC2, color = period, fill = period)) +
-  geom_point(alpha = 0.2, shape = 16) +
+  # geom_point(alpha = 0.2, shape = 16) +
   geom_density_2d(breaks = 1e-3) +
   geom_point(data = centroid, size = 3, shape = 21, color = "black") +
   geom_point(data = centroid, size = 3, shape = 10, color = "black") +
@@ -73,10 +73,11 @@ pc12 <- ggplot(data = hypervolumes, aes(x = PC1, y = PC2, color = period, fill =
         axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
         axis.title = element_text(colour = "black", family= "Helvetica Narrow", size = 9),
         legend.position="none", legend.title=element_blank()) +
-  labs(x = "PC1 (52.5%)", y = "PC2 (36.2%)")
+  labs(x = "PC1 (52.5%)", y = "PC2 (36.2%)") +
+  scale_x_continuous(limits = c(-6,8))
 
 pc13 <- ggplot(data = hypervolumes, aes(x = PC1, y = PC3, color = period, fill = period)) +
-  geom_point(alpha = 0.2, shape = 16) +
+  # geom_point(alpha = 0.2, shape = 16) +
   geom_density_2d(breaks = 1e-3) +
   geom_point(data = centroid, size = 3, shape = 21, color = "black") +
   geom_point(data = centroid, size = 3, shape = 10, color = "black") +
@@ -90,7 +91,9 @@ pc13 <- ggplot(data = hypervolumes, aes(x = PC1, y = PC3, color = period, fill =
         axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 8),
         axis.title = element_text(colour = "black", family= "Helvetica Narrow", size = 9),
         legend.position="none", legend.title=element_blank()) +
-  labs(x = "PC1 (52.5%)", y = "PC3 (7.3%)")
+  labs(x = "PC1 (52.5%)", y = "PC3 (7.3%)") +
+  scale_x_continuous(limits = c(-6.5,8)) +
+  scale_y_continuous(limits = c(-3,4))
 
 
 figS3_main <- plot_grid(pc12, pc13, ncol = 2)
