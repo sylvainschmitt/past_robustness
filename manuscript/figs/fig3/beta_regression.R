@@ -4,6 +4,8 @@
 #----------------------------------#
 
 ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.migsorensen,x=clim_hpv_sorensen.mean, col = type, fill = type)) +
+  geom_segment(x = 0.131, xend = 0.131, y = 0, yend = 1,
+               size = 0.3, linetype = "dashed", col = "darkgrey", inherit.aes = FALSE) +
   geom_pointrange(data = model_performance_mean, aes(y = mean_migsorensen, 
                                                        ymin=mean_migsorensen-sd_migsorensen, 
                                                        ymax=mean_migsorensen+sd_migsorensen), 
@@ -39,15 +41,21 @@ ordbetareg_plot <- ggplot(data = expected_predictions, aes(y=Estimate.migsorense
         legend.spacing.y = unit(0.7, "cm"),
         plot.margin = unit(c(0.5, 0.5, 0.5, 0.75), "cm")) +
   coord_cartesian(ylim=c(-0.0, 1), xlim = c(0.07, 0.343), clip = "off") +
-  annotate("text", label=paste0('R^2*" = CI 95% ["*',betareg_r2$Q2.5,'*", "*',betareg_r2$Q97.5,'*"]"'), 
-           parse=TRUE, x=0.13, y=0.95, family= "Helvetica Narrow", size = 2.7) +
   
   annotate("rect", xmin = 0.297, xmax = 0.343, ymin = 0.01, ymax = 1, alpha = .7, fill = "white") + # white shade
   annotate("rect", xmin = 0.343, xmax = 0.351, ymin = 0.01, ymax = 1, alpha = 1, fill = "white") +
   
   annotate("rect", xmin = 0.27, xmax = 0.3, ymin = -0, ymax = -0.15, fill = "white") +
   
-  annotate("point", x=0.137, y = -0.032, shape = 24, size = 2, col = "black", fill = "#6867ac") + # LateMiddle - Early Holocene
+  annotate("text", label= "Late-Mid.\nHolocene", 
+           x=0.1, y=0.95, family= "Helvetica Narrow", size = 2.7) +
+  annotate("text", label= "Early Holocene", 
+           x=0.17, y=0.95, family= "Helvetica Narrow", size = 2.7) +
+  
+  annotate("text", label=paste0('R^2*" = CI 95% ["*',betareg_r2$Q2.5,'*", "*',betareg_r2$Q97.5,'*"]"'), 
+           parse=TRUE, x=0.3, y=1, family= "Helvetica Narrow", size = 2.7, color = "grey40") +
+  
+  annotate("point", x=0.131, y = -0.032, shape = 24, size = 2, col = "black", fill = "#6867ac") + # LateMiddle - Early Holocene
   
   # trick for ssp2 and ssp5 - 2030 (full ggplot solution!...)
   # annotate("point", x=0.24, y = 0.032, shape = 25, size = 2.4, col = "black", fill = "#f69320") +  # ssp2 - 2030

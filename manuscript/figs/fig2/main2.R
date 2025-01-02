@@ -2,6 +2,8 @@
 pollen_folder <- "D:/species/pollen/processed/quercus_deciduoustype/025deg/0025thr_500yrunc"
 add_pollen_folder <- "D:/species/pollen/processed/quercus_indist/025deg/0025thr_500yrunc"
 
+
+
 plotlist <- unlist(lapply(1:nrow(quercusdeciduous_models), function(i){
   plots <- lapply(c(11750, 11000, 7000, 500), function(y){
     out <- crop(readRDS(file.path(quercusdeciduous_models[i, "simfolder"], paste0(y,"BP.rds"))), ext(-10,30,34,66)) %>%
@@ -41,16 +43,28 @@ plotlist <- unlist(lapply(1:nrow(quercusdeciduous_models), function(i){
         annotate("text", x = -12.7, y = 50, label = quercusdeciduous_models[i, "name"], color = "black",
                  family= "Helvetica", size = 3.1, angle = 90)
     }else{
-      # add pollen points
+      # add pollen points and model performance gauge
       pollen <- readRDS(file.path(pollen_folder, paste0("pres_", y, "BP.rds")))
       add_pollen <- readRDS(file.path(add_pollen_folder, paste0("pres_", y, "BP.rds")))
       pollen <- dplyr::full_join(pollen, add_pollen, by = c("lat", "lon"))
       pollen$pres <- rowSums(pollen[, c("pres.x", "pres.y")], na.rm = T)
       pollen$pres <- ifelse(pollen$pres > 0, 1, 0)
       
+      perf <- model_performance_withmig %>% 
+        dplyr::filter(mod == quercusdeciduous_models[i, "name"] & year == y & species == "quercusdeciduous")
+      
       plot <- plot +
-        geom_point(data = pollen[pollen$pres == 1 & pollen$lon < 29.9,], aes(x = lon, y = lat), size = 0.03,
-                   shape = 18)
+        geom_point(data = pollen[pollen$pres == 0 & pollen$lon < 29.9 & pollen$lat < 66,], aes(x = lon, y = lat), size = 0.5,
+                   shape = 43, color = "grey50") +
+        geom_point(data = pollen[pollen$pres == 1 & pollen$lon < 29.9 & pollen$lat < 66,], aes(x = lon, y = lat), size = 0.03,
+                   shape = 18) +
+        geom_rect(aes(xmin = 28.5, xmax= 30, ymin = 34.5, ymax = 66), color = NA, fill = "white") + 
+        geom_rect(data = perf, aes(xmin = 28.5, xmax= 30, ymin = 34.5, ymax = 34.5+31.5*mig_sorensen), color = NA, fill = "#d09da7", alpha = 0.7) +
+        geom_segment(aes(x = 28.5, xend= 30, y = 34.5+7.875, yend = 34.5+7.875), color = "grey30", linewidth = 0.2) +
+        geom_segment(aes(x = 28.5, xend= 30, y = 34.5+7.875*2, yend = 34.5+7.875*2), color = "grey30", linewidth = 0.2) +
+        geom_segment(aes(x = 28.5, xend= 30, y = 34.5+7.875*3, yend = 34.5+7.875*3), color = "grey30", linewidth = 0.2) +
+        geom_rect(aes(xmin = 28.5, xmax= 30, ymin = 34.5, ymax = 66), color = "darkgrey", fill = NA, linewidth = 0.2)
+      
     }
     
     # add years (only first line)
@@ -61,11 +75,13 @@ plotlist <- unlist(lapply(1:nrow(quercusdeciduous_models), function(i){
     }
     
     # particular case when migration had to start at 11750 rather than 12000
-    if(fagus_models[i, "name"] %in% c("Random Forest") & y == 11750){
+    if(quercusdeciduous_models[i, "name"] %in% c("Random Forest") & y == 11750){
       plot <- plot +
         annotate("text", x = -8, y = 62.5, label = "*", color = "black",
                  family= "Helvetica", size = 6)
     }
+    
+    
     
     return(plot)
   })

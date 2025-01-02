@@ -36,9 +36,11 @@ past_plot <- ggplot() +
   coord_cartesian(xlim = c(12000, 400), 
                   ylim =  c(0, 0.6),
                   clip = "on") +
-  scale_x_reverse(breaks = seq(1000,15000, 2000),
+  scale_x_reverse(minor_breaks = seq(1000,15000, 2000),
+                  breaks = seq(2000,14000, 2000),
                   expand = c(0, 0),
-                  name = "Years (BP)") +
+                  name = "Years (BP)",
+                  guide = "axis_minor") +
   scale_y_continuous(expand = expansion(mult = c(0, 0)),
                      breaks = seq(0,0.6,0.1),
                      name = "Climatic dissimilarity") +
@@ -48,7 +50,8 @@ past_plot <- ggplot() +
         axis.text = element_text(colour = "black", family= "Helvetica Narrow", size = 6.5),
         axis.title.y = element_text(colour = "black", family= "Helvetica Narrow", size = 6.5, margin = margin(r = 4.5)),
         axis.title.x = element_text(colour = "black", family= "Helvetica Narrow", size = 6.5, margin = margin(t = 4.5)),
-        legend.position="none", legend.title=element_blank()) +
+        legend.position="none", legend.title=element_blank(),
+        ggh4x.axis.ticks.length.minor = rel(0.7)) +
   
   # ssp2 - 2060 (using geom_star to rotate triangle...)
   geom_text(aes(x = 5000, 0.259, label = "SSP2"), col = "#f69320", size = 2.7, family= "Helvetica Narrow") +
@@ -59,23 +62,31 @@ past_plot <- ggplot() +
   ggstar::geom_star(aes(x = 11800, y = 0.341), col = "black", fill = "#bf1d1e", angle = -90, starshape = 11, size = 2.4) +
   
   # early holocene
-  geom_text(aes(x = 10200, 0.08, label = "Early\nHolocene"), col = "#6867ac", size = 2.5, family= "Helvetica Narrow") +
-  ggstar::geom_star(aes(x = 11800, y = 0.13), col = "black", fill = "#6867ac", angle = -90, starshape = 11, size = 2.4)
+  geom_text(aes(x = 10200, y = 0.068, label = "Early\nHolocene"), col = "#6867ac", size = 2.5, family= "Helvetica Narrow") +
+  geom_text(aes(x = 4500, y = 0.05, label = "Mid- to Late Holocene"), col = "#6867ac", size = 2.5, family= "Helvetica Narrow") +
+  
+  geom_segment(aes(y = 0.13, yend = 0.13, x = 11900, xend = 8200),
+               linetype = "dashed", color = "#6867ac", size = 0.3, alpha = 0.7) +
+  geom_segment(aes(y = 0.004, yend = 0.13, x = 8200, xend = 8200),
+               linetype = "dotted", color = "#6867ac", size = 0.3, alpha = 0.7) +
+
+  ggstar::geom_star(aes(x = 11800, y = 0.13), col = "black", fill = "#6867ac", angle = -90, starshape = 11, size = 2.4) 
+  
 
 
 
 future_plot_ssp <- ggplot() +
-  geom_segment(aes(y = 0.282, yend = 0.282, x = 1866, xend = 2060), 
+  geom_segment(aes(y = 0.282, yend = 0.282, x = 1861, xend = 2060), 
                linetype = "dashed", color = "#f69320", size = 0.3, alpha = 0.7) +
-  geom_segment(aes(y = 0.341, yend = 0.341, x = 1866, xend = 2060), 
+  geom_segment(aes(y = 0.341, yend = 0.341, x = 1861, xend = 2060), 
                linetype = "dashed", color = "#bf1d1e", size = 0.3, alpha = 0.7) +
-  geom_segment(aes(y = 0.13, yend = 0.13, x = 1866, xend = 1907), 
-               linetype = "dashed", color = "#6867ac", size = 0.3, alpha = 0.7) +
+  # geom_segment(aes(y = 0.13, yend = 0.13, x = 1866, xend = 1907), 
+  #              linetype = "dashed", color = "#6867ac", size = 0.3, alpha = 0.7) +
   
   geom_segment(aes(y = 0.004, yend = 0.341, x = 2060, xend = 2060), 
                linetype = "dotted", color = "#737272", size = 0.3, alpha = 0.7) +
-  geom_segment(aes(y = 0.004, yend = 0.13, x = 1906, xend = 1906), 
-               linetype = "dotted", color = "#6867ac", size = 0.3, alpha = 0.7) +
+  # geom_segment(aes(y = 0.004, yend = 0.13, x = 1906, xend = 1906), 
+  #              linetype = "dotted", color = "#6867ac", size = 0.3, alpha = 0.7) +
   
   geom_ribbon(data = future_climdiss_ssp, aes(x = year, ymin = 1-q5, ymax = 1-q95, fill = scenario), 
               alpha = 0.2) + 
@@ -93,8 +104,10 @@ future_plot_ssp <- ggplot() +
                   ylim =  c(0, 0.6),
                   clip = "off") +
   scale_x_continuous(breaks = seq(2020,2100, 20),
+                     minor_breaks = seq(2030,2900, 20),
                      expand = c(0, 0),
-                     name = "Years (AD)") +
+                     name = "Years (AD)",
+                     guide = "axis_minor") +
   scale_y_continuous(expand = expansion(mult = c(0, 0)),
                      breaks = seq(0,0.75, 0.25),
                      name = "Climatic dissimilarity") +
@@ -106,11 +119,12 @@ future_plot_ssp <- ggplot() +
         axis.text.x = element_text(colour = "black", family= "Helvetica Narrow", size = 6.5),
         axis.title.x = element_text(colour = "black", family= "Helvetica Narrow", size = 6.5, margin = margin(t = 4.5)),
         plot.margin = margin(r = 8.5, b = 5.5, t = 5.5, l = 5.5),
-        legend.position="none", legend.title=element_blank())
+        legend.position="none", legend.title=element_blank(),
+        ggh4x.axis.ticks.length.minor = rel(0.7))
 
 
 fig1_main <- ggdraw() +
   draw_plot(past_plot, x = 0, y = 0, width = 0.65, height = 1) +
   draw_plot(future_plot_ssp, x = 0.65, y = 0, width = 0.35, height = 1) +
-  annotate("segment", x = 0.646, xend = 0.654,  y = 0.140, yend = 0.164, color = "black") +
-  annotate("segment", x = 0.652, xend = 0.66,  y = 0.140, yend = 0.164, color = "black")
+  annotate("segment", x = 0.646, xend = 0.654,  y = 0.130, yend = 0.154, color = "black") +
+  annotate("segment", x = 0.652, xend = 0.66,  y = 0.130, yend = 0.154, color = "black")

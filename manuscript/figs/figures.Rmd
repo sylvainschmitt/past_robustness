@@ -32,16 +32,16 @@ fig1_main
 
 \newpage
 
-```{r process_model_outputs, include = F, eval = F}
+```{r process_model_outputs, include = F, eval = T}
 source(file.path(wd, "manuscript", "processing", "model_simulations.R"))
-source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
+# source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 
 # model_performance_relchg <- readRDS("C:/Users/vandermeersch/Documents/CEFE/projects/past_robustness/manuscript/processing/output/model_performance_relchg.rds")
 # model_performance_withmig<- readRDS( "C:/Users/vandermeersch/Documents/CEFE/projects/past_robustness/manuscript/processing/output/model_performance_withmig.rds")
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 ```
 
-```{r quercus_deciduous_simulations, fig.height = 240, fig.width = 122, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for deciduous oaks.", eval = F}
+```{r quercus_deciduous_simulations, fig.height = 240, fig.width = 122, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for deciduous oaks.", eval = T}
 
 source(file.path(wd, "manuscript", "figs", "fig2", "main2.R")) 
 fig2_main
@@ -58,8 +58,10 @@ source(file.path(wd, "manuscript", "figs", "fig3", "beta_regression.R"))
 source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_performance.R"))
 source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_variance.R"))
 source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_transferability.R"))
-#source(file.path(wd, "manuscript", "figs", "fig3", "main2.R"))
-# fig3_main
+source(file.path(wd, "manuscript", "figs", "fig3", "main2.R"))
+fig3_main
+
+save_data <- model_performance_withmig
 
 ```
 
@@ -69,6 +71,7 @@ source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_transferability.R"))
 
 \renewcommand{\thefigure}{S\arabic{figure}}
 \setcounter{figure}{0}
+
 
 ```{r figS1_climate_overview, fig.height = 105, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Chronology of past climate across the Late Pleistocene and the Holocene.", eval = F}
 
@@ -84,7 +87,7 @@ figS2_main
 
 ```
 
-```{r figS3_hypervolume_representation, fig.height = 80, fig.width = 160, dev=c('ragg_png'), dpi = 400, fig.cap = "Climatic hypervolumes for Early Holocene period (dark and light blue, respectively 12000 BP and 11500 BP) and 2090 projections (orange and red, respectively SSP2 and SSP5 scenarios), as compared to historical period (green, 1901-2000).", eval = F}
+```{r figS3_hypervolume_representation, fig.height = 80, fig.width = 160, dev=c('cairo_pdf'), dpi = 400, fig.cap = "Climatic hypervolumes for Early Holocene period (dark and light blue, respectively 12000 BP and 11500 BP) and 2090 projections (orange and red, respectively SSP2 and SSP5 scenarios), as compared to historical period (green, 1901-2000).", eval = F}
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS3.R"))
 figS3_main
@@ -92,21 +95,21 @@ figS3_main
 ```
 
 
-```{r figs4_fagus_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for beeches.", eval = F}
+```{r figs4_fagus_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for beeches.", eval = T}
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS4.R")) 
 figS4_main
 
 ```
 
-```{r figS5_abies_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for firs.", eval = F}
+```{r figS5_abies_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for firs.", eval = T}
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS5.R")) 
 figS5_main
 
 ```
 
-```{r figS6_quercusevergreen_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for evergreen oaks.", eval = F}
+```{r figS6_quercusevergreen_simulations, fig.height = 240, fig.width = 150, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Example of paleosimulations obtained with the eight models used in this study for evergreen oaks.", eval = T}
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS6.R")) 
 figS6_main
@@ -211,9 +214,111 @@ plot_grid(plot_grid(figS10_performance_wtime, figS10_performance_TSS + theme(leg
 
 ```
 
+# Additionnal figures after review
+
+```{r figS10_SDMclass, fig.height = 75, fig.width = 160, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Sensitivity, difference across models.", eval = F}
+
+# "it would be useful to see, at least as a sensitivity test, whether the high-performance models (as deemed by ref 51: BRT, MaxEnt, RF) perform differently than the moderate-performance choices (GAM, Lasso GLM)"
+
+model_performance_withmig <- save_data
+model_performance_withmig <- model_performance_withmig %>% dplyr::filter(mod %in% c("BRT","Random Forest","MaxEnt",
+                                                                                    "PHENOFIT","CASTANEA",
+                                                                                    "PHENOFIT fitted","CASTANEA fitted"))
+source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_performance.R"))
+boxplot_CSDMhighperf <- boxplot_performance +
+  theme(axis.title.y = element_blank(),
+        plot.title = element_text(colour = "grey40", family= "Helvetica Narrow", size = 10.5, hjust = 0.5)) + 
+  labs(title = expression(paste("Only ", italic("high-performance"), " CSDMs")))
 
 
 
+model_performance_withmig <- save_data
+model_performance_withmig <- model_performance_withmig %>% dplyr::filter(mod %in% c("GAM","GLM",
+                                                                                    "PHENOFIT","CASTANEA",
+                                                                                    "PHENOFIT fitted","CASTANEA fitted"))
+source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_performance.R"))
+boxplot_CSDMmodperf <- boxplot_performance +
+  theme(plot.title = element_text(colour = "grey40", family= "Helvetica Narrow", size = 10.5, hjust = 0.5)) + 
+  labs(title = expression(paste("Only ", italic("moderate-performance"), " CSDMs")))
+model_performance_withmig <- save_data
+
+plot_grid(boxplot_CSDMmodperf, boxplot_CSDMhighperf, align = "hv", axis = "tblr")
+
+```
+
+
+```{r figSX_refugia, fig.height = 240, fig.width = 122, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Refugia.", eval = F}
+
+source(file.path(wd, "manuscript", "figs", "suppmat", "fig_Srefugia.R"))
+fig_refugia
+
+```
+
+```{r trend_comparison, fig.height = 60, fig.width = 100, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Evolution of climatic dissimilarity under past (12k-11.5k yr BP) and future (2020-2100) climate changes, relative to 1901-2000}.", eval = F}
+
+source(file.path(wd, "manuscript", "figs", "suppmat", "old", "warming_comparison.R"))
+comparison
+
+```
+
+# Modified figure after second round of review
+
+```{r load_performance_figS15, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = F}
+
+start_year <- "11,000"
+source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11000.R"))
+model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
+source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "boxplot_performance.R"))
+boxplot_from11000 <- boxplot_performance + theme(legend.position = "none")
+
+start_year <- "11,250"
+source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11250.R"))
+model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
+source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "boxplot_performance.R"))
+boxplot_from11250 <- boxplot_performance + theme(legend.position = "none") 
+
+start_year <- "11,500"
+source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11500.R"))
+model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
+source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "boxplot_performance.R"))
+boxplot_from11500 <- boxplot_performance + theme(legend.position = "none")
+
+start_year <- "11,750"
+source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11750.R"))
+model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
+source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "boxplot_performance.R"))
+boxplot_from11750 <- boxplot_performance + theme(legend.position = "none")
+
+start_year <- "12,000"
+source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from12000.R"))
+model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
+source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "boxplot_performance.R"))
+boxplot_from12000 <- boxplot_performance + theme(legend.position = "none")
+
+```
+
+```{r different_initial_refugia, fig.height = 130, fig.width = 190, dev=c('cairo_pdf'), eval = F}
+
+source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "dissimilarity3.R"))
+
+
+left <- plot_grid(NULL, boxplot_from12000, NULL, boxplot_from11500, ncol = 1, rel_heights = c(0.15,0.7, 0.15,0.7),
+                  label_fontfamily = "Helvetica Narrow", label_size = 11, labels = c("", "A.", "", "C."))
+  
+middle <- plot_grid(dissimilarity,
+                    plot_grid(NULL, boxplot_from11250, NULL, nrow = 1, rel_widths = c(0.15,0.7,0.15),
+                              label_fontfamily = "Helvetica Narrow", label_size = 11, labels = c("", "D.", "")), 
+                    ncol = 1, rel_heights = c(1,0.7))
+
+right <- plot_grid(NULL, boxplot_from11750, NULL, boxplot_from11000, ncol = 1, rel_heights = c(0.15,0.7, 0.15,0.7),
+                  label_fontfamily = "Helvetica Narrow", label_size = 11, labels = c("", "B.", "", "E."))
+
+plot_grid(plot_grid(left, middle, right, nrow = 1, rel_widths = c(0.7,1,0.7)), 
+          cowplot::get_plot_component(boxplot_performance, 'guide-box-bottom', return_all = TRUE),
+          rel_heights = c(1,0.1), ncol=1)
+
+
+```
 
 
 
