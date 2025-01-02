@@ -3,8 +3,8 @@
 # Paleoclimate downscaling #
 #--------------------------#
 
-# Script to downscale HadCM3B altitude from 30min to 15 min
-# Temperatures and precipitation are downscaled with altitude
+# Script to downscale HadCM3B variables from 0.5deg to 0.25deg
+# Temperatures and precipitation are downscaled with altitude (from ICE-6G-C dataset)
 
 wd <- "C:/Users/vandermeersch/Documents/CEFE/phd/hindcasting/climate_data/generate"
 
@@ -30,7 +30,7 @@ years_lists <- lapply(intervals, function(i){
 })
 
 in_folder <- "D:/climate/HadCM3B_60Kyr_Climate/2023_dataset/raw"
-out_folder <- "D:/climate/HadCM3B_60Kyr_Climate/2023_dataset/raw_dscl_15min"
+out_folder <- "D:/climate/HadCM3B_60Kyr_Climate/2023_dataset/raw_dscl_025deg"
 ncores <- 10
 
 # Downscale temperatures and precipitation (parallel computation)

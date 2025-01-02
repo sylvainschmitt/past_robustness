@@ -12,8 +12,8 @@ wd <- "C:/Users/vandermeersch/Documents/CEFE/phd/hindcasting/climate_data/genera
 source(file.path(wd, "scripts", "setup.R"))
 
 # Setup folders
-raw_folder <- "D:/climate/HadCM3B_60Kyr_Climate/2023_dataset/raw_dscl_15min" # folder with HadCM3B datafiles
-out_folder <- "D:/climate/HadCM3B_60Kyr_Climate/2023_dataset/phenofit_format/dscl_15min" # output folder, 10min
+raw_folder <- "D:/climate/HadCM3B_60Kyr_Climate/2023_dataset/raw_dscl_025deg" # folder with HadCM3B datafiles
+out_folder <- "D:/climate/HadCM3B_60Kyr_Climate/2023_dataset/phenofit_format/dscl_025deg" # output folder, 10min
 
 
 # Years to compute in BP (BP = before present, pre-industrial, i.e. 1950)
