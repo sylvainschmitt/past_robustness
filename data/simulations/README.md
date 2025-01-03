@@ -1,0 +1,3 @@
+- `raw` folder contains the raw model simulations
+- `migration` folder contains the post-migration simulations
+- `additional_migration_for_review` folder includes additional simulations conducted for the reviewers but not incorporated into the main manuscript
