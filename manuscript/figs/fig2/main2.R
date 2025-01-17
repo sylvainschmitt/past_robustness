@@ -1,6 +1,6 @@
 
-pollen_folder <- "D:/species/pollen/processed/quercus_deciduoustype/025deg/0025thr_500yrunc"
-add_pollen_folder <- "D:/species/pollen/processed/quercus_indist/025deg/0025thr_500yrunc"
+pollen_folder <- file.path(wd, "data/pollen/processed/quercus_deciduoustype/025deg/0025thr_500yrunc")
+add_pollen_folder <-  file.path(wd, "data/pollen/processed/quercus_indist/025deg/0025thr_500yrunc")
 
 
 
@@ -11,7 +11,7 @@ plotlist <- unlist(lapply(1:nrow(quercusdeciduous_models), function(i){
     names(out) <- c("lon", "lat", "value")
     
     yr_ICE6G <- y%/%500*0.5
-    ice_sheet <- crop(rotate(rast(paste0("D:/climate/ICE-6G-C/I6_C.VM5a_10min.",yr_ICE6G ,".nc"), subds = "sftgif")), ext(-10,30,34,66))
+    ice_sheet <- crop(rotate(rast(file.path(wd, "data/climate/ice6gc", paste0("I6_C.VM5a_10min.",yr_ICE6G ,".nc")), subds = "sftgif")), ext(-10,30,34,66))
     ice_sheet_pr <- ice_sheet
     ice_sheet[ice_sheet == 0] <- NA
     
@@ -31,7 +31,7 @@ plotlist <- unlist(lapply(1:nrow(quercusdeciduous_models), function(i){
         midpoint = 50) +
       scale_y_continuous(expand = c(0, 0)) +
       scale_x_continuous(expand = c(0, 0)) +
-      coord_cartesian(xlim=c(-10, 30), ylim = c(34.5, 66), clip = "off") +
+      coord_sf(xlim=c(-10, 30), ylim = c(34.5, 66), clip = "off") +
       theme_void() +
       theme(legend.position = "none",
             plot.margin = unit(c(0.2, 0.05, 0, 0.05), "cm"), 

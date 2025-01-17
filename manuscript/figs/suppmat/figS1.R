@@ -9,25 +9,12 @@
 years <- c(15, seq(250,18000,250))
 
 # 1.1. Load temperature
-hadcm3b_dir <- "D:/climate/HadCM3B_60Kyr_Climate/2023_dataset/csdm_format/025deg"
-past_temp <- sapply(years, function(yr){
-  data <- readRDS(file.path(hadcm3b_dir, paste0("predictors_", yr, "BP.rds"))) %>% 
-    dplyr::select(bio1, bio5)
-  return(c(mean = mean(data$bio1), 
-           q25 = as.numeric(quantile(data$bio1, 0.25)), 
-           q75 = as.numeric(quantile(data$bio1, 0.75)),
-           meanmax = mean(data$bio5)))
-})
-pasttemp_df <- as.data.frame(cbind(year = years, t(past_temp)))
-pasttemp_df[pasttemp_df$year == 15, "year"] <- 0
+mean_temp <- readRDS(file.path(wd, "data/climate/hadcm3b", "mean_temp.rds"))
+mean_temp[mean_temp$year == 15, "year"] <- 0
+CRU_reference <- mean_temp[mean_temp$year == 0,]
 
-# 1.2. Load climatic distance
-burke_climatenovelty <- readRDS("C:/Users/vandermeersch/Documents/CEFE/phd/hindcasting/metrics/climate_approach/data/past_climatenovelty.rds")
-burke_climatenovelty[burke_climatenovelty$year == 15, "year"] <- 0
-CRU_reference <- burke_climatenovelty[burke_climatenovelty$year == 0,]
-
-# 1.3. Load NGRIP data
-d18O_data <- data.frame(fread("D:/climate/NGRIP/ngrip-d18o-50yr.txt", skip = 79, dec = "."))
+# 1.2. Load NGRIP data 
+d18O_data <- data.frame(fread(file.path(wd, "data/climate/ngrip", "ngrip-d18o-50yr.txt"), skip = 79, dec = "."))
 d18O_data$Age <- as.numeric(gsub(",", "", d18O_data$Age)) # comma as thousand sep
 d18O_data$Age <- as.numeric(d18O_data$Age)-50 #ageBP
 d18O_data$d18O <- as.numeric(d18O_data$d18O)
@@ -65,10 +52,10 @@ main_plot <- ggplot() +
   geom_segment(aes(x = 11700, xend = 11480, y = 12, yend = 12.85), color ="black", size = 0.8) +
   geom_segment(aes(x = 11480, xend = 11700, y = 12.75, yend = 13.7), color ="black", size = 0.8) +
   
-  geom_ribbon(data = burke_climatenovelty, aes(x = year, ymin = tmean_q25, ymax = tmean_q75), fill = "#b7efc5", alpha = 0.5) +
-  geom_line(data = burke_climatenovelty, aes(x = year, y = tmean_q25), col = "#25a244", size = 0.5) +
-  geom_line(data = burke_climatenovelty, aes(x = year, y = tmean_q75), col = "#25a244", size = 0.5) +
-  geom_line(data = burke_climatenovelty, aes(x = year, y = tmean), col = "#2c6e49", size = 1) +
+  geom_ribbon(data = mean_temp, aes(x = year, ymin = tmean_q25, ymax = tmean_q75), fill = "#b7efc5", alpha = 0.5) +
+  geom_line(data = mean_temp, aes(x = year, y = tmean_q25), col = "#25a244", size = 0.5) +
+  geom_line(data = mean_temp, aes(x = year, y = tmean_q75), col = "#25a244", size = 0.5) +
+  geom_line(data = mean_temp, aes(x = year, y = tmean), col = "#2c6e49", size = 1) +
   
   coord_cartesian(xlim=c(17050, 950)) +
   

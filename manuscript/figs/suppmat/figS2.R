@@ -1,5 +1,5 @@
 
-burke_climatenovelty <- readRDS("C:/Users/vandermeersch/Documents/CEFE/phd/hindcasting/metrics/climate_approach/data/burke_climatenovelty_CRUbaseline.rds")
+burke_climatenovelty <- readRDS(file.path(wd, "data/climate/metrics", "HadCM3B_burke_climaticdistance_CRUbaseline.rds"))
 burke_climatenovelty[burke_climatenovelty$year == 15, "year"] <- 0
 
 hypervolume_past_plot <- ggplot() +

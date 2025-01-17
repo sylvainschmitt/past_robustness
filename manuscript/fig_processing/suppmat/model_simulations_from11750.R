@@ -45,7 +45,7 @@ fagus_models <- data.frame(
 fagus_performance <- load_model_performance(
   models = fagus_models, 
   years = c(seq(500,8500, 500)), 
-  pollen_folder = "D:/species/pollen/processed/fagus/025deg/001thr_500yrunc")
+  pollen_folder = file.path(wd, "data/pollen/processed/fagus/025deg/001thr_500yrunc"))
 fagus_performance$species <- "fagus"
 
 
@@ -87,7 +87,7 @@ abies_models <- data.frame(
 abies_performance <- load_model_performance(
   models = abies_models, 
   years = c(seq(500,11000, 500)), 
-  pollen_folder = "D:/species/pollen/processed/abies/025deg/001thr_500yrunc")
+  pollen_folder = file.path(wd, "data/pollen/processed/abies/025deg/001thr_500yrunc"))
 abies_performance$species <- "abies"
 
 
@@ -129,8 +129,8 @@ quercusdeciduous_models <- data.frame(
 quercusdeciduous_performance <- load_model_performance(
   models = quercusdeciduous_models, 
   years = c(seq(500,11500, 500)), 
-  pollen_folder = "D:/species/pollen/processed/quercus_deciduoustype/025deg/0025thr_500yrunc",
-  add_pollen_folder <- "D:/species/pollen/processed/quercus_indist/025deg/0025thr_500yrunc",
+  pollen_folder = file.path(wd, "data/pollen/processed/quercus_deciduoustype/025deg/0025thr_500yrunc"),
+  add_pollen_folder <- file.path(wd, "data/pollen/processed/quercus_indist/025deg/0025thr_500yrunc"),
   evergreen = FALSE)
 quercusdeciduous_performance$species <- "quercusdeciduous"
 
@@ -173,8 +173,8 @@ quercusevergreen_models <- data.frame(
 quercusevergreen_performance <- load_model_performance(
   models = quercusevergreen_models, 
   years = c(seq(500,11500, 500)), 
-  pollen_folder = "D:/species/pollen/processed/quercus_evergreentype/025deg/0025thr_500yrunc",
-  add_pollen_folder <- "D:/species/pollen/processed/quercus_indist/025deg/0025thr_500yrunc",
+  pollen_folder = file.path(wd, "data/pollen/processed/quercus_evergreentype/025deg/0025thr_500yrunc"),
+  add_pollen_folder <- file.path(wd, "data/pollen/processed/quercus_indist/025deg/0025thr_500yrunc"),
   evergreen = TRUE)
 quercusevergreen_performance$species <- "quercusevergreen"
 

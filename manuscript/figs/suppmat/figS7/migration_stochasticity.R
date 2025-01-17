@@ -36,8 +36,8 @@ quercusdeciduous_models_withrep <- data.frame(
 quercusdeciduous_performance <- load_model_performance_withrep(
   models = quercusdeciduous_models_withrep, 
   years = c(seq(500,11500, 500)), nrep =10,
-  pollen_folder = "D:/species/pollen/processed/quercus_deciduoustype/025deg/0025thr_500yrunc",
-  add_pollen_folder <- "D:/species/pollen/processed/quercus_indist/025deg/0025thr_500yrunc",
+  pollen_folder = file.path(wd, "data/pollen/processed/quercus_deciduoustype/025deg/0025thr_500yrunc"),
+  add_pollen_folder <- file.path(wd, "data/pollen/processed/quercus_indist/025deg/0025thr_500yrunc"),
   evergreen = FALSE)
 quercusdeciduous_performance$species <- "quercusdeciduous"
 

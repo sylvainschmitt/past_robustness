@@ -33,19 +33,19 @@ fagus_models <- data.frame(
     "2Fittedprocessbased",
     "2Fittedprocessbased"),
   simfolder = c(
-    paste0(wd, "/data/simulations/migration/csdm/brt/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/csdm/random_forest/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/csdm/gam/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/csdm/lasso_glm/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/csdm/maxent/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/phenofit/expert/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
-    paste0(wd, "/data/simulations/migration/castanea/expert/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/phenofit/fitted/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
-    paste0(wd, "/data/simulations/migration/castanea/fitted/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000")))
+    file.path(wd, "data/simulations/migration/csdm/brt/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    file.path(wd, "data/simulations/migration/csdm/random_forest/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    file.path(wd, "data/simulations/migration/csdm/gam/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    file.path(wd, "data/simulations/migration/csdm/lasso_glm/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    file.path(wd, "data/simulations/migration/csdm/maxent/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    file.path(wd, "data/simulations/migration/phenofit/expert/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from11750"),
+    file.path(wd, "data/simulations/migration/castanea/expert/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    file.path(wd, "data/simulations/migration/phenofit/fitted/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000"),
+    file.path(wd, "data/simulations/migration/castanea/fitted/fagus_sylvatica_expandLDD_scprb_2km20km_fullmodel_from12000")))
 fagus_performance <- load_model_performance(
   models = fagus_models, 
   years = c(seq(500,8500, 500)), 
-  pollen_folder = "D:/species/pollen/processed/fagus/025deg/001thr_500yrunc")
+  pollen_folder = file.path(wd, "data/pollen/processed/fagus/025deg/001thr_500yrunc"))
 fagus_performance$species <- "fagus"
 
 
@@ -87,7 +87,7 @@ abies_models <- data.frame(
 abies_performance <- load_model_performance(
   models = abies_models, 
   years = c(seq(500,11000, 500)), 
-  pollen_folder = "D:/species/pollen/processed/abies/025deg/001thr_500yrunc")
+  pollen_folder = file.path(wd, "data/pollen/processed/abies/025deg/001thr_500yrunc"))
 abies_performance$species <- "abies"
 
 
@@ -129,8 +129,8 @@ quercusdeciduous_models <- data.frame(
 quercusdeciduous_performance <- load_model_performance(
   models = quercusdeciduous_models, 
   years = c(seq(500,11500, 500)), 
-  pollen_folder = "D:/species/pollen/processed/quercus_deciduoustype/025deg/0025thr_500yrunc",
-  add_pollen_folder <- "D:/species/pollen/processed/quercus_indist/025deg/0025thr_500yrunc",
+  pollen_folder = file.path(wd, "data/pollen/processed/quercus_deciduoustype/025deg/0025thr_500yrunc"),
+  add_pollen_folder <- file.path(wd, "data/pollen/processed/quercus_indist/025deg/0025thr_500yrunc"),
   evergreen = FALSE)
 quercusdeciduous_performance$species <- "quercusdeciduous"
 
@@ -173,8 +173,8 @@ quercusevergreen_models <- data.frame(
 quercusevergreen_performance <- load_model_performance(
   models = quercusevergreen_models, 
   years = c(seq(500,11500, 500)), 
-  pollen_folder = "D:/species/pollen/processed/quercus_evergreentype/025deg/0025thr_500yrunc",
-  add_pollen_folder <- "D:/species/pollen/processed/quercus_indist/025deg/0025thr_500yrunc",
+  pollen_folder = file.path(wd, "data/pollen/processed/quercus_evergreentype/025deg/0025thr_500yrunc"),
+  add_pollen_folder <- file.path(wd, "data/pollen/processed/quercus_indist/025deg/0025thr_500yrunc"),
   evergreen = TRUE)
 quercusevergreen_performance$species <- "quercusevergreen"
 

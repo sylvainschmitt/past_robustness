@@ -14,7 +14,7 @@ model_performance_relchg$rel_chg_sorensen <- NA
 ## PHENOFIT (expert calibration) ##
 ###-----------------------------###
 mod <- "PHENOFIT"
-dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/phenofit/fit/expert"
+dir <- file.path(wd, 'data/fit', 'phenofit/expert')
 historical <- data.frame(
   species = c("Fagus sylvatica", 
               "Abies alba", 
@@ -53,7 +53,7 @@ model_performance_relchg[model_performance_relchg$mod == mod & model_performance
 ## PHENOFIT (inverse calibration) ##
 ###------------------------------###
 mod <- "PHENOFIT fitted"
-dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/phenofit/fit/fitted"
+dir <- file.path(wd, 'data/fit', 'phenofit/fitted')
 historical <- data.frame(
   species = c("Fagus sylvatica", 
               "Abies alba", 
@@ -92,7 +92,7 @@ model_performance_relchg[model_performance_relchg$mod == mod & model_performance
 ## CASTANEA (expert calibration) ##
 ###-----------------------------###
 mod <- "CASTANEA"
-dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/castanea/fit/expert"
+dir <- file.path(wd, 'data/fit', 'castanea/expert')
 historical <- data.frame(
   species = c("Fagus sylvatica", 
               "Abies alba", 
@@ -131,7 +131,7 @@ model_performance_relchg[model_performance_relchg$mod == mod & model_performance
 ## CASTANEA (inverse calibration) ##
 ###------------------------------###
 mod <- "CASTANEA fitted"
-dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/castanea/fit/fitted"
+dir <- file.path(wd, 'data/fit', 'castanea/fitted')
 historical <- data.frame(
   species = c("Fagus sylvatica", 
               "Abies alba", 
@@ -170,7 +170,7 @@ model_performance_relchg[model_performance_relchg$mod == mod & model_performance
 ## Lasso GLM ##
 ###---------###
 mod <- "GLM"
-dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/lasso_glm/fit"
+dir <- file.path(wd, 'data/fit', 'csdm/lasso_glm')
 historical <- data.frame(
   species = c("Fagus sylvatica", 
               "Abies alba", 
@@ -251,7 +251,7 @@ model_performance_relchg[model_performance_relchg$mod == mod & model_performance
 ## GAM ##
 ###---###
 mod <- "GAM"
-dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/gam/fit"
+dir <- file.path(wd, 'data/fit', 'csdm/gam')
 historical <- data.frame(
   species = c("Fagus sylvatica", 
               "Abies alba", 
@@ -332,7 +332,7 @@ model_performance_relchg[model_performance_relchg$mod == mod & model_performance
 ## Random Forest ##
 ###-------------###
 mod <- "Random Forest"
-dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/random_forest/fit"
+dir <- file.path(wd, 'data/fit', 'csdm/random_forest')
 historical <- data.frame(
   species = c("Fagus sylvatica", 
               "Abies alba", 
@@ -413,7 +413,7 @@ model_performance_relchg[model_performance_relchg$mod == mod & model_performance
 ## BRT ##
 ###---###
 mod <- "BRT"
-dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/brt/fit"
+dir <- file.path(wd, 'data/fit', 'csdm/brt')
 historical <- data.frame(
   species = c("Fagus sylvatica", 
               "Abies alba", 
@@ -494,7 +494,7 @@ model_performance_relchg[model_performance_relchg$mod == mod & model_performance
 ## BRT ##
 ###---###
 mod <- "MaxEnt"
-dir <- "C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/maxent/fit"
+dir <- file.path(wd, 'data/fit', 'csdm/maxent')
 historical <- data.frame(
   species = c("Fagus sylvatica", 
               "Abies alba", 

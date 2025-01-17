@@ -10,10 +10,12 @@ header-includes:
   \pagenumbering{gobble}
   \usepackage{float}
   \floatplacement{figure}{H}
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
-wd <- "../../"
+wd <- "/home/victor/projects/past_robustness" # set your working directory here
 
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, 
                       results='hide', fig.path= paste0(wd, "/manuscript/figs/files/"), fig.pos = 'H')
@@ -34,7 +36,7 @@ fig1_main
 
 ```{r process_model_outputs, include = F, eval = T}
 source(file.path(wd, "manuscript", "fig_processing", "model_simulations.R"))
-# source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
+source(file.path(wd, "manuscript", "fig_processing", "model_transferability.R"))
 
 # model_performance_relchg <- readRDS("C:/Users/vandermeersch/Documents/CEFE/projects/past_robustness/manuscript/processing/output/model_performance_relchg.rds")
 # model_performance_withmig<- readRDS( "C:/Users/vandermeersch/Documents/CEFE/projects/past_robustness/manuscript/processing/output/model_performance_withmig.rds")
@@ -50,7 +52,7 @@ fig2_main
 
 \newpage
 
-```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance of correlative models, fitted process-based models (inverse calibration using occurrence data) and expert process-based models (classical calibration) against Holocene paleoecogical evidence (fossil pollen) for 4 tree genera.", eval = F}
+```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance of correlative models, fitted process-based models (inverse calibration using occurrence data) and expert process-based models (classical calibration) against Holocene paleoecogical evidence (fossil pollen) for 4 tree genera.", eval = T}
 
 source(file.path(wd, "manuscript", "fig_processing", "ordered_beta_regression.R"))
 
@@ -73,14 +75,14 @@ save_data <- model_performance_withmig
 \setcounter{figure}{0}
 
 
-```{r figS1_climate_overview, fig.height = 105, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Chronology of past climate across the Late Pleistocene and the Holocene.", eval = F}
+```{r figS1_climate_overview, fig.height = 105, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Chronology of past climate across the Late Pleistocene and the Holocene.", eval = T}
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS1.R"))
 figS1_main
 
 ```
 
-```{r figS2_climatic_dissimilarity_novelty, fig.height = 90, fig.width = 200, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Evoltion of climatic dissimilarity/novelty in past and future.", eval = F}
+```{r figS2_climatic_dissimilarity_novelty, fig.height = 90, fig.width = 200, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Evoltion of climatic dissimilarity/novelty in past and future.", eval = T}
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS2.R"))
 figS2_main
@@ -116,7 +118,7 @@ figS6_main
 
 ```
 
-```{r figS7_migration_process_stochasticity, fig.height = 100, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Illustration of migration process and evaluation of the impact of migration process stochasticity.", eval = F}
+```{r figS7_migration_process_stochasticity, fig.height = 100, fig.width = 180, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Illustration of migration process and evaluation of the impact of migration process stochasticity.", eval = T}
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS7", "migration_process.R"))
 
@@ -216,7 +218,7 @@ plot_grid(plot_grid(figS10_performance_wtime, figS10_performance_TSS + theme(leg
 
 # Additionnal figures after review
 
-```{r figS10_SDMclass, fig.height = 75, fig.width = 160, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Sensitivity, difference across models.", eval = F}
+```{r figS10_SDMclass, fig.height = 75, fig.width = 160, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Sensitivity, difference across models.", eval = T}
 
 # "it would be useful to see, at least as a sensitivity test, whether the high-performance models (as deemed by ref 51: BRT, MaxEnt, RF) perform differently than the moderate-performance choices (GAM, Lasso GLM)"
 
@@ -247,57 +249,51 @@ plot_grid(boxplot_CSDMmodperf, boxplot_CSDMhighperf, align = "hv", axis = "tblr"
 ```
 
 
-```{r figSX_refugia, fig.height = 240, fig.width = 122, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Refugia.", eval = F}
+```{r figSX_refugia, fig.height = 240, fig.width = 122, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Refugia.", eval = T}
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "fig_Srefugia.R"))
 fig_refugia
 
 ```
 
-```{r trend_comparison, fig.height = 60, fig.width = 100, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Evolution of climatic dissimilarity under past (12k-11.5k yr BP) and future (2020-2100) climate changes, relative to 1901-2000}.", eval = F}
-
-source(file.path(wd, "manuscript", "figs", "suppmat", "old", "warming_comparison.R"))
-comparison
-
-```
 
 # Modified figure after second round of review
 
-```{r load_performance_figS15, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = F}
+```{r load_performance_figS15, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = T}
 
 start_year <- "11,000"
-source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11000.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "model_simulations_from11000.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "boxplot_performance.R"))
 boxplot_from11000 <- boxplot_performance + theme(legend.position = "none")
 
 start_year <- "11,250"
-source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11250.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "model_simulations_from11250.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "boxplot_performance.R"))
 boxplot_from11250 <- boxplot_performance + theme(legend.position = "none") 
 
 start_year <- "11,500"
-source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11500.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "model_simulations_from11500.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "boxplot_performance.R"))
 boxplot_from11500 <- boxplot_performance + theme(legend.position = "none")
 
 start_year <- "11,750"
-source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11750.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "model_simulations_from11750.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "boxplot_performance.R"))
 boxplot_from11750 <- boxplot_performance + theme(legend.position = "none")
 
 start_year <- "12,000"
-source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from12000.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "model_simulations_from12000.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "boxplot_performance.R"))
 boxplot_from12000 <- boxplot_performance + theme(legend.position = "none")
 
 ```
 
-```{r different_initial_refugia, fig.height = 130, fig.width = 190, dev=c('cairo_pdf'), eval = F}
+```{r different_initial_refugia, fig.height = 130, fig.width = 190, dev=c('cairo_pdf'), eval = T}
 
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS15", "dissimilarity3.R"))
 

@@ -1,5 +1,5 @@
 castanea_fit_files <- 
-  file.path("C:/Users/vandermeersch/Documents/CEFE/phd/castanea/fit/expert",
+  file.path(file.path(wd, 'data/fit', 'castanea/expert'),
             c("abies_alba/abies_alba_240ppm.rds",
               "fagus_sylvatica/fagus_sylvatica_240ppm.rds", 
               "quercus_robur/quercus_robur_240ppm.rds", 
@@ -14,7 +14,7 @@ castanea <-
              test = "1Observedreference")
 
 castaneafitted_fit_files <- 
-  file.path("C:/Users/vandermeersch/Documents/CEFE/phd/castanea/fit/fitted",
+  file.path(file.path(wd, 'data/fit', 'castanea/fitted'),
             c("abies_alba/abies_alba_240ppm.rds",
               "fagus_sylvatica/fagus_sylvatica_240ppm.rds", 
               "quercus_robur/quercus_robur_240ppm.rds", 
@@ -29,7 +29,7 @@ castaneafitted <-
              test = "1Observedreference")
 
 phenofit_fit_files <- 
-  file.path("C:/Users/vandermeersch/Documents/CEFE/phd/phenofit/fit/expert",
+  file.path(file.path(wd, 'data/fit', 'phenofit/expert'),
             c("abies_alba/Abies_alba_VVanderMeersch2.rds",
               "fagus_sylvatica/Fagus_sylvatica_VVanderMeersch.rds", 
               "quercus_robur/Quercus_robur_ADuputie_Chuine.rds", 
@@ -44,7 +44,7 @@ phenofit <-
              test = "1Observedreference")
 
 phenofitfitted_fit_files <- 
-  file.path("C:/Users/vandermeersch/Documents/CEFE/phd/phenofit/fit/fitted",
+  file.path(file.path(wd, 'data/fit', 'phenofit/fitted'),
             c("abies_alba/cmaes_fit_subset2_rep5.rds",
               "fagus_sylvatica/cmaes_fit_subset4_rep1.rds", 
               "quercus_robur/cmaes_fit_subset1_rep1.rds", 
@@ -59,7 +59,7 @@ phenofitfitted <-
              test = "1Observedreference")
 
 glm_fit_files <- 
-  file.path("C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/lasso_glm/fit",
+  file.path(file.path(wd, 'data/fit', 'csdm/lasso_glm'),
             c("abies_alba/lasso_glm_finalcov_fullmodel.rds",
               "fagus_sylvatica/lasso_glm_finalcov_fullmodel.rds", 
               "quercus_robur/lasso_glm_finalcov_fullmodel.rds", 
@@ -81,7 +81,7 @@ glmcv <-
              test = "2Crossvalidationreference")
 
 gam_fit_files <- 
-  file.path("C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/gam/fit",
+  file.path(file.path(wd, 'data/fit', 'csdm/gam'),
             c("abies_alba/gam_finalcov_fullmodel.rds",
               "fagus_sylvatica/gam_finalcov_fullmodel.rds", 
               "quercus_robur/gam_finalcov_fullmodel.rds", 
@@ -103,7 +103,7 @@ gamcv <-
              test = "2Crossvalidationreference")
 
 brt_fit_files <- 
-  file.path("C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/brt/fit",
+  file.path(file.path(wd, 'data/fit', 'csdm/brt'),
             c("abies_alba/brt_finalcov_fullmodel.rds",
               "fagus_sylvatica/brt_finalcov_fullmodel.rds", 
               "quercus_robur/brt_finalcov_fullmodel.rds", 
@@ -125,7 +125,7 @@ brtcv <-
              test = "2Crossvalidationreference")
 
 rf_fit_files <- 
-  file.path("C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/random_forest/fit",
+  file.path(file.path(wd, 'data/fit', 'csdm/random_forest'),
             c("abies_alba/random_forest_finalcov_fullmodel.rds",
               "fagus_sylvatica/random_forest_finalcov_fullmodel.rds", 
               "quercus_robur/random_forest_finalcov_fullmodel.rds", 
@@ -147,7 +147,7 @@ rfcv <-
              test = "2Crossvalidationreference")
 
 maxent_fit_files <- 
-  file.path("C:/Users/vandermeersch/Documents/CEFE/phd/correlative_models/fit/ecv/maxent/fit",
+  file.path(file.path(wd, 'data/fit', 'csdm/maxent'),
             c("abies_alba/maxent_finalcov_fullmodel.rds",
               "fagus_sylvatica/maxent_finalcov_fullmodel.rds", 
               "quercus_robur/maxent_finalcov_fullmodel.rds", 

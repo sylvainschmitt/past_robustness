@@ -1,5 +1,5 @@
 
-dir <- file.path(wd, "data/simulations/additional_migration_for_reviewer")
+dir <- file.path(wd, "data/simulations/additional_migration_for_review")
 
 models <- c("csdm/brt", "csdm/random_forest", "csdm/gam", "csdm/lasso_glm", "csdm/maxent", 
             "phenofit/expert", "phenofit/fitted", "castanea/expert", "castanea/fitted")
@@ -32,7 +32,7 @@ plotlist <- unlist(lapply(models, function(m){
     names(out) <- c("lon", "lat", "value")
     
     yr_ICE6G <- 12
-    ice_sheet <- crop(rotate(rast(paste0("D:/climate/ICE-6G-C/I6_C.VM5a_10min.",yr_ICE6G ,".nc"), subds = "sftgif")), ext(-10,30,34,66))
+    ice_sheet <- crop(rotate(rast(file.path(wd, "data/climate/ice6gc", paste0("I6_C.VM5a_10min.",yr_ICE6G ,".nc")), subds = "sftgif")), ext(-10,30,34,66))
     ice_sheet_pr <- ice_sheet
     ice_sheet[ice_sheet == 0] <- NA
     
@@ -52,7 +52,7 @@ plotlist <- unlist(lapply(models, function(m){
         midpoint = 50) +
       scale_y_continuous(expand = c(0, 0)) +
       scale_x_continuous(expand = c(0, 0)) +
-      coord_cartesian(xlim=c(-10, 30), ylim = c(34.5, 66), clip = "off") +
+      coord_sf(xlim=c(-10, 30), ylim = c(34.5, 66), clip = "off") +
       theme_void() +
       theme(legend.position = "none",
             plot.margin = unit(c(0.2, 0.05, 0, 0.05), "cm"), 
