@@ -4,3 +4,4 @@ This is the repo for the paper *Paleorecords reveal biological mechanisms crucia
 - `data` folder contains all the simulation outputs, as well as the climatic hypervolumes and climatic similarity metrics
 - `manuscript` folder contains all the scripts to run the (simple) statistical analysis, make the figures as well as the latest Latex files
   
+You can test it by rendering the document in `manuscript/figures.Rmd`, e.g. `using markdown::render`.

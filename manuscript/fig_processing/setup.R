@@ -16,5 +16,5 @@ library(ggrepel)
 library(hypervolume)
 library(ggh4x)
 
-source(file.path(wd, "manuscript", "processing", "load_model_performance.R"))
-source(file.path(wd, "manuscript", "processing", "suppmat", "load_model_performance_withrep.R"))
+source(file.path(wd, "manuscript", "fig_processing", "load_model_performance.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "load_model_performance_withrep.R"))

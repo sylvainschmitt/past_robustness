@@ -13,14 +13,14 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
-wd <- "C:/Users/vandermeersch/Documents/CEFE/projects/past_robustness"
+wd <- "../../"
 
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, 
                       results='hide', fig.path= paste0(wd, "/manuscript/figs/files/"), fig.pos = 'H')
 library(chunkhooks)
 hook_figure_unit("mm")
 
-source(file.path(wd, "manuscript", "processing", "setup.R"))
+source(file.path(wd, "manuscript", "fig_processing", "setup.R"))
 ```
 
 # Main
@@ -33,7 +33,7 @@ fig1_main
 \newpage
 
 ```{r process_model_outputs, include = F, eval = T}
-source(file.path(wd, "manuscript", "processing", "model_simulations.R"))
+source(file.path(wd, "manuscript", "fig_processing", "model_simulations.R"))
 # source(file.path(wd, "manuscript", "processing", "model_transferability.R"))
 
 # model_performance_relchg <- readRDS("C:/Users/vandermeersch/Documents/CEFE/projects/past_robustness/manuscript/processing/output/model_performance_relchg.rds")
@@ -52,7 +52,7 @@ fig2_main
 
 ```{r past_performance, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Performance of correlative models, fitted process-based models (inverse calibration using occurrence data) and expert process-based models (classical calibration) against Holocene paleoecogical evidence (fossil pollen) for 4 tree genera.", eval = F}
 
-source(file.path(wd, "manuscript", "processing", "ordered_beta_regression.R"))
+source(file.path(wd, "manuscript", "fig_processing", "ordered_beta_regression.R"))
 
 source(file.path(wd, "manuscript", "figs", "fig3", "beta_regression.R"))
 source(file.path(wd, "manuscript", "figs", "fig3", "boxplot_performance.R"))
@@ -142,21 +142,21 @@ figS9_main
 
 ```{r past_performance_wtime, eval = F}
 
-source(file.path(wd, "manuscript", "processing", "suppmat", "linear_plateau_regression.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "linear_plateau_regression.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10","performance_wtime.R")) 
 
 ```
 
 ```{r past_performance_TSS, eval = F}
 
-source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_withTSS.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "ordered_beta_regression_withTSS.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "beta_regression_withTSS.R"))
 
 ```
 
 ```{r past_performance_nomigration, eval = F}
 
-source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_womigration.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "ordered_beta_regression_womigration.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "beta_regression_nomigration.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "boxplot_performance_nomigration.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "performance_nomigration.R"))
@@ -165,10 +165,10 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "performance_nom
 
 ```{r past_performance_from11750, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = F}
 
-source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from11750.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "model_simulations_from11750.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 
-source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_from11750.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "ordered_beta_regression_from11750.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "beta_regression_from11750.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "boxplot_performance_from11750.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "performance_from11750.R"))
@@ -177,10 +177,10 @@ source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "performance_fro
 
 ```{r past_performance_from12000, fig.height = 120, fig.width = 190, dev=c('cairo_pdf'), dpi = 600, fig.cap = "Beta regression and boxplots", eval = F}
 
-source(file.path(wd, "manuscript", "processing", "suppmat", "model_simulations_from12000.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "model_simulations_from12000.R"))
 model_performance_withmig$clim_hpv_sorensen.mean <- 1-model_performance_withmig$clim_hpv_sorensen.mean # dissimilarity
 
-source(file.path(wd, "manuscript", "processing", "suppmat", "ordered_beta_regression_from12000.R"))
+source(file.path(wd, "manuscript", "fig_processing", "suppmat", "ordered_beta_regression_from12000.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "beta_regression_from12000.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "boxplot_performance_from12000.R"))
 source(file.path(wd, "manuscript", "figs", "suppmat", "figS10", "performance_from12000.R"))

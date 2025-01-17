@@ -20,9 +20,9 @@ if(run_model){
                              iter = 2000,
                              true_bounds = c(0,1),
                              silent = 1)
-  saveRDS(ord_fit_mean, file.path(wd, "manuscript", "processing/output", "ordered_beta_regression_fit_default.rds"))
+  saveRDS(ord_fit_mean, file.path(wd, "manuscript", "fig_processing/output", "ordered_beta_regression_fit_default.rds"))
 }else{
-  ord_fit_mean <- readRDS(file.path(wd, "manuscript", "processing/output", "ordered_beta_regression_fit_default.rds"))
+  ord_fit_mean <- readRDS(file.path(wd, "manuscript", "fig_processing/output", "ordered_beta_regression_fit_default.rds"))
 }
 
 # Get conditional effects
