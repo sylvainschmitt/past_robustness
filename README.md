@@ -6,4 +6,4 @@ This is the repo for the paper *Paleorecords reveal biological mechanisms crucia
   
 You can test it by rendering the document in `manuscript/figures.Rmd`, e.g. `using markdown::render`.
 
-(Thanks to S. Schimtt for verifying the reproducibility of the analyses and figures, and for suggesting several improvements)
+(Thanks to S. Schmitt for verifying the reproducibility of the analyses and figures, and for suggesting several improvements)
